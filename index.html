@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skindle</title>
+</head>
+<body>
+    <button onclick="setMysteryGun()">Restart</button>
+    <p>Bruk søking i database med å samle alle arrays</p>
+
+    <input oninput="updateSearchBar()" onchange="Guess()" type="text" id="SearchBar"/>
+    <button onclick="Guess()">Guess</button>
+
+    <table>
+        <tr>
+          <th>Weapon Type</th>
+          <th>Weapon</th>
+          <th>Rarity</th>
+          <th>Skin</th>
+        </tr>
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+          </tr>
+      </table>
+</body>
+
+<script src="script.js" type="text/javascript"></script>
+</html>
