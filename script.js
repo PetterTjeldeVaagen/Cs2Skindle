@@ -1,4 +1,3 @@
-   
    function GetHeavyWeapon(){
     let heavyWeaponName = "";
     let heavyWeaponGrade = "";
@@ -142,7 +141,7 @@
     let smgGun = "";
     
     //mac 10
-    Mac10Navn = [
+    var Mac10Navn = [
         "Neon Rider", "Stalker", "Disco Tech", "Hot Snakes", "Toybox", "Propaganda", "Graven", "Heat", "Malachite",
         "Tatter", "Curse", "Last Dive", "Red Filigree", "Pipe Down", "Allure", "Gold Brick", "Button Masher", "Case Hardened",
         "Carnivore", "Lapis Gator", "Rangeen", "Ultraviolet", "Fade", "Nuclear Garden", "Amber Fade", "Whitefish", "Classic Crate",
@@ -743,6 +742,7 @@
     return(rifleArray)
 
    }
+   let allSkinsArray = [];
 
    function setMysteryGun(){
     let mysteryGun = ""
@@ -751,8 +751,8 @@
     let mysteryArray = [];
 
     //prøv å legge til all arrays inni den ene
-    let allSkinsArray = [];
-    allSkinsArray.push(GetSmgWeapon.Mac10Navn, GetPistolWeapon.GlockNavn)
+    
+    allSkinsArray.push(GetSmgWeapon.Mac10Navn)
     console.log(allSkinsArray.length + " " + allSkinsArray[0] + " " + allSkinsArray[40])
 
     mysteryGunNumber = Math.floor(Math.random() * 4) + 1;
@@ -768,17 +768,40 @@
     mysteryGun=mysteryArray[0];
     mysteryGrade=mysteryArray[1];
     mysterSkin=mysteryArray[2];
-    console.log(mysteryGun, mysteryGrade, mysterSkin)
+    //console.log(mysteryGun, mysteryGrade, mysterSkin)
    }
 
    //lag gjetting
+   let guessNr = 0;
 
    function Guess(){
-
+    guessNr++;
+    let name = "Guess"+guessNr //lag et object for hver gjett med attribute for hver kategori
+    let $name = new GuessGun
+        
    }
 
    //lage søke funksjon som kommer med forslag
    function updateSearchBar(){
 
    }
+
+   class GuessGun{
+    constructor(gunType, gun, rarity, skin){
+        this.gunType = gunType;
+        this.gun = gun;
+        this.rarity = rarity;
+        this.rarity = rarity;
+    }
+   }
+
+   function Reset(){
+    guessNr = 0;
+    GetHeavyWeapon();
+    GetPistolWeapon();
+    GetSmgWeapon();
+    GetRifleWeapon();
+   }
+
+   
      
