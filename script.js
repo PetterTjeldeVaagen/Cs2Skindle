@@ -8,12 +8,14 @@ class Skin {
 }
 
 function createSkins(){
+    //ca 1222
     var skinList =[];
     //howl = new Skin("Navn",klasseTall,VåpenTall,Sjeldenhetstall)
-    //Klasse tall 0=pistol 1=smg 2=rifle 3=heavy 
+    //Klasse tall 0=pistol 1=mid tier 2=rifle 
     //sjeldenhetstall 0=Contraband 1=Covert 2=Classified 3=Restricted 4=Mil-Spec 5= industrial Grade 6=Consumer Grade
 
-    //Legg til 1 i 4 sjanse for hver klasse for balanse
+    //Legg til 1 i 3 sjanse for hver klasse for balanse
+    //legge til rifle skins fra armory kolleksjonene
     //Legge til collection for å øke "skill" behov + årstall med oransje farge når innenfor 1 år (Legg til samtidig etter alle skins så bruk cheat sheet med alle colelctions + årstall)
 
     //Pistols
@@ -226,6 +228,311 @@ function createSkins(){
             skinList.push(Mudder = new Skin("Mudder",0,3,5));
 
         }
+
+        //Revolver
+        {
+            //Covert
+            skinList.push(FadeR8 = new Skin("Fade",0,4,1));
+
+            //Classified
+            skinList.push(Skull_Crusher = new Skin("Skull Crusher",0,4,2));
+            skinList.push(Llama_Cannon = new Skin("Llama Cannon",0,4,2));
+            skinList.push(Amber_FadeR8 = new Skin("Amber Fade",0,4,2));
+
+            //Restricted
+            skinList.push(Banana_Cannon = new Skin("Banana Cannon",0,4,3));
+            skinList.push(Crazy_8 = new Skin("Crazy 8",0,4,3));
+            skinList.push(Reboot = new Skin("Reboot",0,4,3));
+
+            //Mil-spec
+            skinList.push(Tango = new Skin("Tango",0,4,4));
+            skinList.push(Junk_Yard = new Skin("Junk Yard",0,4,4));
+            skinList.push(Bone_Forged = new Skin("Bone Forged",0,4,4));
+            skinList.push(Memento = new Skin("Memento",0,4,4));
+            skinList.push(Survivalist = new Skin("Survivalist",0,4,4));
+            skinList.push(Grip = new Skin("Grip",0,4,4));
+            skinList.push(Crimson_WebR8 = new Skin("Crimson Web",0,4,4));
+            skinList.push(BlazeR8 = new Skin("Blaze",0,4,4));
+
+            //Industrial
+            skinList.push(Phoenix_Marker = new Skin("Phoenix Marker",0,4,5));
+            skinList.push(NitroR8 = new Skin("Nitro",0,4,5));
+
+            //Consumer grade
+            skinList.push(Inlay = new Skin("Inlay",0,4,6));
+            skinList.push(Desert_Brush = new Skin("Desert Brush",0,4,6));
+            skinList.push(NightR8 = new Skin("Night",0,4,6));
+            skinList.push(Canal_Spray = new Skin("Canal Spray",0,4,6));
+            skinList.push(Bone_Mask = new Skin("Bone Mask",0,4,6));
+        }
+
+        //Dual Berettas
+        {
+            //Classified
+            skinList.push(Melondrama = new Skin("Melondrama",0,5,2));
+            skinList.push(Cobra_Strike = new Skin("Cobra Strike",0,5,2));
+            skinList.push(Twin_Turbo = new Skin("Twin Turbo",0,5,2));
+
+            //Restricted
+            skinList.push(Hydro_Strike = new Skin("Hydro Strike",0,5,3));
+            skinList.push(Flora_Carnivora = new Skin("Flora Carnivora",0,5,3));
+            skinList.push(DezastreDual = new Skin("Dezastre",0,5,3));
+            skinList.push(Royal_Consorts = new Skin("Royal Consorts",0,5,3));
+            skinList.push(Urban_Shock = new Skin("Urban Shock",0,5,3));
+            skinList.push(Marina = new Skin("Marina",0,5,3));
+            skinList.push(Hemoglobin = new Skin("Hemoglobin",0,5,3));
+            skinList.push(Sweet_Little_Angels = new Skin("Sweet Little Angels",0,5,3));
+            skinList.push(Duelist = new Skin("Duelist",0,5,3));
+            skinList.push(Cobalt_Quartz = new Skin("Cobalt Quartz",0,5,3));
+            skinList.push(Demolition = new Skin("Demolition",0,5,3));
+            
+            //Mil-Spec
+            skinList.push(Hideout = new Skin("Hideout",0,5,4));
+            skinList.push(Tread = new Skin("Tread",0,5,4));
+            skinList.push(Balance = new Skin("Balance",0,5,4));
+            skinList.push(Elite_16 = new Skin("Elite 1.6",0,5,4));
+            skinList.push(Shred = new Skin("Shred",0,5,4));
+            skinList.push(Ventilators = new Skin("Ventilators",0,5,4));
+            skinList.push(CartelDual = new Skin("Cartel",0,5,4));
+            skinList.push(Dualing_Dragons = new Skin("Dualing Dragons",0,5,4));
+            skinList.push(Retribution = new Skin("Retribution",0,5,4));
+            skinList.push(PantherDual = new Skin("Panther",0,5,4));
+            skinList.push(Black_Limba = new Skin("Black Limba",0,5,4));
+            skinList.push(EmeraldDual = new Skin("Emerald",0,5,4));
+            skinList.push(Anodized_NavyDual = new Skin("Anodized Navy",0,5,4));
+
+            //Industrial
+            skinList.push(Drift_Wood = new Skin("Drift Wood",0,5,5));
+            skinList.push(Switch_Board = new Skin("Switch Board",0,5,5));
+            skinList.push(Pyre = new Skin("Pyre",0,5,5));
+            skinList.push(StainedDual = new Skin("Stained",0,5,5));
+
+            //Consumer
+            skinList.push(Oil_ChangeDual = new Skin("Oil Change",0,5,6));
+            skinList.push(HeistDual = new Skin("Heist",0,5,6));
+            skinList.push(Moon_in_Libra = new Skin("Moon in Libra",0,5,6));
+            skinList.push(Briar = new Skin("Briar",0,5,6));
+            skinList.push(ContractorDual = new Skin("Contractor",0,5,6));
+            skinList.push(ColonyDual = new Skin("Colony",0,5,6));
+        }
+
+        //CZ
+        {
+            //Covert
+            skinList.push(Victoria = new Skin("Victoria",0,6,1));
+
+            //Classified
+            skinList.push(Xiangliu = new Skin("Xiangliu",0,6,2));
+            skinList.push(Yellow_Jacket = new Skin("Yellow Jacket",0,6,2));
+            skinList.push(The_Fuschia_Is_Now = new Skin("The Fuschia Is Now",0,6,2));
+
+            //Restricted
+            skinList.push(EcoCz = new Skin("Eco",0,6,3));
+            skinList.push(Tacticat = new Skin("Tacticat",0,6,3));
+            skinList.push(Red_Astor = new Skin("Red_Astor",0,6,3));
+            skinList.push(Pole_Position = new Skin("Pole Position",0,6,3));
+            skinList.push(Tigris = new Skin("Tigris",0,6,3));
+            skinList.push(Tread_Plate = new Skin("Tread Plate",0,6,3));
+            skinList.push(Slalom = new Skin("Slalom",0,6,3));
+            skinList.push(Syndicate = new Skin("Syndicate",0,6,3));
+            skinList.push(Chalice = new Skin("Chalice",0,6,3));
+
+            //Mil-Spec
+            skinList.push(Circaetus = new Skin("Circaetus",0,6,4));
+            skinList.push(Vendetta = new Skin("Vendetta",0,6,4));
+            skinList.push(Distressed = new Skin("Distressed",0,6,4));
+            skinList.push(Polymer = new Skin("Polymer",0,6,4));
+            skinList.push(Imprint = new Skin("Imprint",0,6,4));
+            skinList.push(Hexane = new Skin("Hexane",0,6,4));
+            skinList.push(Twist = new Skin("Twist",0,6,4));
+            skinList.push(Poison_Dart = new Skin("Poison Dart",0,6,4));
+            skinList.push(Crimson_WebCz = new Skin("Crimson Web",0,6,4));
+            skinList.push(Emerald_Quartz = new Skin("Emerald Quartz",0,6,4));
+            skinList.push(EmeraldCz = new Skin("Emerald",0,6,4));
+            skinList.push(NitroCz = new Skin("Nitro",0,6,4));
+            skinList.push(TuxedoCz = new Skin("Tuxedo",0,6,4));
+
+            //Industrial 
+            skinList.push(Midnight_Palm = new Skin("Midnight Palm",0,6,5));
+            skinList.push(SilverCz = new Skin("Silver",0,6,5));
+
+            //Consumer
+            skinList.push(Framework = new Skin("Framework",0,6,6));
+            skinList.push(Jungle_DashedCz = new Skin("Jungle Dashed",0,6,6));
+            skinList.push(IndigoCz = new Skin("Indigo",0,6,6));
+            skinList.push(Army_SheenCz = new Skin("Army Sheen",0,6,6));
+            skinList.push(Green_Plaid = new Skin("Green Plaid",0,6,6));
+        }
+
+        //Five Seven
+        {
+            //Covert
+            skinList.push(Hyper_BeastFive = new Skin("Hyper Beast",0,7,1));
+            skinList.push(Angry_Mob = new Skin("Angry Mob",0,7,1));
+
+            //Classified
+            skinList.push(Fairy_Tale = new Skin("Fairy Tale",0,7,2));
+            skinList.push(Monkey_Business = new Skin("Monkey Business",0,7,2));
+            skinList.push(Fowl_Play = new Skin("Fowl Play",0,7,2));
+            skinList.push(Fall_Hazard = new Skin("Fall Hazard",0,7,2));
+
+            //Restricted
+            skinList.push(Hybrid = new Skin("Hybrid",0,7,3));
+            skinList.push(Boost_Protocol = new Skin("Boost Protocol",0,7,3));
+            skinList.push(Buddy = new Skin("Buddy",0,7,3));
+            skinList.push(Triumvirate = new Skin("Triumvirate",0,7,3));
+            skinList.push(RetrobutionFive = new Skin("Retrobution",0,7,3));
+            skinList.push(Copper_Galaxy = new Skin("Copper Galaxy",0,7,3));
+            skinList.push(Case_HardenedFive = new Skin("Case Hardened",0,7,3));
+            skinList.push(Heat_TreatedFive = new Skin("Heat Treated",0,7,3));
+            skinList.push(Berries_And_Cherries = new Skin("Berries And Cherries",0,7,3));
+            skinList.push(Neon_Kimono = new Skin("Neon Kimono",0,7,3));
+
+            //Mil-Spec
+            skinList.push(Scrawl = new Skin("Scrawl",0,7,4));
+            skinList.push(Flame_Test = new Skin("Flame Test",0,7,4));
+            skinList.push(CapillaryFive = new Skin("Capillary",0,7,4));
+            skinList.push(Scumbria = new Skin("Scumbria",0,7,4));
+            skinList.push(Violent_DaimyouFive = new Skin("Violent Daimyo",0,7,4));
+            skinList.push(Urban_HazardFive = new Skin("Urban Hazard",0,7,4));
+            skinList.push(Nightshade = new Skin("Nightshade",0,7,4));
+            skinList.push(KamiFive = new Skin("Kami",0,7,4));
+            skinList.push(Crimson_BlossomFive = new Skin("Crimson Blossom",0,7,4));
+            skinList.push(NitroFive = new Skin("Nitro",0,7,4));
+            skinList.push(Silver_Quartz = new Skin("Silver Quartz",0,7,4));
+
+            //Industrial
+            skinList.push(Midnight_Paintover = new Skin("Midnight Paintover",0,7,5));
+            skinList.push(Withered_Vine = new Skin("Withered Vine",0,7,5));
+            skinList.push(Hot_Shot = new Skin("Hot Shot",0,7,5));
+            skinList.push(orange_PeelFive = new Skin("Orange Peel",0,7,5));
+            skinList.push(Candy_AppleFive = new Skin("Candy Apple",0,7,5));
+
+            //Consumer
+            skinList.push(Coolant = new Skin("Coolant",0,7,6));
+            skinList.push(ContractorFive = new Skin("Contractor",0,7,6));
+            skinList.push(Forest_NightFive = new Skin("Forest Night",0,7,6));
+            skinList.push(Anodized_Gunmetal = new Skin("Anodized Gunmetal",0,7,6));
+            skinList.push(JungleFive = new Skin("Jungle",0,7,6));
+
+        }
+
+        //Tec-9
+        {
+            //Classified
+            skinList.push(DecimatorTec = new Skin("Decimator",0,8,2));
+            skinList.push(Fuel_InjectorTec = new Skin("Fuel Injector",0,8,2));
+            skinList.push(Remote_Control = new Skin("Remote Control",0,8,2));
+
+            //Restricted
+            skinList.push(Brother = new Skin("Brother",0,8,3));
+            skinList.push(Bamboozle = new Skin("Bamboozle",0,8,3));
+            skinList.push(Re_Entry = new Skin("Re-Entry",0,8,3));
+            skinList.push(Avalanche = new Skin("Avalanche",0,8,3));
+            skinList.push(Titanium_Bit = new Skin("Titanium Bit",0,8,3));
+            skinList.push(Red_Quartz = new Skin("Red Quartz",0,8,3));
+            skinList.push(Nuclear_Threat = new Skin("Nuclear Threat",0,8,3));
+
+            //Mil-spec
+            skinList.push(Slag = new Skin("Slag",0,8,4));
+            skinList.push(Rebel = new Skin("Rebel",0,8,4));
+            skinList.push(Flash_Out = new Skin("Flash Out",0,8,4));
+            skinList.push(Fubar = new Skin("Fubar",0,8,4));
+            skinList.push(Snek_9 = new Skin("Snek-9",0,8,4));
+            skinList.push(Cracked_Opal = new Skin("Cracked Opal",0,8,4));
+            skinList.push(Cut_Out = new Skin("Cut Out",0,8,4));
+            skinList.push(Ice_Cap = new Skin("Ice Cap",0,8,4));
+            skinList.push(Jambiya = new Skin("Jambiya",0,8,4));
+            skinList.push(Isaac = new Skin("Isaac",0,8,4));
+            skinList.push(SandstormTec = new Skin("Sandstorm",0,8,4));
+            skinList.push(Blue_TitaniumTec = new Skin("Blue Titanium",0,8,4));
+            skinList.push(Mummys_Rot = new Skin("Mummy's Rot",0,8,4));
+            skinList.push(Safety_NetTec = new Skin("Safety Net",0,8,4));
+            skinList.push(Blast_From_The_Past = new Skin("Blast From the Past",0,8,4));
+            skinList.push(TerraceTec = new Skin("Terrace",0,8,4));
+            skinList.push(Toxic = new Skin("Toxic",0,8,4));
+            skinList.push(BrassTec = new Skin("Brass",0,8,4));
+            skinList.push(Ossified = new Skin("Ossified",0,8,4));
+
+            //Industrial
+            skinList.push(Tiger_Stencil = new Skin("Tiger Stencil",0,8,5));
+            skinList.push(Rust_Leaf = new Skin("Rust Leaf",0,8,5));
+            skinList.push(Orange_Murano = new Skin("Orange Murano",0,8,5));
+            skinList.push(HadesTec = new Skin("Hades",0,8,5));
+            skinList.push(VariCamoTec = new Skin("VariCamo",0,8,5));
+
+            //Consumer
+            skinList.push(Phoenix_Chalk = new Skin("Phoenix Chalk",0,8,6));
+            skinList.push(Bamboo_Forest = new Skin("Bamboo Forest",0,8,6));
+            skinList.push(Urban_DDPATTec = new Skin("Urban DDPAT",0,8,6));
+            skinList.push(Army_Mesh = new Skin("Army Mesh",0,8,6));
+            skinList.push(Groundwater = new Skin("Groundwater",0,8,6));
+            skinList.push(TornadoTec = new Skin("Tornado",0,8,6));
+        }
+
+        //P250
+        {
+           //Covert
+           skinList.push(See_Ya_Later = new Skin("See Ya Later",0,9,1)); 
+
+           //Classified
+           skinList.push(Epicenter = new Skin("Epicenter",0,9,2)); 
+           skinList.push(Visions = new Skin("Visions",0,9,2)); 
+           skinList.push(AsiimovP250 = new Skin("Asiimov",0,9,2)); 
+           skinList.push(Muertos = new Skin("Muertos",0,9,2)); 
+           skinList.push(CartelP250 = new Skin("Cartel",0,9,2)); 
+           skinList.push(Undertow = new Skin("Undertow",0,9,2)); 
+           skinList.push(Mehndi = new Skin("Mehndi",0,9,2)); 
+           skinList.push(Apeps_Curse = new Skin("Apep's Curse",0,9,2)); 
+           skinList.push(FranklinP250 = new Skin("Franklin",0,9,2));
+           
+           //Restricted
+           skinList.push(Cyber_ShellP250 = new Skin("Cyber Shell",0,9,3)); 
+           skinList.push(Inferno = new Skin("Inferno",0,9,3)); 
+           skinList.push(X_RayP250 = new Skin("X-Ray",0,9,3)); 
+           skinList.push(NevermoreP250 = new Skin("Nevermore",0,9,3)); 
+           skinList.push(Red_Rock = new Skin("Red Rock",0,9,3)); 
+           skinList.push(Wingshot = new Skin("Wingshot",0,9,3)); 
+           skinList.push(Supernova = new Skin("Supernova",0,9,3)); 
+           skinList.push(Splash = new Skin("Splash",0,9,3)); 
+           skinList.push(Digital_Architect = new Skin("Digital Architect",0,9,3)); 
+           skinList.push(Vino_Primo = new Skin("Vino Primo",0,9,3)); 
+           skinList.push(Nuclear_ThreatP250 = new Skin("Nuclear Threat",0,9,3));
+           
+           //Mil-Spec
+           skinList.push(Re_Built = new Skin("Re.built",0,9,4)); 
+           skinList.push(Contaminant = new Skin("Contaminant",0,9,4)); 
+           skinList.push(Cassette = new Skin("Cassette",0,9,4)); 
+           skinList.push(Verdigris = new Skin("Verdigris",0,9,4)); 
+           skinList.push(Ripple = new Skin("Ripple",0,9,4)); 
+           skinList.push(Iron_Clad = new Skin("Iron Clad",0,9,4)); 
+           skinList.push(ValenceP250 = new Skin("Valence",0,9,4)); 
+           skinList.push(Steel_DisruptionP250 = new Skin("Steel Disruption",0,9,4)); 
+           skinList.push(Hive = new Skin("Hive",0,9,4)); 
+           skinList.push(Small_Game = new Skin("Small Game",0,9,4));
+           skinList.push(Black_And_Tan = new Skin("Black & Tan",0,9,4)); 
+           skinList.push(Bengal_TigerP250 = new Skin("Bengal Tiger",0,9,4)); 
+           skinList.push(Exchanger = new Skin("Exchanger",0,9,4)); 
+           skinList.push(WhiteoutP250 = new Skin("Whiteout",0,9,4));  
+           skinList.push(Modern_HunterP250 = new Skin("Modern Hunter",0,9,4));
+           
+           //Industrial
+           skinList.push(Dark_Filigree = new Skin("Dark Filigree",0,9,5)); 
+           skinList.push(Crimson_Kimono = new Skin("Crimson Kimono",0,9,5)); 
+           skinList.push(Contamination = new Skin("Contamination",0,9,5)); 
+           skinList.push(Metallic_DDPAT = new Skin("Metallic DDPAT",0,9,5)); 
+           skinList.push(Facets = new Skin("Facets",0,9,5)); 
+           skinList.push(Gunsmoke = new Skin("Gunsmoke",0,9,5)); 
+           
+           //Consumer
+           skinList.push(Drought = new Skin("Drought",0,9,6)); 
+           skinList.push(Forest_NightP250 = new Skin("Forest Night",0,9,6)); 
+           skinList.push(Facility_Draft = new Skin("Facility Draft",0,9,6));
+           skinList.push(Mint_Kimono = new Skin("Mint Kimono",0,9,6));  
+           skinList.push(Boreal_ForestP250 = new Skin("Boreal Forest",0,9,6)); 
+           skinList.push(Sand_DuneP250 = new Skin("Sand Dune",0,9,6)); 
+           skinList.push(Bone_MaskP250 = new Skin("Bone Mask",0,9,6)); 
+        }
     }
 
     //Rifles legg til fra armory update
@@ -311,6 +618,7 @@ function createSkins(){
     skinList.push(Phantom_Disruptor = new Skin("Phantom Disruptor",2,1,2));
     skinList.push(Point_Disarray = new Skin("Point Disarray",2,1,2));
     skinList.push(Frontside_Misty = new Skin("Frontside Misty",2,1,2));
+    skinList.push(CartelAK = new Skin("Cartel",2,1,2));
     skinList.push(RedlineAk = new Skin("Redline",2,1,2));
     skinList.push(Case_Hardened = new Skin("Case Hardened",2,1,2));
     skinList.push(Red_Laminate = new Skin("Red_Laminate",2,1,2));
