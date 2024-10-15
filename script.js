@@ -18,6 +18,83 @@ function createSkins(){
     //legge til rifle skins fra armory kolleksjonene
     //Legge til collection for å øke "skill" behov + årstall med oransje farge når innenfor 1 år (Legg til samtidig etter alle skins så bruk cheat sheet med alle colelctions + årstall)
 
+    //Mid tier 
+    {
+        //Våpentall mid tier 0=negev 1=m249  2=xm1014 3=mag-7 4=sawed off 5=nova   6=ump 7=mp7 8=p90 9=mp9 10=mp5 11=pp-bizon 12=mac-10
+
+        //M249
+        {
+
+            //restricted
+            skinList.push(Downtown = new Skin("Downtown",1,0,3));
+            skinList.push(Aztec = new Skin("Aztec",1,0,3));
+            skinList.push(Emerald_Poison_Dart = new Skin("Emerald Poison Dart",1,0,3));
+            skinList.push(Nebula_Crusader = new Skin("Nebula Crusader",1,0,3));
+            
+            //Mil-Spec
+            skinList.push(Hypnosis = new Skin("Hypnosis",1,0,4));
+            skinList.push(Osipr = new Skin("O.S.I.P.R",1,0,4));
+            skinList.push(Deep_Relief = new Skin("Deep Relief",1,0,4));
+            skinList.push(Warbird = new Skin("Warbird",1,0,4));
+            skinList.push(Spectre = new Skin("Spectre",1,0,4));
+            skinList.push(System_Lock = new Skin("System Lock",1,0,4));
+            skinList.push(Magma = new Skin("Magma",1,0,4));
+            skinList.push(Humidor = new Skin("Humidor",1,0,4));
+
+            //Industrial
+            skinList.push(Spectogram = new Skin("Spectogram",1,0,5));
+            skinList.push(Midnight_PalmM249 = new Skin("Midnight Palm",1,0,5));
+            skinList.push(Shipping_Forecast = new Skin("Shipping Forecast",1,0,5));
+            skinList.push(Gator_MeshM249 = new Skin("Gator Mesh",1,0,5));
+            skinList.push(Blizzard_Marbleized = new Skin("Blizzard Marbleized",1,0,5));
+
+            //Consumer
+            skinList.push(Submerged = new Skin("Submerged",1,0,6));
+            skinList.push(PredatorM249 = new Skin("Predator",1,0,6));
+            skinList.push(JungleM249 = new Skin("Jungle",1,0,6));
+            skinList.push(Impact_Drill = new Skin("Impact Drill",1,0,6));
+            skinList.push(Contrast_SprayM249 = new Skin("Contrast Spray",1,0,6));
+            skinList.push(Jungle_DDPAT = new Skin("Jungle",1,0,6));
+        }
+
+        //Negev
+        {
+            //Classified
+            skinList.push(Mjolnir = new Skin("Mjölnir",1,0,2));
+
+            //Restricted
+            skinList.push(dev_texture = new Skin("dev_texture",1,0,3));
+            skinList.push(Lionfish = new Skin("Lionfish",1,0,3));
+            skinList.push(Power_Loader = new Skin("Power Loader",1,0,3));
+            skinList.push(Loudmouth = new Skin("Loudmouth",1,0,3));
+
+            //Mil-spec
+            skinList.push(Drop_Me = new Skin("Drop Me",1,0,4));
+            skinList.push(Ultralight = new Skin("Ultralight",1,0,4));
+            skinList.push(Prototype = new Skin("Prototype",1,0,4));
+            skinList.push(Dazzle = new Skin("Dazzle",1,0,4));
+            skinList.push(Man_o_WarNegev = new Skin("Man-o'-war",1,0,4));
+            skinList.push(Bratatat = new Skin("Bratatat",1,0,4));
+            skinList.push(Desert_StrikeNegev = new Skin("Desert Strike",1,0,4));
+            skinList.push(Terrain = new Skin("Terrain",1,0,4));
+            skinList.push(Infrastructure = new Skin("Infrastructure",1,0,4));
+            skinList.push(Phoenix_Stencil = new Skin("Phoenix Stencil",1,0,4));
+            skinList.push(Anodized_NavyNegev = new Skin("Anodized Navy",1,0,4));
+
+            //Industrial
+            skinList.push(Wall_Bang = new Skin("Wall_Bang",1,0,5));
+            skinList.push(Bulkhead = new Skin("Bulkhead",1,0,5));
+            skinList.push(Nuclear_Waste = new Skin("Nuclear Waste",1,0,5));
+            skinList.push(CaliCamoNegev = new Skin("CaliCamo",1,0,5));
+            skinList.push(PalmNegev = new Skin("Palm",1,0,5));
+
+            //Consumer
+            skinList.push(Boroque_Sand = new Skin("Boroque Sand",1,0,6));
+            skinList.push(Army_SheenNegev = new Skin("Army Sheen",1,0,6));
+            
+        }
+    }
+
     //Pistols
     {
         //Våpentall Pistol 0=Usp-s 1=P2000 2=Glock 3=Desert Eagle 4=Revolver 5=Dual Berettas 6=Cz-75 7=Five-Seven 8=Tec-9 9=P250
@@ -1069,8 +1146,10 @@ function createSkins(){
 
     }
 
+    
     console.log(skinList.length)
 }
+
 
 
 
