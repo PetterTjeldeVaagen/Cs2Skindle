@@ -10,17 +10,239 @@ class Skin {
 function createSkins(){
     //ca 1222
     var skinList =[];
-    //howl = new Skin("Navn",klasseTall,VåpenTall,Sjeldenhetstall)
+    //howl = new Skin("Navn",klasseTall,VåpenTall,Sjeldenhetstall, Kolleksjonstall, årstall)
     //Klasse tall 0=pistol 1=mid tier 2=rifle 
     //sjeldenhetstall 0=Contraband 1=Covert 2=Classified 3=Restricted 4=Mil-Spec 5= industrial Grade 6=Consumer Grade
 
     //Legg til 1 i 3 sjanse for hver klasse for balanse
-    //legge til rifle skins fra armory kolleksjonene
     //Legge til collection for å øke "skill" behov + årstall med oransje farge når innenfor 1 år (Legg til samtidig etter alle skins så bruk cheat sheet med alle colelctions + årstall)
 
     //Mid tier 
     {
         //Våpentall mid tier 0=negev 1=m249  2=xm1014 3=mag-7 4=sawed off 5=nova   6=ump 7=mp7 8=p90 9=mp9 10=mp5 11=pp-bizon 12=mac-10
+
+        //Mac-10
+        {
+            skinList.push(Stalker = new Skin("Stalker",1,12,1));
+            skinList.push(Neon_RiderMac = new Skin("Neon Rider",1,12,1));
+
+            skinList.push(Toybox = new Skin("Toybox",1,12,2));
+            skinList.push(Disco_Tech = new Skin("Disco Tech",1,12,2));
+            skinList.push(Propaganda = new Skin("Propaganda",1,12,2));
+            skinList.push(Hot_Snakes = new Skin("Hot Snakes",1,12,2));
+
+            skinList.push(Saiba_Oni = new Skin("Saibā Oni",1,12,3));
+            skinList.push(Sakkaku = new Skin("Sakkaku",1,12,3));
+            skinList.push(Button_Masher = new Skin("Button Masher",1,12,3));
+            skinList.push(Allure = new Skin("Allure",1,12,3));
+            skinList.push(Pipe_Down = new Skin("Pipe Down",1,12,3));
+            skinList.push(Last_Dive = new Skin("Last Dive",1,12,3));
+            skinList.push(Malachite = new Skin("Malachite",1,12,3));
+            skinList.push(Tatter = new Skin("Tatter",1,12,3));
+            skinList.push(Curse = new Skin("Curse",1,12,3));
+            skinList.push(HeatMac = new Skin("Heat",1,12,3));
+            skinList.push(Graven = new Skin("Graven",1,12,3));
+            skinList.push(Case_HardenedMac = new Skin("Case Hardened",1,12,3));
+            skinList.push(Gold_Brick = new Skin("Gold Brick",1,12,3));
+            skinList.push(Red_Filigree = new Skin("Red Filigree",1,12,3));
+
+            skinList.push(Light_Box = new Skin("Light Box",1,12,4));
+            skinList.push(Monkeyflage = new Skin("Monekyflage",1,12,4));
+            skinList.push(Ensnared = new Skin("Ensnared",1,12,4));
+            skinList.push(Classic_Crate = new Skin("Classic Crate",1,12,4));
+            skinList.push(Whitefish = new Skin("Whitefish",1,12,4));
+            skinList.push(OceanicMac = new Skin("Oceanic",1,12,4));
+            skinList.push(AlohaMac = new Skin("Aloha",1,12,4));
+            skinList.push(Carnivore = new Skin("Carnivore",1,12,4));
+            skinList.push(Lapis_Gator = new Skin("Lapis Gator",1,12,4));
+            skinList.push(Rangeen = new Skin("Rangeen",1,12,4));
+            skinList.push(UltralightMac = new Skin("Ultraviolet",1,12,4));
+            skinList.push(Pipsqueak = new Skin("Pipsqueak",1,12,4));
+            skinList.push(Copper_Borre = new Skin("Copper_Borre",1,12,4));
+            skinList.push(FadeMac = new Skin("Fade",1,12,4));
+            skinList.push(Nuclear_GardenMac = new Skin("Nuclear Garden",1,12,4));
+            skinList.push(Amber_FadeMac = new Skin("Amber Fade",1,12,4));
+
+            skinList.push(Echoing_Sands = new Skin("Echoing Sands",1,12,5));
+            skinList.push(Calf_Skin = new Skin("Calf Skin",1,12,5));
+            skinList.push(Commuter = new Skin("Commuter",1,12,5));
+            skinList.push(SilverMac = new Skin("Silver",1,12,5));
+            skinList.push(PalmMac = new Skin("PalmMac",1,12,5));
+            skinList.push(Candy_AppleMac = new Skin("Candy Apple",1,12,5));
+
+            skinList.push(Strats = new Skin("Strats",1,12,6));
+            skinList.push(Sienna_DamaskMac = new Skin("Sienna Damask",1,12,6));
+            skinList.push(Surfwood = new Skin("Surfwood",1,12,6));
+            skinList.push(IndigoMac = new Skin("Indigo",1,12,6));
+            skinList.push(TornadoMac = new Skin("Tornado",1,12,6));
+            skinList.push(Urban_DDPATMac = new Skin("Urban_DDPAT",1,12,6));
+        }
+
+        //PP-Bizon
+        {
+            skinList.push(JudgementOfAnubis = new Skin("Judgement of Anubis",1,11,1));
+
+            skinList.push(High_Roller = new Skin("High Roller",1,11,2));
+
+            skinList.push(Space_Cat = new Skin("Space Cat",1,11,3));
+            skinList.push(Embargo = new Skin("Embargo",1,11,3));
+            skinList.push(Fuel_Rod = new Skin("Fuel Rod",1,11,3));
+            skinList.push(Blue_Streak = new Skin("Blue Streak",1,11,3));
+            skinList.push(Osiris = new Skin("Osiris",1,11,3));
+            skinList.push(AntiquePP = new Skin("Antique",1,11,3));
+
+            skinList.push(Lumen = new Skin("Lumen",1,11,4));
+            skinList.push(Runic = new Skin("Runic",1,11,4));
+            skinList.push(Night_Riot = new Skin("Night Riot",1,11,4));
+            skinList.push(Jungle_SlipstreamPP = new Skin("Jungle Slipstream",1,11,4));
+            skinList.push(Harvester = new Skin("Harvester",1,11,4));
+            skinList.push(Photic_Zone = new Skin("Photic Zone",1,11,4));
+            skinList.push(Water_Sigil = new Skin("Water Sigil",1,11,4));
+            skinList.push(Cobalt_Halftone = new Skin("Cobalt Halftone",1,11,4));
+            skinList.push(BrassPP = new Skin("Brass",1,11,4));
+            skinList.push(Rust_CoatPP = new Skin("Rust Coat",1,11,4));
+            skinList.push(Modern_HunterPP = new Skin("Modern Hunter",1,11,4));
+
+            skinList.push(Cold_Cell = new Skin("Cold Cell",1,11,5));
+            skinList.push(Breaker_Box = new Skin("Breaker Box",1,11,5));
+            skinList.push(Candy_ApplePP = new Skin("Candy Apple",1,11,5));
+            skinList.push(Chemical_Green = new Skin("Chemical Green",1,11,5));
+            skinList.push(Night_OpsPP = new Skin("Night Ops",1,11,5));
+            skinList.push(Carbon_FiberPP = new Skin("Carbon Fiber",1,11,5));
+
+            skinList.push(Anolis = new Skin("Anolis",1,11,6));
+            skinList.push(Death_RattlePP = new Skin("Death Rattle",1,11,6));
+            skinList.push(SeabirdPP = new Skin("Seabird",1,11,6));
+            skinList.push(Facility_Sketch = new Skin("Facility Sketch",1,11,6));
+            skinList.push(Bamboo_Print = new Skin("Bamboo Print",1,11,6));
+            skinList.push(Sand_DashedPP = new Skin("Sand Dashed",1,11,6));
+            skinList.push(Urban_DashedPP = new Skin("Urban Dashed",1,11,6));
+            skinList.push(Forest_LeavesPP = new Skin("Forest Leaves",1,11,6));
+            skinList.push(Irradiated_AlertPP = new Skin("Irradiated Alert",1,11,6));
+        }
+
+        //Mp5
+        {
+            skinList.push(Phoshphor = new Skin("Phosphor",1,10,2));
+            skinList.push(Oxide_Oasis = new Skin("Oxide Oasis",1,10,2));
+
+            skinList.push(Kitbash = new Skin("Kitbash",1,10,3));
+            skinList.push(Agent = new Skin("Agent",1,10,3));
+            skinList.push(Gauss = new Skin("Gauss",1,10,3));
+            skinList.push(Autumn_Twilly = new Skin("Autumn Twilly",1,10,3));
+            skinList.push(Lab_Rats = new Skin("Lab_Rats",1,10,3));
+
+            skinList.push(Statics = new Skin("Statics",1,10,4));
+            skinList.push(Liquidation = new Skin("Liquidation",1,10,4));
+            skinList.push(NecroJr = new Skin("Necro Jr.",1,10,4));
+            skinList.push(Condition_Zero = new Skin("Condition Zero",1,10,4));
+            skinList.push(Desert_StrikeMP5 = new Skin("Desert Strike",1,10,4));
+            skinList.push(Acid_Wash = new Skin("Acid Wash",1,10,4));
+            skinList.push(Co_Processor = new Skin("Co-Processor",1,10,4));
+
+            skinList.push(Neon_Squeezer = new Skin("Neon Squeezer",1,10,5));
+            skinList.push(Savannah_Halftone = new Skin("Savannah Halftone",1,10,5));
+            skinList.push(NitroMP5 = new Skin("Nitro",1,10,5));
+
+            skinList.push(Bamboo_Garden = new Skin("Bamboo Garden",1,10,6));
+            skinList.push(Dirt_Drop = new Skin("Dirt Drop",1,10,6));
+        }
+
+        //MP9
+        {
+            skinList.push(Starlight_Protector = new Skin("Starlight Protector",1,9,1));
+
+            skinList.push(Food_Chain = new Skin("Food Chain",1,9,2));
+            skinList.push(Hydra = new Skin("Hydra",1,9,2));
+            skinList.push(Airlock = new Skin("Airlock",1,9,2));
+            skinList.push(Wild_Lily = new Skin("Wild Lily",1,9,2));
+
+            skinList.push(Mount_Fuji = new Skin("Mount Fuji",1,9,3));
+            skinList.push(GooMP9 = new Skin("Goo",1,9,3));
+            skinList.push(Ruby_Poison_Dart = new Skin("Ruby Poison Dart",1,9,3));
+            skinList.push(Rose_Iron = new Skin("Rose Iron",1,9,3));
+            skinList.push(HypnoticMP9 = new Skin("Hypnotic",1,9,3));
+            skinList.push(Arctic_Tri_Tone = new Skin("Arctic Tri-Tone",1,9,3));
+            skinList.push(Stained_Glass = new Skin("Stained Glass",1,9,3));
+            skinList.push(BulldozerMp9 = new Skin("Bulldozer",1,9,3));
+
+            skinList.push(Featherweight = new Skin("Featherweight",1,9,4));
+            skinList.push(Modest_Threat = new Skin("Modest Threat",1,9,4));
+            skinList.push(CapillaryMP9 = new Skin("Capillary",1,9,4));
+            skinList.push(Black_SandMP9 = new Skin("Black Sand",1,9,4));
+            skinList.push(Sand_ScaleMP9 = new Skin("Sand Scale",1,9,4));
+            skinList.push(Bioleak = new Skin("Bioleak",1,9,4));
+            skinList.push(Deadly_Poison = new Skin("Deadly Poison",1,9,4));
+            skinList.push(Dart = new Skin("Dart",1,9,4));
+            skinList.push(Music_Box = new Skin("Music Box",1,9,4));
+            skinList.push(Pandora_Box = new Skin("Pandora's Box",1,9,4));
+            skinList.push(Setting_Sun = new Skin("Setting Sun",1,9,4));
+            skinList.push(Dark_Age = new Skin("Dark Age",1,9,4));
+            skinList.push(Hot_RodMP9 = new Skin("Hot Rod",1,9,4));
+
+            skinList.push(Old_Roots = new Skin("Old Roots",1,9,5));
+            skinList.push(Orange_PeelMP9 = new Skin("Orange Peel",1,9,5));
+
+            skinList.push(Army_SheenMP9 = new Skin("Army Sheen",1,9,6));
+            skinList.push(SlideMP9 = new Skin("Slide",1,9,6));
+            skinList.push(StormMP9 = new Skin("Storm",1,9,6));
+            skinList.push(Green_PlaidMP9 = new Skin("Green Plaid",1,9,6));
+            skinList.push(Sand_DashedMP9 = new Skin("Sand Dashed",1,9,6));
+            skinList.push(Dry_Season = new Skin("Dry Season",1,9,6));
+        }
+
+        //P90
+        {
+            skinList.push(AsiimovP90 = new Skin("Asiimov",1,8,1));
+            skinList.push(Death_By_Kitty = new Skin("Death by Kitty",1,8,1));
+
+            skinList.push(Nostalgia = new Skin("Nostalgia",1,8,2));
+            skinList.push(Shallow_Grave = new Skin("Shallow Grave",1,8,2));
+            skinList.push(Shapewood = new Skin("Shapewood",1,8,2));
+            skinList.push(Trigon = new Skin("Trigon",1,8,2));
+            skinList.push(Cold_Blooded = new Skin("Cold Blooded",1,8,2));
+            skinList.push(Emerald_Dragon = new Skin("Emerald Dragon",1,8,2));
+            skinList.push(Run_and_Hide = new Skin("Run and Hide",1,8,2));
+
+            skinList.push(Randy_Rush = new Skin("Randy Rush",1,8,3));
+            skinList.push(Neoqueen = new Skin("Neoqueen",1,8,3));
+            skinList.push(Vent_Rush = new Skin("Vent Rush",1,8,3));
+            skinList.push(Death_Grip = new Skin("Death Grip",1,8,3));
+            skinList.push(Chopper = new Skin("Chopper",1,8,3));
+            skinList.push(Virus = new Skin("Virus",1,8,3));
+            skinList.push(Blind_Spot = new Skin("Blind Spot",1,8,3));
+            skinList.push(Attack_Vector = new Skin("Attack Vector",1,8,3));
+            skinList.push(ScaraB_Rush = new Skin("ScaraB Rush",1,8,3));
+            skinList.push(Astral_Jormungandr = new Skin("Astral Jörmungandr",1,8,3));
+
+            skinList.push(Cocoa_Rampage = new Skin("Cocoa Rampage",1,8,4));
+            skinList.push(Freight = new Skin("Freight",1,8,4));
+            skinList.push(Off_WorldP90 = new Skin("Off World",1,8,4));
+            skinList.push(Traction = new Skin("Traction",1,8,4));
+            skinList.push(Grim = new Skin("Grim",1,8,4));
+            skinList.push(Elite_BuildP90 = new Skin("Elite Build",1,8,4));
+            skinList.push(Module = new Skin("Module",1,8,4));
+            skinList.push(Desert_Warfare = new Skin("Desert Warfare",1,8,4));
+            skinList.push(Schematic = new Skin("Schematic",1,8,4));
+            skinList.push(Tiger_Pit = new Skin("Tiger Pit",1,8,4));
+            skinList.push(Baroque_Red = new Skin("Baroque Red",1,8,4));
+            skinList.push(Facility_Negative = new Skin("Facility Negative",1,8,4));
+            skinList.push(TeardownP90 = new Skin("Teardown",1,8,4));
+            skinList.push(Glacier_Mesh = new Skin("Glacier Mesh",1,8,4));
+
+            skinList.push(Wash_Me = new Skin("Wash me",1,8,5));
+            skinList.push(Verdant_Growth = new Skin("Verdant Growth",1,8,5));
+            skinList.push(Sunset_Lily = new Skin("Sunset Lily",1,8,5));
+            skinList.push(Leather = new Skin("Leather",1,8,5));
+            skinList.push(Ash_Wood = new Skin("Ash Wood",1,8,5));
+            skinList.push(Fallout_WarningP90 = new Skin("Fallout Warning",1,8,5));
+
+            skinList.push(Desert_DDPAT = new Skin("Desert DDPAT",1,8,6));
+            skinList.push(Ancient_Earth = new Skin("Ancient Earth",1,8,6));
+            skinList.push(StormP90 = new Skin("StormP90",1,8,6));
+            skinList.push(ScorchedP90 = new Skin("Scorched",1,8,6));
+            skinList.push(Sand_SprayP90 = new Skin("Sand Spray",1,8,6));
+        }
 
         //MP7
         {
@@ -914,6 +1136,7 @@ function createSkins(){
         skinList.push(The_Prince = new Skin("The Prince",2,0,1));
         skinList.push(Medusa = new Skin("Medusa",2,0,1));
         skinList.push(Dragon_Lore = new Skin("Dragon Lore",2,0,1));
+        skinList.push(Cmyk = new Skin("CMYK",2,0,1));
 
         //Classified
         skinList.push(Duality = new Skin("Duality",2,0,2));
@@ -926,6 +1149,8 @@ function createSkins(){
         skinList.push(Graphite = new Skin("Graphite",2,0,2));
         skinList.push(Boom = new Skin("BOOM",2,0,2));
         skinList.push(Silk_Tiger = new Skin("Silk Tiger",2,0,2));
+        skinList.push(Crackow = new Skin("Crackow!",2,0,2));
+
 
         //Restricted
         skinList.push(Exoskeleton = new Skin("Exoskeleton",2,0,3));
@@ -969,6 +1194,7 @@ function createSkins(){
     skinList.push(Gold_Arabesque = new Skin("Gold_Arabesque",2,1,1));
     skinList.push(X_RAy = new Skin("X-Ray",2,1,1));
     skinList.push(Wild_Lotus = new Skin("Wild Lotus",2,1,1));
+    skinList.push(B_The_Monster = new Skin("B the Monster",2,1,1));
 
     //Classified
     skinList.push(Ice_Coaled = new Skin("Ice Coaled",2,1,2));
@@ -982,6 +1208,7 @@ function createSkins(){
     skinList.push(Panther_Onca = new Skin("Panthera Onca",2,1,2));
     skinList.push(Hydroponic = new Skin("Hydroponic",2,1,2));
     skinList.push(Jet_Set = new Skin("Jet Set",2,1,2));
+    skinList.push(The_Outsiders = new Skin("The_Outsiders",2,1,2));
 
     //Restricted
     skinList.push(Slate = new Skin("Slate",2,1,3));
@@ -998,11 +1225,13 @@ function createSkins(){
     skinList.push(Steel_Delta = new Skin("Steel Delta",2,1,4));
     skinList.push(Green_Laminate = new Skin("Green Laminate",2,1,4));
     skinList.push(Black_Laminate = new Skin("Black Laminate",2,1,4));
+    skinList.push(Crossfade = new Skin("Crossfade",2,1,4));
 
     //Industrial
     skinList.push(Baroque_Purple = new Skin("Baroque Purple",2,1,5));
     skinList.push(Safari_MeshAk = new Skin("Safari Mesh",2,1,5));
     skinList.push(Predator = new Skin("Predator",2,1,5));
+    skinList.push(Olive_Polycam = new Skin("Olive Polycam",2,1,5));
     skinList.push(Jungle_Spray = new Skin("Jungle Spray",2,1,5));
     }
     //M4A1-S
@@ -1017,6 +1246,8 @@ function createSkins(){
         skinList.push(Cyrex = new Skin("Cyrex",2,3,1));
         skinList.push(Imminent_Danger = new Skin("Imminent Danger",2,3,1));
         skinList.push(Welcome_To_The_Jungle = new Skin("Welcome to the Jungle",2,3,1));
+        skinList.push(Vaporwave = new Skin("Vaporwave",2,3,1));
+        skinList.push(FadeM4 = new Skin("Fade",2,3,1));
 
         //Classified
         skinList.push(Black_LotusM4 = new Skin("Black Lotus",2,3,2));
@@ -1051,6 +1282,7 @@ function createSkins(){
         skinList.push(Mud_Spec = new Skin("Mud-Spec",2,3,5));
         skinList.push(Moss_Quartz = new Skin("Moss Quartz",2,3,5));
         skinList.push(Boreal_Forest = new Skin("Boreal Forest",2,3,5));
+        skinList.push(Wash_me_plz = new Skin("Wash me plz",2,3,5));
     }
     //M4A4
     {
@@ -1089,6 +1321,8 @@ function createSkins(){
         skinList.push(Red_DDPAT = new Skin("Red DDPAT",2,2,3));
         skinList.push(Daybreak = new Skin("Daybreak",2,2,3));
         skinList.push(Modern_Hunter = new Skin("Modern Hunter",2,2,3));
+        skinList.push(Turbine = new Skin("Turbine",2,2,3));
+        skinList.push(Polysoup = new Skin("Polysoup",2,2,3));
 
         //Mil-Spec
         skinList.push(Poly_Mag = new Skin("Poly Mag",2,2,4));
@@ -1116,6 +1350,7 @@ function createSkins(){
         skinList.push(Chromatic_AberrationGal = new Skin("Chromatic Aberration",2,4,2));
         skinList.push(Sugar_Rush = new Skin("Sugar Rush",2,4,2));
         skinList.push(EcoGal = new Skin("Eco",2,4,2));
+        skinList.push(Rainbow_Spoon = new Skin("Rainbow Spoon",2,4,2));
 
         //Restricted
         skinList.push(Connexion = new Skin("Connexion",2,4,3));
@@ -1142,12 +1377,14 @@ function createSkins(){
         skinList.push(Dusk_Ruins = new Skin("Dusk Ruins",2,4,4));
         skinList.push(Aqua_Terrace = new Skin("Aqua Terrace",2,4,4));
         skinList.push(TuxedoGal = new Skin("Tuxedo",2,4,4));
+        skinList.push(Metallic_Squeezer = new Skin("Metallic Squeezer",2,4,4));
 
         //Industrial
         skinList.push(Cold_Fusion = new Skin("Cold Fusion",2,4,5));
         skinList.push(Urban_RubbleGal = new Skin("Urban Rubble",2,4,5));
         skinList.push(VariCamoGal = new Skin("VariCamo",2,4,5));
         skinList.push(Winter_Forest = new Skin("Winter Forest",2,4,5));
+        skinList.push(Nv = new Skin("NV",2,4,5));
 
         //Consumer 
         skinList.push(Tornado = new Skin("Tornado",2,4,6));
@@ -1194,6 +1431,8 @@ function createSkins(){
         //Industrial
         skinList.push(CaliCamoFam = new Skin("CaliCamo",2,5,5));
         skinList.push(CyanospatterFam = new Skin("Cyanospatter",2,5,5));
+        skinList.push(Halftone_Wash = new Skin("Halftone Wash",2,5,5));
+        skinList.push(Half_Sleeve = new Skin("Half Sleeve",2,5,5));
 
         //COnsumer
         skinList.push(Faulty_Wiring = new Skin("Faulty Wiring",2,5,6));
@@ -1232,6 +1471,7 @@ function createSkins(){
         skinList.push(Desert_Blossom = new Skin("Desert Blossom",2,6,4));
         skinList.push(Anodized_NavySg = new Skin("Anodized Navy",2,6,4));
         skinList.push(Damascus_Steel = new Skin("Damascus Steel",2,6,4));
+        skinList.push(Berry_Gel_Coat = new Skin("Berry Gel Coat",2,6,4));
 
         //Industrial
         skinList.push(Candy_AppleSG = new Skin("Candy Apple",2,6,5));
@@ -1313,6 +1553,8 @@ function createSkins(){
         skinList.push(Crimson_Web = new Skin("Crimson Web",2,8,4));
         skinList.push(Magna_Carta = new Skin("Magna Carta",2,8,4));
         skinList.push(Brass = new Skin("Brass",2,8,4));
+        skinList.push(Trail_Blazer = new Skin("Trail Blazer",2,8,4));
+        skinList.push(WildBerry = new Skin("Wild Berry",2,8,4));
 
         //industrial
         skinList.push(Carbon_Fiber = new Skin("Carbon Fiber",2,8,5));
@@ -1338,6 +1580,7 @@ function createSkins(){
         skinList.push(Syd_Mead = new Skin("Syd Mead",2,9,2));
         skinList.push(Fleet_Flock = new Skin("Fleet Flock",2,9,2));
         skinList.push(Bengal_Tiger = new Skin("Bengal Tiger",2,9,2));
+        skinList.push(LilPig = new Skin("Lil' Pig",2,9,2));
 
         //Restricted
         skinList.push(Arctic_Wolf = new Skin("Arctic Wolf",2,9,3));
@@ -1347,6 +1590,7 @@ function createSkins(){
         skinList.push(Midnight_Lily = new Skin("Midnight Lily",2,9,3));
         skinList.push(Flame_Jormungandr = new Skin("Flame Jörmungandr",2,9,3));
         skinList.push(Random_Access = new Skin("Random Access",2,9,3));
+        skinList.push(Eye_Of_Zapems = new Skin("Eye of Zapems",2,9,3));
 
         //Mil Spec
         skinList.push(Plague = new Skin("Plague",2,9,4));
@@ -1360,6 +1604,7 @@ function createSkins(){
         skinList.push(Anodized_NavyAug = new Skin("Anodized Navy",2,9,4));
         skinList.push(Hot_RodAug = new Skin("Hot Rod",2,9,4));
         skinList.push(Copperhead = new Skin("Copperhead",2,9,4));
+        skinList.push(Luxe_Trim = new Skin("Luxe Trim",2,9,4));
 
         //Industrial
         skinList.push(Spalted_Wood = new Skin("Spalted Wood",2,9,5));
@@ -1394,6 +1639,7 @@ function createSkins(){
         skinList.push(Deaths_Head = new Skin("Death's Head",2,10,3));
         skinList.push(Ghost_Crusader = new Skin("Ghost Crusader",2,10,3));
         skinList.push(Sea_Calico = new Skin("Sea Calico",2,10,3));
+        skinList.push(Rapid_Transit = new Skin("Rapid Transit",2,10,3));
 
         //Mil-Spec
         skinList.push(Dezastre = new Skin("Dezastre",2,10,4));
@@ -1408,12 +1654,14 @@ function createSkins(){
         skinList.push(Hand_Brake = new Skin("Hand Brake",2,10,4));
         skinList.push(Detour = new Skin("Detour",2,10,4));
         skinList.push(Acid_Fade = new Skin("Acid Fade",2,10,4));
+        skinList.push(Zeno = new Skin("Zeno",2,10,4));
 
         //Industrial
         skinList.push(Azure_Glyph = new Skin("Azure Glyph",2,10,5));
         skinList.push(Carbon_FiberSSG = new Skin("Carbon Fiber",2,10,5));
         skinList.push(Tropical_Storm = new Skin("Tropical Storm",2,10,5));
         skinList.push(Mayan_Dreams = new Skin("Mayan Dreams",2,10,5));
+        skinList.push(Halftone_Whorl = new Skin("Halftone Whorl",2,10,5));
 
         //Consumer
         skinList.push(Prey = new Skin("Prey",2,10,6));
@@ -1429,10 +1677,3 @@ function createSkins(){
     
     console.log(skinList.length)
 }
-
-
-
-
-    
-    
-    
