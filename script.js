@@ -2,15 +2,162 @@ class Skin {
     constructor(name, weaponClass,gun, rarity ) {
       this.name = name;
       this.weaponClass = weaponClass;
-      this.gun = gun;
-      this.rarity = rarity;
+      if(weaponClass == 0){
+        switch(gun){
+            case 0:
+                this.gun = "USP-S"
+                break;
+            case 1:
+                this.gun = "P2000"
+                break;
+            case 2:
+                this.gun = "Glock-18"
+                break;
+            case 3:
+                this.gun = "Desert Eagle"
+                break;
+            case 4:
+                this.gun = "R8 Revolver"
+                break;
+            case 5:
+                this.gun = "Dual Berettas"
+                break;
+            case 6:
+                this.gun = "CZ-75"
+                break;
+            case 7:
+                this.gun = "Five-SeveN"
+                break;
+            case 8:
+                this.gun = "Tec-9"
+                break;
+            case 9:
+                this.gun = "P250"
+                break;
+        }
+      }else if(weaponClass == 1){
+        switch(gun){
+            case 0:
+                this.gun="Negev"
+                break;
+            case 1:
+                this.gun="M249"
+                break;
+            case 2:
+                this.gun="XM1014"
+                break;
+            case 3:
+                this.gun="MAG-7"
+                break;
+            case 4:
+                this.gun="Sawed-Off"
+                break;
+            case 5:
+                this.gun="Nova"
+                break;
+            case 6:
+                this.gun="UMP-45"
+                break;
+            case 7:
+                this.gun="MP7"
+                break;
+            case 8:
+                this.gun="P90"
+                break;
+            case 9:
+                this.gun="MP9"
+                break;
+            case 10:
+                this.gun="MP5-SD"
+                break;
+            case 11:
+                this.gun="PP-Bizon"
+                break;
+            case 12:
+                this.gun="MAC-10"
+                break;
+        }
+      }else if(weaponClass == 2){
+        switch(gun){
+            case 0:
+                this.gun = "AWP"
+                break;
+            case 1:
+                this.gun = "AK-47"
+                break;
+            case 2:
+                this.gun = "M4A4"
+                break;
+            case 3:
+                this.gun = "M4A1-S"
+                break;
+            case 4:
+                this.gun = "Galil AR"
+                break;
+            case 5:
+                this.gun = "FAMAS"
+                break;
+            case 6:
+                this.gun = "SG 553"
+                break;
+            case 7:
+                this.gun = "G3SG1"
+                break;
+            case 8:
+                this.gun = "SCAR-20"
+                break;
+            case 9:
+                this.gun = "AUG"
+                break;
+            case 10:
+                this.gun = "SSG 08"
+                break;
+        }
+      }
+
+      switch (rarity){
+        case 0:
+            this.rarity = "Contraband";
+            this.color = "#E4AE33";
+            break;
+        case 1:
+            this.rarity = "Covert";
+            this.color = "#EB4B4B"
+            break;
+        case 2:
+            this.rarity = "Classified";
+            this.color = "#D32CE6"
+            break;
+        case 3:
+            this.rarity = "Restricted";
+            this.color = "#8847FF"
+            break;
+        case 4:
+            this.rarity = "Mil-Spec";
+            this.color = "#4B69FF"
+            break;
+        case 5:
+            this.rarity = "Industrial Grade";
+            this.color = "#5E98D9"
+            console.log(rarity);
+            break;
+        case 6:
+            this.rarity = "Consumer Grade";
+            this.color = "#B0C3D9"
+            break;
+      }
+
     }
 }
+
+function randomInt(minimum, maximum) {
+    return Math.floor(Math.random() * (maximum - minimum + 1) + minimum);
+  }
 
 function createSkins(){
     //ca 1222
     var skinList =[];
-    //howl = new Skin("Navn",klasseTall,VåpenTall,Sjeldenhetstall, Kolleksjonstall, årstall)
+    //howl = new Skin("Navn",klasseTall,VåpenTall,Sjeldenhetstall)
     //Klasse tall 0=pistol 1=mid tier 2=rifle 
     //sjeldenhetstall 0=Contraband 1=Covert 2=Classified 3=Restricted 4=Mil-Spec 5= industrial Grade 6=Consumer Grade
 
@@ -1674,6 +1821,4 @@ function createSkins(){
 
     }
 
-    
-    console.log(skinList.length)
 }
