@@ -1,8 +1,8 @@
 class Skin {
     constructor(name, weaponClass,gun, rarity ) {
       this.name = name;
-      this.weaponClass = weaponClass;
       if(weaponClass == 0){
+        this.weaponClass="Pistol";
         switch(gun){
             case 0:
                 this.gun = "USP-S"
@@ -36,6 +36,7 @@ class Skin {
                 break;
         }
       }else if(weaponClass == 1){
+        this.weaponClass="Mid-Tier"
         switch(gun){
             case 0:
                 this.gun="Negev"
@@ -78,6 +79,7 @@ class Skin {
                 break;
         }
       }else if(weaponClass == 2){
+        this.weaponClass="Rifle"
         switch(gun){
             case 0:
                 this.gun = "AWP"
@@ -139,20 +141,29 @@ class Skin {
         case 5:
             this.rarity = "Industrial Grade";
             this.color = "#5E98D9"
-            console.log(rarity);
             break;
         case 6:
             this.rarity = "Consumer Grade";
             this.color = "#B0C3D9"
             break;
       }
-
     }
+}
+
+let guessCounter = 0;
+function addToTable(skinGuess){
+    guessCounter++;
+    var guessRow=document.getElementById(guessCounter);
+    guessRow.getElementsByClassName("Class")[0].innerHTML=skinGuess.weaponClass;
+    guessRow.getElementsByClassName("Gun")[0].innerHTML=skinGuess.gun;
+    guessRow.getElementsByClassName("Rarity")[0].innerHTML=skinGuess.rarity;
+    guessRow.getElementsByClassName("Name")[0].innerHTML=skinGuess.name;
+    guessRow.style.color=skinGuess.color;
 }
 
 function randomInt(minimum, maximum) {
     return Math.floor(Math.random() * (maximum - minimum + 1) + minimum);
-  }
+}
 
 function createSkins(){
     //ca 1222
@@ -1821,4 +1832,7 @@ function createSkins(){
 
     }
 
+    addToTable(skinList[randomInt(0, skinList.length)]);
 }
+
+
