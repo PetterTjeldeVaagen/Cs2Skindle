@@ -171,30 +171,28 @@ input=document.getElementById("searchBar");
 input.addEventListener('input', search);
 let searchList=[];
 
-function search(){  //evt knapp for å søke //evt sjekke om noe blir lagt til så se gjennom searchlist is tedet for hele// annet problem
+function search(){ //feil med navn med mellom rom og bindestrek
     searchList=[];
     search = input.value.toLowerCase();
+    search = search.replace(/-|\s/g,"");
     results=0;
     for(let i =0; i<skinList.length && results<6;i++){
         var skinName = skinList[i].name.toLowerCase()
+        skinName=skinName.replace(/-|\s/g,"");
         if(skinName.includes(search)){
             searchList.push(skinList[i]);
             results++;
         }
     }
-
+    for(let b=15; b<21; b++){
+        document.getElementById(b).innerHTML=" ";         
+    }
     for(let k= 15; k<21; k++){
-        try {
-            let element =document.getElementById(k);
-            element.innerHTML=" ";
-            element.innerHTML=searchList[k-15].name + " " + searchList[k-15].gun;
-            element.style.color=searchList[k-15].color;
-          } catch (error) {
-            for(let b= 15; b<21; k++){
-            document.getElementById(b).innerHTML=" ";
-            }
-          }
-        
+        let element =document.getElementById(k);
+        element.innerHTML=" ";
+        element.innerHTML=searchList[k-15].name + " " + searchList[k-15].gun;
+        element.style.color=searchList[k-15].color;
+        element.style.display="block";
     }    
 }
 
