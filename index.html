@@ -7,9 +7,24 @@
     <title>Skindle</title>
 </head>
 
-<body>
+<body onload="createSkins()">
     <h1>Skindle!</h1>
-  <button onclick="createSkins()">Guess</button>
+  
+  <div class="search-wrapper">
+    <label>Search for a skin</label><br>
+    <input type"search" placeholder="Skin search" id="searchBar">
+    <button onclick="">Guess</button>
+    <ul id="SearchList">
+      <li class="searchListElement"><button class="searchListElement" onclick="guess(0)" id=15> </button></li>
+      <li class="searchListElement"><button class="searchListElement" onclick="guess(1)" id=16> </button> </li>
+      <li class="searchListElement"><button class="searchListElement" onclick="guess(2)" id=17> </button> </li>
+      <li class="searchListElement"><button class="searchListElement" onclick="guess(3)" id=18> </button></li>
+      <li class="searchListElement"><button class="searchListElement" onclick="guess(4)" id=19> </button></li>
+      <li class="searchListElement"><button class="searchListElement" onclick="guess(5)" id=20> </button></li>
+    </ul> 
+    
+  </div>
+
   <table id="GuessTable">
     <tr>
       <th>Class</th>

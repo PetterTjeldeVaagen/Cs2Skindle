@@ -151,7 +151,9 @@ class Skin {
 }
 
 let guessCounter = 0;
-function addToTable(skinGuess){
+function guess(input){
+    let skinGuess = searchList[input];
+    console.log(skinGuess.name)
     guessCounter++;
     var guessRow=document.getElementById(guessCounter);
     guessRow.getElementsByClassName("Class")[0].innerHTML=skinGuess.weaponClass;
@@ -165,9 +167,41 @@ function randomInt(minimum, maximum) {
     return Math.floor(Math.random() * (maximum - minimum + 1) + minimum);
 }
 
+input=document.getElementById("searchBar");
+input.addEventListener('input', search);
+let searchList=[];
+
+function search(){ //legg til ventetid fra oppdatering av input til den faktisk begynner søket //evt knapp for å søke //evt sjekke om noe blir lagt til så se gjennom searchlist is tedet for hele
+    searchList=[];
+    search = input.value.toLowerCase();
+    results=0;
+    for(let i =0; i<skinList.length && results<6;i++){
+        var skinName = skinList[i].name.toLowerCase()
+        if(skinName.includes(search)){
+            searchList.push(skinList[i]);
+            results++;
+        }
+    }
+
+    for(let k= 15; k<21; k++){
+        try {
+            let element =document.getElementById(k);
+            element.innerHTML=" ";
+            element.innerHTML=searchList[k-15].name + " " + searchList[k-15].gun;
+            element.style.color=searchList[k-15].color;
+          } catch (error) {
+            for(let b= 15; b<21; k++){
+            document.getElementById(b).innerHTML=" ";
+            }
+          }
+        
+    }    
+}
+
+let skinList =[];
 function createSkins(){
     //ca 1222
-    var skinList =[];
+    
     //howl = new Skin("Navn",klasseTall,VåpenTall,Sjeldenhetstall)
     //Klasse tall 0=pistol 1=mid tier 2=rifle 
     //sjeldenhetstall 0=Contraband 1=Covert 2=Classified 3=Restricted 4=Mil-Spec 5= industrial Grade 6=Consumer Grade
@@ -1282,7 +1316,7 @@ function createSkins(){
         skinList.push(Chromatic_AberrationAwp = new Skin("Chromatic Aberration",2,0,1));
         skinList.push(Containment_Breach = new Skin("Containment Breach",2,0,1));
         skinList.push(Wildfire = new Skin("Wildfire",2,0,1));
-        skinList.push(Neo_NoirAwp = new Skin("Neo_Noir",2,0,1));
+        skinList.push(Neo_NoirAwp = new Skin("Neo-Noir",2,0,1));
         skinList.push(Oni_Taiji = new Skin("Oni Taiji",2,0,1));
         skinList.push(Hyper_Beast = new Skin("Hyper Beast",2,0,1));
         skinList.push(Man_o_War = new Skin("Man-o'-war",2,0,1));
@@ -1451,7 +1485,7 @@ function createSkins(){
         skinList.push(Temukau = new Skin("Temukau",2,2,1));
         skinList.push(In_Living_Color = new Skin("In Living Color",2,2,1));
         skinList.push(The_Emperor = new Skin("The Emperor",2,2,1));
-        skinList.push(Neo_NoirM4 = new Skin("Neo_Noir",2,2,1));
+        skinList.push(Neo_NoirM4 = new Skin("Neo-Noir",2,2,1));
         skinList.push(Buzz_Kill = new Skin("Buzz Kill",2,2,1));
         skinList.push(The_Battlestar = new Skin("The Battlestar",2,2,1));
         skinList.push(Royal_Paladin = new Skin("Royal Paladin",2,2,1));
@@ -1831,8 +1865,6 @@ function createSkins(){
     }
 
     }
-
-    addToTable(skinList[randomInt(0, skinList.length)]);
 }
 
 

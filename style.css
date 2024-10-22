@@ -7,3 +7,25 @@ th{
   height:2rem;
   width:6rem;
 }
+
+body{
+  text-align: center;
+}
+
+#GuessTable{
+  margin-top: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#SearchList{
+  list-style: none;
+}
+
+.searchListElement{
+  width: 12rem;
+  height: 1.5rem;
+  margin-top: .5rem;
+  margin-left: auto;
+  margin-right: auto;
+}
