@@ -171,7 +171,7 @@ input=document.getElementById("searchBar");
 input.addEventListener('input', search);
 let searchList=[];
 
-function search(){ //legg til ventetid fra oppdatering av input til den faktisk begynner søket //evt knapp for å søke //evt sjekke om noe blir lagt til så se gjennom searchlist is tedet for hele
+function search(){  //evt knapp for å søke //evt sjekke om noe blir lagt til så se gjennom searchlist is tedet for hele// annet problem
     searchList=[];
     search = input.value.toLowerCase();
     results=0;
