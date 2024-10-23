@@ -151,20 +151,73 @@ class Skin {
 }
 
 let guessCounter = 0;
+let elementList=["Class", "Gun", "Rarity", "Name"]
+
 function guess(input){
     let skinGuess = searchList[input];
     console.log(skinGuess.name)
     guessCounter++;
     var guessRow=document.getElementById(guessCounter);
     guessRow.getElementsByClassName("Class")[0].innerHTML=skinGuess.weaponClass;
+    guessRow.getElementsByClassName("Class")[0].style.backgroundColor =getColorOfSquare(skinGuess.weaponClass, answerSkin.weaponClass);
     guessRow.getElementsByClassName("Gun")[0].innerHTML=skinGuess.gun;
+    guessRow.getElementsByClassName("Gun")[0].style.backgroundColor =getColorOfSquare(skinGuess.gun, answerSkin.gun);
     guessRow.getElementsByClassName("Rarity")[0].innerHTML=skinGuess.rarity;
+    guessRow.getElementsByClassName("Rarity")[0].style.backgroundColor =getColorOfSquare(skinGuess.rarity, answerSkin.rarity);
     guessRow.getElementsByClassName("Name")[0].innerHTML=skinGuess.name;
-    guessRow.style.color=skinGuess.color;
+    guessRow.getElementsByClassName("Name")[0].style.backgroundColor =getColorOfSquare(skinGuess.name, answerSkin.name);
+    //guessRow.style.color=skinGuess.color;
+
+    if(skinGuess == answerSkin){
+        document.getElementById("WinOrLossDiv").style.display="block";
+        document.getElementById("WinOrLossText").innerHTML = "You got it the skin was:" + answerSkin.gun + " " + answerSkin.name + "!";
+    }
+
+    if(guessCounter == 10 && skinGuess != answerSkin){
+        document.getElementById("WinOrLossDiv").style.display="block";
+        document.getElementById("WinOrLossText").innerHTML = "You lost😂 the correct skin was:" + answerSkin.gun + " " + answerSkin.name + "!";
+    }
+}
+
+function Restart(){
+    guessCounter=0;
+    for(let i =1; i<11; i++){
+        guessRow=document.getElementById(i);
+        guessRow.getElementsByClassName("Name")[0].innerHTML=" ";
+        guessRow.getElementsByClassName("Gun")[0].innerHTML=" ";
+        guessRow.getElementsByClassName("Rarity")[0].innerHTML=" ";
+        guessRow.getElementsByClassName("Class")[0].innerHTML=" ";
+        guessRow.getElementsByClassName("Name")[0].style.backgroundColor="white";
+        guessRow.getElementsByClassName("Gun")[0].style.backgroundColor="white";
+        guessRow.getElementsByClassName("Rarity")[0].style.backgroundColor="white";
+        guessRow.getElementsByClassName("Class")[0].style.backgroundColor="white";
+    }
+    for(let k= 15; k<21; k++){
+        let element =document.getElementById(k);
+        element.innerHTML=" ";
+    }  
+    document.getElementById("WinOrLossDiv").style.display="none";
+    setAnswerSkin();
+    input.value="";
+}
+
+function getColorOfSquare(guessInput, answerInput){
+    var squareColor;
+    if(guessInput == answerInput){
+        squareColor = "#3f9923";
+    }else{
+        squareColor="#ffffff"
+    }
+    return squareColor;
 }
 
 function randomInt(minimum, maximum) {
     return Math.floor(Math.random() * (maximum - minimum + 1) + minimum);
+}
+
+let answerSkin
+function setAnswerSkin(){
+    answerSkin=skinList[randomInt(0, skinList.length)]
 }
 
 input=document.getElementById("searchBar");
@@ -192,7 +245,6 @@ function search(){ //feil med navn med mellom rom og bindestrek
         element.innerHTML=" ";
         element.innerHTML=searchList[k-15].name + " " + searchList[k-15].gun;
         element.style.color=searchList[k-15].color;
-        element.style.display="block";
     }    
 }
 
@@ -1863,6 +1915,8 @@ function createSkins(){
     }
 
     }
+
+    setAnswerSkin();
 }
 
 
