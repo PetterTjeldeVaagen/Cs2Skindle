@@ -18,6 +18,17 @@ body{
   margin-right: auto;
 }
 
+#DifficultyPicker{
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  background-color: aqua;
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+}
+
 #SearchList{
   list-style: none;
 }

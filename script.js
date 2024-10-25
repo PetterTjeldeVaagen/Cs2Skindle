@@ -1,5 +1,6 @@
 class Skin {
     constructor(name, weaponClass,gun, rarity ) {
+      this.rawRarity = rarity;
       this.name = name;
       if(weaponClass == 0){
         this.weaponClass="Pistol";
@@ -166,7 +167,6 @@ function guess(input){
     guessRow.getElementsByClassName("Rarity")[0].style.backgroundColor =getColorOfSquare(skinGuess.rarity, answerSkin.rarity);
     guessRow.getElementsByClassName("Name")[0].innerHTML=skinGuess.name;
     guessRow.getElementsByClassName("Name")[0].style.backgroundColor =getColorOfSquare(skinGuess.name, answerSkin.name);
-    //guessRow.style.color=skinGuess.color;
 
     if(skinGuess == answerSkin){
         document.getElementById("WinOrLossDiv").style.display="block";
@@ -217,23 +217,22 @@ function randomInt(minimum, maximum) {
 
 let answerSkin
 function setAnswerSkin(){
-    answerSkin=skinList[randomInt(0, skinList.length)]
+    answerSkin=activeSkinList[randomInt(0,activeSkinList.length)]
 }
 
 input=document.getElementById("searchBar");
 input.addEventListener('input', search);
 let searchList=[];
-
-function search(){ //feil med navn med mellom rom og bindestrek
+function search(){
     searchList=[];
     search = input.value.toLowerCase();
     search = search.replace(/-|\s/g,"");
     results=0;
-    for(let i =0; i<skinList.length && results<6;i++){
-        var skinName = skinList[i].name.toLowerCase()
+    for(let i =0; i<activeSkinList.length && results<6;i++){
+        var skinName =activeSkinList[i].name.toLowerCase()
         skinName=skinName.replace(/-|\s/g,"");
         if(skinName.includes(search)){
-            searchList.push(skinList[i]);
+            searchList.push(activeSkinList[i]);
             results++;
         }
     }
@@ -246,6 +245,19 @@ function search(){ //feil med navn med mellom rom og bindestrek
         element.innerHTML=searchList[k-15].name + " " + searchList[k-15].gun;
         element.style.color=searchList[k-15].color;
     }    
+}
+
+let activeSkinList=[];
+function sortList(){
+    activeSkinList=[];
+    let difficulty=document.querySelector('input[name="difficulty"]:checked').value;
+
+    for(let i = 0; i<skinList.length;i++){ //legger til alle skins som er så sjelden som spilleren bestemmer
+        if(skinList[i].rawRarity <= difficulty){
+            activeSkinList.push(skinList[i]);
+        }
+    }
+
 }
 
 let skinList =[];
@@ -1916,6 +1928,7 @@ function createSkins(){
 
     }
 
+    sortList();
     setAnswerSkin();
 }
 
