@@ -154,33 +154,38 @@ class Skin {
 let guessCounter = 0;
 let elementList=["Class", "Gun", "Rarity", "Name"]
 
+let gameActive=true;
 function guess(input){
-    let skinGuess = searchList[input];
-    console.log(skinGuess.name)
-    guessCounter++;
-    var guessRow=document.getElementById(guessCounter);
-    guessRow.getElementsByClassName("Class")[0].innerHTML=skinGuess.weaponClass;
-    guessRow.getElementsByClassName("Class")[0].style.backgroundColor =getColorOfSquare(skinGuess.weaponClass, answerSkin.weaponClass);
-    guessRow.getElementsByClassName("Gun")[0].innerHTML=skinGuess.gun;
-    guessRow.getElementsByClassName("Gun")[0].style.backgroundColor =getColorOfSquare(skinGuess.gun, answerSkin.gun);
-    guessRow.getElementsByClassName("Rarity")[0].innerHTML=skinGuess.rarity;
-    guessRow.getElementsByClassName("Rarity")[0].style.backgroundColor =getColorOfSquare(skinGuess.rarity, answerSkin.rarity);
-    guessRow.getElementsByClassName("Name")[0].innerHTML=skinGuess.name;
-    guessRow.getElementsByClassName("Name")[0].style.backgroundColor =getColorOfSquare(skinGuess.name, answerSkin.name);
+    if(gameActive==true){
+        let skinGuess = searchList[input];
+        guessCounter++;
+        var guessRow=document.getElementById(guessCounter);
+        guessRow.getElementsByClassName("Class")[0].innerHTML=skinGuess.weaponClass;
+        guessRow.getElementsByClassName("Class")[0].style.backgroundColor =getColorOfSquare(skinGuess.weaponClass, answerSkin.weaponClass);
+        guessRow.getElementsByClassName("Gun")[0].innerHTML=skinGuess.gun;
+        guessRow.getElementsByClassName("Gun")[0].style.backgroundColor =getColorOfSquare(skinGuess.gun, answerSkin.gun);
+        guessRow.getElementsByClassName("Rarity")[0].innerHTML=skinGuess.rarity;
+        guessRow.getElementsByClassName("Rarity")[0].style.backgroundColor =getColorOfSquare(skinGuess.rarity, answerSkin.rarity);
+        guessRow.getElementsByClassName("Name")[0].innerHTML=skinGuess.name;
+        guessRow.getElementsByClassName("Name")[0].style.backgroundColor =getColorOfSquare(skinGuess.name, answerSkin.name);
 
-    if(skinGuess == answerSkin){
-        document.getElementById("WinOrLossDiv").style.display="block";
-        document.getElementById("WinOrLossText").innerHTML = "You got it the skin was:" + answerSkin.gun + " " + answerSkin.name + "!";
-    }
+        if(skinGuess == answerSkin ){
+            gameActive = false;
+            document.getElementById("WinOrLossDiv").style.display="block";
+            document.getElementById("WinOrLossText").innerHTML = "You got it the skin was:" + answerSkin.gun + " " + answerSkin.name + "!";
+        }
 
-    if(guessCounter == 10 && skinGuess != answerSkin){
-        document.getElementById("WinOrLossDiv").style.display="block";
-        document.getElementById("WinOrLossText").innerHTML = "You lost😂 the correct skin was:" + answerSkin.gun + " " + answerSkin.name + "!";
+        if(guessCounter == 10 && skinGuess != answerSkin){
+            gameActive = false;
+            document.getElementById("WinOrLossDiv").style.display="block";
+            document.getElementById("WinOrLossText").innerHTML = "You lost😂 the correct skin was:" + answerSkin.gun + " " + answerSkin.name + "!";
+        }
     }
 }
 
 function Restart(){
     guessCounter=0;
+    gameActive=true;
     for(let i =1; i<11; i++){
         guessRow=document.getElementById(i);
         guessRow.getElementsByClassName("Name")[0].innerHTML=" ";
@@ -228,22 +233,24 @@ function search(){
     search = input.value.toLowerCase();
     search = search.replace(/-|\s/g,"");
     results=0;
-    for(let i =0; i<activeSkinList.length && results<6;i++){
-        var skinName =activeSkinList[i].name.toLowerCase()
-        skinName=skinName.replace(/-|\s/g,"");
-        if(skinName.includes(search)){
-            searchList.push(activeSkinList[i]);
-            results++;
+    if(gameActive==true){
+        for(let i =0; i<activeSkinList.length && results<6;i++){
+            var skinName =activeSkinList[i].name.toLowerCase()
+            skinName=skinName.replace(/-|\s/g,"");
+            if(skinName.includes(search)){
+                searchList.push(activeSkinList[i]);
+                results++;
+            }
         }
-    }
-    for(let b=15; b<21; b++){
-        document.getElementById(b).innerHTML=" ";         
-    }
-    for(let k= 15; k<21; k++){
-        let element =document.getElementById(k);
-        element.innerHTML=" ";
-        element.innerHTML=searchList[k-15].name + " " + searchList[k-15].gun;
-        element.style.color=searchList[k-15].color;
+        for(let b=15; b<21; b++){
+            document.getElementById(b).innerHTML=" ";         
+        }
+        for(let k= 15; k<21; k++){
+            let element =document.getElementById(k);
+            element.innerHTML=" ";
+            element.innerHTML=searchList[k-15].name + " " + searchList[k-15].gun;
+            element.style.color=searchList[k-15].color;
+        }
     }    
 }
 
@@ -268,8 +275,7 @@ function createSkins(){
     //Klasse tall 0=pistol 1=mid tier 2=rifle 
     //sjeldenhetstall 0=Contraband 1=Covert 2=Classified 3=Restricted 4=Mil-Spec 5= industrial Grade 6=Consumer Grade
 
-    //Legg til 1 i 3 sjanse for hver klasse for balanse
-    //Legge til collection for å øke "skill" behov + årstall med oransje farge når innenfor 1 år (Legg til samtidig etter alle skins så bruk cheat sheet med alle colelctions + årstall)
+    //Legge til collection for å øke "skill" behov + årstall med oransje/gul farge når innenfor 1 år (Legg til samtidig etter alle skins så bruk cheat sheet med alle colelctions + årstall)
 
     //Mid tier 
     {
@@ -1445,7 +1451,7 @@ function createSkins(){
     skinList.push(Jaguar = new Skin("Jaguar",2,1,1));
     skinList.push(Vulcan = new Skin("Vulcan",2,1,1));
     skinList.push(Fire_Serpent = new Skin("Fire Serpent",2,1,1));
-    skinList.push(Gold_Arabesque = new Skin("Gold_Arabesque",2,1,1));
+    skinList.push(Gold_Arabesque = new Skin("Gold Arabesque",2,1,1));
     skinList.push(X_RAy = new Skin("X-Ray",2,1,1));
     skinList.push(Wild_Lotus = new Skin("Wild Lotus",2,1,1));
     skinList.push(B_The_Monster = new Skin("B the Monster",2,1,1));
@@ -1462,7 +1468,7 @@ function createSkins(){
     skinList.push(Panther_Onca = new Skin("Panthera Onca",2,1,2));
     skinList.push(Hydroponic = new Skin("Hydroponic",2,1,2));
     skinList.push(Jet_Set = new Skin("Jet Set",2,1,2));
-    skinList.push(The_Outsiders = new Skin("The_Outsiders",2,1,2));
+    skinList.push(The_Outsiders = new Skin("The Outsiders",2,1,2));
 
     //Restricted
     skinList.push(Slate = new Skin("Slate",2,1,3));
