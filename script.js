@@ -1021,7 +1021,7 @@ function createSkins(){
             skinList.push(Ocean_Drive = new Skin("Ocean Drive",0,3,1));
             skinList.push(PrintstreamDeagle = new Skin("Printstream",0,3,1));
             skinList.push(Code_Red = new Skin("Code Red",0,3,1));
-            skinList.push(Golden_Koi = new Skin("Golden_Koi",0,3,1));
+            skinList.push(Golden_Koi = new Skin("Golden Koi",0,3,1));
 
             //Classified
             skinList.push(Mecha_IndustriesDeagle = new Skin("Mecha Industries",0,3,2));
@@ -1885,7 +1885,7 @@ function createSkins(){
     {
         //Covert
         skinList.push(Dragonfire = new Skin("Dragonfire",2,10,1));
-        skinList.push(Blood_in_the_Water = new Skin("Dragonfire",2,10,1));
+        skinList.push(Blood_in_the_Water = new Skin("Blood in the water",2,10,1));
 
         //Classified
         skinList.push(Turbo_Peek = new Skin("Turbo Peek",2,10,2));
