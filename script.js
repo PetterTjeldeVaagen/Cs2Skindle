@@ -196,6 +196,20 @@ function guess(input){
         guessRow.getElementsByClassName("Rarity")[0].style.backgroundColor =getColorOfSquare(skinGuess.rarity, answerSkin.rarity);
         guessRow.getElementsByClassName("Name")[0].innerHTML=skinGuess.name;
         guessRow.getElementsByClassName("Name")[0].style.backgroundColor =getColorOfSquare(skinGuess.name, answerSkin.name);
+        guessRow.getElementsByClassName("Collection")[0].innerHTML=skinGuess.collection;
+        guessRow.getElementsByClassName("Collection")[0].style.backgroundColor =getColorOfSquare(skinGuess.collection, answerSkin.collection);
+
+        guessRow.getElementsByClassName("Year")[0].style.backgroundColor =getColorOfSquare(skinGuess.year, answerSkin.year);
+        if(skinGuess.year < answerSkin.year){
+            guessRow.getElementsByClassName("Year")[0].innerHTML=skinGuess.year + '🔼';
+        }else if(skinGuess.year > answerSkin.year){
+            guessRow.getElementsByClassName("Year")[0].innerHTML=skinGuess.year + '🔽';
+        }else{
+            guessRow.getElementsByClassName("Year")[0].innerHTML=skinGuess.year;
+        }
+        
+        
+
 
         if(skinGuess == answerSkin ){
             gameActive = false;
@@ -239,6 +253,10 @@ function getColorOfSquare(guessInput, answerInput){
     var squareColor;
     if(guessInput == answerInput){
         squareColor = "#3f9923";
+    }else if(typeof guessInput === 'number'){
+        if(Math.abs(guessInput - answerInput) == 1){
+            squareColor="#fcd80d"
+        }
     }else{
         squareColor="#ffffff"
     }
@@ -252,6 +270,7 @@ function randomInt(minimum, maximum) {
 let answerSkin
 function setAnswerSkin(){
     answerSkin=activeSkinList[randomInt(0,activeSkinList.length)]
+    console.log(answerSkin.year)
 }
 
 input=document.getElementById("searchBar");
