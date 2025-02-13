@@ -54,48 +54,127 @@ class Skin {
             break;
       }
 
-      //en del feil
-      switch (this.collection){
-        case "eSports 2013 Case" || "CS:GO Weapon Case 2" || "CS:GO Weapon Case" || "Operation Bravo Case" || "eSports 2013 Winter Case" || "Winter Offensive Weapon Case" || "The Assault Collection" || "The Aztec Collection" || "The Dust Collection" || "The Dust 2 Collection" || "The Inferno Collection" || "The Italy Collection" || "The Lake Collection" || "The Mirage Collection" || "The Nuke Collection" || "The Office Collection" || "The Train Collection" || "The Vertigo Collection" || "The Safehouse Collection" || "The Italy Collection" || "The Milita Collection":
+      switch (this.collection) {
+        case "eSports 2013 Case":
+        case "CS:GO Weapon Case 2":
+        case "CS:GO Weapon Case":
+        case "Operation Bravo Case":
+        case "eSports 2013 Winter Case":
+        case "Winter Offensive Weapon Case":
+        case "The Assault Collection":
+        case "The Aztec Collection":
+        case "The Dust Collection":
+        case "The Dust 2 Collection":
+        case "The Inferno Collection":
+        case "The Italy Collection":
+        case "The Lake Collection":
+        case "The Mirage Collection":
+        case "The Nuke Collection":
+        case "The Office Collection":
+        case "The Train Collection":
+        case "The Vertigo Collection":
+        case "The Safehouse Collection":
+        case "The Militia Collection":
+        case "The Alpha Collection":
             this.year = 2013;
             break;
-        case "CS:GO Weapon Case 3" || "Operation Breakout Weapon Case" || "eSports 2014 Summer Case"  || "Operation Phoenix Weapon Case" || "Operation Vanguard Weapon Case" || "Huntsman Weapon Case" || "The Bank Collection" || "The Baggage Collection" || "The Cobblestone Collection" || "The Overpass Collection" || "The Cache Collection":
-            this.year = 2014;   
+    
+        case "CS:GO Weapon Case 3":
+        case "Operation Breakout Weapon Case":
+        case "eSports 2014 Summer Case":
+        case "Operation Phoenix Weapon Case":
+        case "Operation Vanguard Weapon Case":
+        case "Huntsman Weapon Case":
+        case "The Huntsman Collection":
+        case "The Bank Collection":
+        case "The Baggage Collection":
+        case "The Cobblestone Collection":
+        case "The Overpass Collection":
+        case "The Cache Collection":
+            this.year = 2014;
             break;
-        case "Chroma Case" || "Chroma 2 Case" || "Falchion Case" || "Shadow Case" || "Revolver Case" || "The Rising Sun Collection" || "The Chop Shop Collection" || "The Gods and Monsters Collection" :
+    
+        case "Chroma Case":
+        case "Chroma 2 Case":
+        case "Falchion Case":
+        case "Shadow Case":
+        case "Revolver Case":
+        case "The Rising Sun Collection":
+        case "The Chop Shop Collection":
+        case "The Gods and Monsters Collection":
             this.year = 2015;
             break;
-        case "Operation Wildfire Case" || "Chroma 3 Case" || "Gamma Case" || "Gamma 2 Case" || "Glove Case":
+    
+        case "Operation Wildfire Case":
+        case "Chroma 3 Case":
+        case "Gamma Case":
+        case "Gamma 2 Case":
+        case "Glove Case":
             this.year = 2016;
             break;
-        case "Operation Hydra Case" || "Spectrum Case" || "Spectrum 2 Case":
+    
+        case "Operation Hydra Case":
+        case "Spectrum Case":
+        case "Spectrum 2 Case":
             this.year = 2017;
             break;
-        case "Clutch Case" || "Horizon Case" || "Danger Zone Case" || "The 2018 Nuke Collection" || "The 2018 Inferno Collection":
+    
+        case "Clutch Case":
+        case "Horizon Case":
+        case "Danger Zone Case":
+        case "The 2018 Nuke Collection":
+        case "The 2018 Inferno Collection":
+        case "The Blacksite Collection":
             this.year = 2018;
             break;
-        case "Prisma Case" || "CS20 Case" || "Shattered Web Case" || "The Canals Collection" || "The Norse Collection" || "The St.Marc Collection" || "X-Ray P250 Package":
+    
+        case "Prisma Case":
+        case "CS20 Case":
+        case "Shattered Web Case":
+        case "The Canals Collection":
+        case "The Norse Collection":
+        case "The St. Marc Collection":
+        case "X-Ray P250 Package":
             this.year = 2019;
             break;
-        case "Operation Broken Fang Case" || "Fracture Case" || "Prisma 2 Case" || "The Ancient Collection" || "The Control Collection" || "The Havoc Collection":
+    
+        case "Operation Broken Fang Case":
+        case "Fracture Case":
+        case "Prisma 2 Case":
+        case "The Ancient Collection":
+        case "The Control Collection":
+        case "The Havoc Collection":
             this.year = 2020;
             break;
-        case "Snakebite Case" || "Operation Riptide Case" || "The 2021 Vertigo Collection"  || "The 2021 Mirage Collection" || "The 2021 Dust 2 Collection" || "The 2021 Train Collection":
+    
+        case "Snakebite Case":
+        case "Operation Riptide Case":
+        case "The 2021 Vertigo Collection":
+        case "The 2021 Mirage Collection":
+        case "The 2021 Dust 2 Collection":
+        case "The 2021 Train Collection":
             this.year = 2021;
             break;
-        case "Dreams & Nightmares Case" || "Recoil Case":
+    
+        case "Dreams & Nightmares Case":
+        case "Recoil Case":
             this.year = 2022;
             break;
-        case "Revolution Case" || "Anubis Collection Package":
+    
+        case "Revolution Case":
+        case "Anubis Collection Package":
             this.year = 2023;
             break;
-        case "Kilowatt Case" || "Gallery Case" || "The Graphic Design Collection" || "The Sport & Field Collection" || "The Overpass 2024 Collection":
+    
+        case "Kilowatt Case":
+        case "Gallery Case":
+        case "The Graphic Design Collection":
+        case "The Sport & Field Collection":
+        case "The Overpass 2024 Collection":
+        case "Limited Edition Item":
             this.year = 2024;
-            
-            break;   
-        default:
-            print(this.collection);
-      }
+            break;
+    }
 
     }  
 }
@@ -173,7 +252,6 @@ function randomInt(minimum, maximum) {
 let answerSkin
 function setAnswerSkin(){
     answerSkin=activeSkinList[randomInt(0,activeSkinList.length)]
-    console.log(answerSkin.year);
 }
 
 input=document.getElementById("searchBar");
@@ -331,43 +409,6 @@ skinList.push(new Skin("Moon in Libra","Pistol","Dual Berettas","Consumer Grade"
 skinList.push(new Skin("Briar","Pistol","Dual Berettas","Consumer Grade","The Cobblestone Collection")) 
 skinList.push(new Skin("Contractor","Pistol","Dual Berettas","Consumer Grade","The Safehouse Collection")) 
 skinList.push(new Skin("Colony","Pistol","Dual Berettas","Consumer Grade","The Train Collection")) 
-skinList.push(new Skin("Angry Mob","Pistol","Five-SeveN","Covert","Prisma Case")) 
-skinList.push(new Skin("Hyper Beast","Pistol","Five-SeveN","Covert","Operation Hydra Case")) 
-skinList.push(new Skin("Fairy Tale","Pistol","Five-SeveN","Classified","Operation Broken Fang Case")) 
-skinList.push(new Skin("Monkey Business","Pistol","Five-SeveN","Classified","Chroma 2 Case")) 
-skinList.push(new Skin("Fowl Play","Pistol","Five-SeveN","Classified","Operation Breakout Weapon Case")) 
-skinList.push(new Skin("Fall Hazard","Pistol","Five-SeveN","Classified","The 2021 Vertigo Collection")) 
-skinList.push(new Skin("Hybrid","Pistol","Five-SeveN","Restricted","Kilowatt Case")) 
-skinList.push(new Skin("Boost Protocol","Pistol","Five-SeveN","Restricted","Operation Riptide Case")) 
-skinList.push(new Skin("Buddy","Pistol","Five-SeveN","Restricted","CS20 Case")) 
-skinList.push(new Skin("Triumvirate","Pistol","Five-SeveN","Restricted","Operation Wildfire Case")) 
-skinList.push(new Skin("Retrobution","Pistol","Five-SeveN","Restricted","Revolver Case")) 
-skinList.push(new Skin("Copper Galaxy","Pistol","Five-SeveN","Restricted","CS:GO Weapon Case 3")) 
-skinList.push(new Skin("Case Hardened","Pistol","Five-SeveN","Restricted","Case Hardened")) 
-skinList.push(new Skin("Heat Treated","Pistol","Five-SeveN","Restricted","CS:GO Weapon Case 2")) 
-skinList.push(new Skin("Berries And Cherries","Pistol","Five-SeveN","Restricted","Five-SeveN Case Hardened Skin & Price Details")) 
-skinList.push(new Skin("Neon Kimono","Pistol","Five-SeveN","Restricted","The Sport & Field Collection")) 
-skinList.push(new Skin("Scrawl","Pistol","Five-SeveN","Mil-Spec","The Control Collection")) 
-skinList.push(new Skin("Flame Test","Pistol","Five-SeveN","Mil-Spec","The Rising Sun Collection")) 
-skinList.push(new Skin("Capillary","Pistol","Five-SeveN","Mil-Spec","Dreams & Nightmares Case")) 
-skinList.push(new Skin("Scumbria","Pistol","Five-SeveN","Mil-Spec","Clutch Case")) 
-skinList.push(new Skin("Violent Daimyo","Pistol","Five-SeveN","Mil-Spec","Spectrum Case")) 
-skinList.push(new Skin("Urban Hazard","Pistol","Five-SeveN","Mil-Spec","Gamma 2 Case")) 
-skinList.push(new Skin("Nightshade","Pistol","Five-SeveN","Mil-Spec","Gamma Case")) 
-skinList.push(new Skin("Kami","Pistol","Five-SeveN","Mil-Spec","Operation Vanguard Weapon Case")) 
-skinList.push(new Skin("Crimson Blossom","Pistol","Five-SeveN","Mil-Spec","eSports 2013 Winter Case")) 
-skinList.push(new Skin("Nitro","Pistol","Five-SeveN","Mil-Spec","Winter Offensive Weapon Case")) 
-skinList.push(new Skin("Silver Quartz","Pistol","Five-SeveN","Mil-Spec","The St. Marc Collection")) 
-skinList.push(new Skin("Midnight Paintover","Pistol","Five-SeveN","Industrial Grade","The Chop Shop Collection")) 
-skinList.push(new Skin("Withered Vine","Pistol","Five-SeveN","Industrial Grade","The Safehouse Collection")) 
-skinList.push(new Skin("Hot Shot","Pistol","Five-SeveN","Industrial Grade","The Overpass 2024 Collection")) 
-skinList.push(new Skin("Orange Peel","Pistol","Five-SeveN","Industrial Grade","The 2021 Dust 2 Collection")) 
-skinList.push(new Skin("Candy Apple","Pistol","Five-SeveN","Industrial Grade","The Cache Collection")) 
-skinList.push(new Skin("Coolant","Pistol","Five-SeveN","Consumer Grade","The Dust 2 Collection")) 
-skinList.push(new Skin("Contractor","Pistol","Five-SeveN","Consumer Grade","The Assault Collection")) 
-skinList.push(new Skin("Forest Night","Pistol","Five-SeveN","Consumer Grade","The 2018 Nuke Collection")) 
-skinList.push(new Skin("Anodized Gunmetal","Pistol","Five-SeveN","Consumer Grade","The Mirage Collection")) 
-skinList.push(new Skin("Jungle","Pistol","Five-SeveN","Consumer Grade","The Train Collection")) 
 skinList.push(new Skin("Gold Toof","Pistol","Glock-18","Covert","Gallery Case")) 
 skinList.push(new Skin("Neo-Noir","Pistol","Glock-18","Covert","Operation Broken Fang Case")) 
 skinList.push(new Skin("Bullet Queen","Pistol","Glock-18","Covert","Prisma 2 Case")) 
@@ -443,56 +484,7 @@ skinList.push(new Skin("Pathfinder","Pistol","P2000","Industrial Grade","The God
 skinList.push(new Skin("Grassland","Pistol","P2000","Industrial Grade","The Overpass Collection")) 
 skinList.push(new Skin("Coach Class","Pistol","P2000","Industrial Grade","The Baggage Collection")) 
 skinList.push(new Skin("Granite Marbleized","Pistol","P2000","Industrial Grade","The Italy Collection")) 
-skinList.push(new Skin("Grassland Leaves","Pistol","P2000","Industrial Grade","The Militia Collection")) 
-skinList.push(new Skin("See Ya Later","Pistol","P250","Covert","Spectrum 2 Case")) 
-skinList.push(new Skin("Epicenter","Pistol","P250","Classified","Gallery Case")) 
-skinList.push(new Skin("Visions","Pistol","P250","Classified","Recoil Case")) 
-skinList.push(new Skin("Asiimov","Pistol","P250","Classified","Chroma 3 Case")) 
-skinList.push(new Skin("Muertos","Pistol","P250","Classified","Chroma Case")) 
-skinList.push(new Skin("Cartel","Pistol","P250","Classified","Operation Vanguard Weapon Case")) 
-skinList.push(new Skin("Undertow","Pistol","P250","Classified","CS:GO Weapon Case 3")) 
-skinList.push(new Skin("Mehndi","Pistol","P250","Classified","Winter Offensive Weapon Case")) 
-skinList.push(new Skin("Apep's Curse","Pistol","P250","Classified","Anubis Collection Package")) 
-skinList.push(new Skin("Franklin","Pistol","P250","Classified","The Bank Collection")) 
-skinList.push(new Skin("Cyber Shell","Pistol","P250","Restricted","Snakebite Case")) 
-skinList.push(new Skin("Inferno","Pistol","P250","Restricted","CS20 Case")) 
-skinList.push(new Skin("X-Ray","Pistol","P250","Restricted","Danger Zone Case")) 
-skinList.push(new Skin("Nevermore","Pistol","P250","Restricted","Operation Hydra Case")) 
-skinList.push(new Skin("Red Rock","Pistol","P250","Restricted","Shadow Case")) 
-skinList.push(new Skin("Wingshot","Pistol","P250","Restricted","Operation Breakout Weapon Case")) 
-skinList.push(new Skin("Supernova","Pistol","P250","Restricted","eSports 2013 Case")) 
-skinList.push(new Skin("Splash","Pistol","P250","Restricted","The 2021 Vertigo Collection")) 
-skinList.push(new Skin("Digital Architect","Pistol","P250","Restricted","The 2018 Inferno Collection")) 
-skinList.push(new Skin("Vino Primo","Pistol","P250","Restricted","The Nuke Collection")) 
-skinList.push(new Skin("Nuclear Threat","Pistol","P250","Restricted","Revolution Case")) 
-skinList.push(new Skin("Re.built","Pistol","P250","Mil-Spec","Operation Broken Fang Case")) 
-skinList.push(new Skin("Contaminant","Pistol","P250","Mil-Spec","Fracture Case")) 
-skinList.push(new Skin("Cassette","Pistol","P250","Mil-Spec","Prisma Case")) 
-skinList.push(new Skin("Verdigris","Pistol","P250","Mil-Spec","Spectrum Case")) 
-skinList.push(new Skin("Ripple","Pistol","P250","Mil-Spec","Gamma Case")) 
-skinList.push(new Skin("Iron Clad","Pistol","P250","Mil-Spec","Chroma 2 Case")) 
-skinList.push(new Skin("Valence","Pistol","P250","Mil-Spec","eSports 2013 Winter Case")) 
-skinList.push(new Skin("Steel Disruption","Pistol","P250","Mil-Spec","CS:GO Weapon Case 2")) 
-skinList.push(new Skin("Hive","Pistol","P250","Mil-Spec","The Sport & Field Collection")) 
-skinList.push(new Skin("Small Game","Pistol","P250","Mil-Spec","The 2021 Dust 2 Collection")) 
-skinList.push(new Skin("Black & Tan","Pistol","P250","Mil-Spec","The Havoc Collection")) 
-skinList.push(new Skin("Bengal Tiger","Pistol","P250","Mil-Spec","The 2018 Nuke Collection")) 
-skinList.push(new Skin("Exchanger","Pistol","P250","Mil-Spec","The Chop Shop Collection")) 
-skinList.push(new Skin("Whiteout","Pistol","P250","Mil-Spec","The Militia Collection")) 
-skinList.push(new Skin("Modern Hunter","Pistol","P250","Mil-Spec","The Canals Collection")) 
-skinList.push(new Skin("Dark Filigree","Pistol","P250","Industrial Grade","The Rising Sun Collection")) 
-skinList.push(new Skin("Crimson Kimono","Pistol","P250","Industrial Grade","The Cache Collection")) 
-skinList.push(new Skin("Contamination","Pistol","P250","Industrial Grade","The Train Collection")) 
-skinList.push(new Skin("Metallic DDPAT","Pistol","P250","Industrial Grade","The Alpha Collection")) 
-skinList.push(new Skin("Facets","Pistol","P250","Industrial Grade","The Inferno Collection")) 
-skinList.push(new Skin("Gunsmoke","Pistol","P250","Industrial Grade","The 2021 Mirage Collection")) 
-skinList.push(new Skin("Drought","Pistol","P250","Consumer Grade","The Control Collection")) 
-skinList.push(new Skin("Forest Night","Pistol","P250","Consumer Grade","The 2018 Nuke Collection")) 
-skinList.push(new Skin("Facility Draft","Pistol","P250","Consumer Grade","The Rising Sun Collection")) 
-skinList.push(new Skin("Mint Kimono","Pistol","P250","Consumer Grade","The Lake Collection")) 
-skinList.push(new Skin("Boreal Forest","Pistol","P250","Consumer Grade","The Mirage Collection")) 
-skinList.push(new Skin("Bone Mask","Pistol","P250","Consumer Grade","The Dust 2 Collection")) 
-skinList.push(new Skin("Sand Dune","Pistol","P250","Consumer Grade","CSGO Case Battles")) 
+skinList.push(new Skin("Grassland Leaves","Pistol","P2000","Industrial Grade","The Militia Collection"))
 skinList.push(new Skin("Fade","Pistol","R8 Revolver","Covert","Revolver Case")) 
 skinList.push(new Skin("Skull Crusher","Pistol","R8 Revolver","Classified","Prisma Case")) 
 skinList.push(new Skin("Llama Cannon","Pistol","R8 Revolver","Classified","Spectrum 2 Case")) 
@@ -593,54 +585,6 @@ skinList.push(new Skin("Pathfinder","Pistol","USP-S","Industrial Grade","The Nor
 skinList.push(new Skin("Para Green","Pistol","USP-S","Industrial Grade","The Chop Shop Collection")) 
 skinList.push(new Skin("Royal Blue","Pistol","USP-S","Industrial Grade","The Cobblestone Collection")) 
 skinList.push(new Skin("Forest Leaves","Pistol","USP-S","Industrial Grade","The Safehouse Collection")) 
-skinList.push(new Skin("Stalker","Mid-Tier","MAC-10","Covert","Shattered Web Case")) 
-skinList.push(new Skin("Neon Rider","Mid-Tier","MAC-10","Covert","Chroma 2 Case")) 
-skinList.push(new Skin("Toybox","Mid-Tier","MAC-10","Classified","Operation Riptide Case")) 
-skinList.push(new Skin("Disco Tech","Mid-Tier","MAC-10","Classified","Prisma 2 Case")) 
-skinList.push(new Skin("Propaganda","Mid-Tier","MAC-10","Classified","The 2021 Train Collection")) 
-skinList.push(new Skin("Hot Snakes","Mid-Tier","MAC-10","Classified","The Havoc Collection")) 
-skinList.push(new Skin("Saibā Oni","Mid-Tier","MAC-10","Restricted","Gallery Case")) 
-skinList.push(new Skin("Sakkaku","Mid-Tier","MAC-10","Restricted","Revolution Case")) 
-skinList.push(new Skin("Button Masher","Mid-Tier","MAC-10","Restricted","Snakebite Case")) 
-skinList.push(new Skin("Allure","Mid-Tier","MAC-10","Restricted","Fracture Case")) 
-skinList.push(new Skin("Pipe Down","Mid-Tier","MAC-10","Restricted","Danger Zone Case")) 
-skinList.push(new Skin("Last Dive","Mid-Tier","MAC-10","Restricted","Spectrum Case")) 
-skinList.push(new Skin("Malachite","Mid-Tier","MAC-10","Restricted","Chroma Case")) 
-skinList.push(new Skin("Tatter","Mid-Tier","MAC-10","Restricted","Huntsman Weapon Case")) 
-skinList.push(new Skin("Curse","Mid-Tier","MAC-10","Restricted","The Huntsman Collection")) 
-skinList.push(new Skin("Heat","Mid-Tier","MAC-10","Restricted","Operation Phoenix Weapon Case")) 
-skinList.push(new Skin("Graven","Mid-Tier","MAC-10","Restricted","Operation Bravo Case")) 
-skinList.push(new Skin("Case Hardened","Mid-Tier","MAC-10","Restricted","Case Hardened")) 
-skinList.push(new Skin("Gold Brick","Mid-Tier","MAC-10","Restricted","The 2021 Dust 2 Collection")) 
-skinList.push(new Skin("Red Filigree","Mid-Tier","MAC-10","Restricted","MAC-10 Case Hardened Skin & Price Details")) 
-skinList.push(new Skin("Light Box","Mid-Tier","MAC-10","Mil-Spec","The Ancient Collection")) 
-skinList.push(new Skin("Monkeyflage","Mid-Tier","MAC-10","Mil-Spec","The Canals Collection")) 
-skinList.push(new Skin("Ensnared","Mid-Tier","MAC-10","Mil-Spec","Kilowatt Case")) 
-skinList.push(new Skin("Classic Crate","Mid-Tier","MAC-10","Mil-Spec","Recoil Case")) 
-skinList.push(new Skin("Whitefish","Mid-Tier","MAC-10","Mil-Spec","Dreams & Nightmares Case")) 
-skinList.push(new Skin("Oceanic","Mid-Tier","MAC-10","Mil-Spec","CS20 Case")) 
-skinList.push(new Skin("Aloha","Mid-Tier","MAC-10","Mil-Spec","Prisma Case")) 
-skinList.push(new Skin("Carnivore","Mid-Tier","MAC-10","Mil-Spec","Spectrum 2 Case")) 
-skinList.push(new Skin("Lapis Gator","Mid-Tier","MAC-10","Mil-Spec","Operation Hydra Case")) 
-skinList.push(new Skin("Rangeen","Mid-Tier","MAC-10","Mil-Spec","Gamma Case")) 
-skinList.push(new Skin("Ultraviolet","Mid-Tier","MAC-10","Mil-Spec","Operation Wildfire Case")) 
-skinList.push(new Skin("Pipsqueak","Mid-Tier","MAC-10","Mil-Spec","Shadow Case")) 
-skinList.push(new Skin("Copper Borre","Mid-Tier","MAC-10","Mil-Spec","eSports 2014 Summer Case")) 
-skinList.push(new Skin("Fade","Mid-Tier","MAC-10","Mil-Spec","The Overpass 2024 Collection")) 
-skinList.push(new Skin("Nuclear Garden","Mid-Tier","MAC-10","Mil-Spec","The Norse Collection")) 
-skinList.push(new Skin("Amber Fade","Mid-Tier","MAC-10","Mil-Spec","The Chop Shop Collection")) 
-skinList.push(new Skin("Echoing Sands","Mid-Tier","MAC-10","Industrial Grade","The Cache Collection")) 
-skinList.push(new Skin("Calf Skin","Mid-Tier","MAC-10","Industrial Grade","The Mirage Collection")) 
-skinList.push(new Skin("Commuter","Mid-Tier","MAC-10","Industrial Grade","Anubis Collection Package")) 
-skinList.push(new Skin("Silver","Mid-Tier","MAC-10","Industrial Grade","The 2018 Inferno Collection")) 
-skinList.push(new Skin("Palm","Mid-Tier","MAC-10","Industrial Grade","The Baggage Collection")) 
-skinList.push(new Skin("Candy Apple","Mid-Tier","MAC-10","Industrial Grade","The Bank Collection")) 
-skinList.push(new Skin("Strats","Mid-Tier","MAC-10","Consumer Grade","The Dust 2 Collection")) 
-skinList.push(new Skin("Sienna Damask","Mid-Tier","MAC-10","Consumer Grade","The Train Collection")) 
-skinList.push(new Skin("Surfwood","Mid-Tier","MAC-10","Consumer Grade","The 2021 Vertigo Collection")) 
-skinList.push(new Skin("Indigo","Mid-Tier","MAC-10","Consumer Grade","The 2021 Mirage Collection")) 
-skinList.push(new Skin("Tornado","Mid-Tier","MAC-10","Consumer Grade","The St. Marc Collection")) 
-skinList.push(new Skin("Urban DDPAT","Mid-Tier","MAC-10","Consumer Grade","The Cobblestone Collection")) 
 skinList.push(new Skin("Phosphor","Mid-Tier","MP5-SD","Classified","Danger Zone Case")) 
 skinList.push(new Skin("Oxide Oasis","Mid-Tier","MP5-SD","Classified","The 2021 Mirage Collection")) 
 skinList.push(new Skin("Kitbash","Mid-Tier","MP5-SD","Restricted","Fracture Case")) 
@@ -1034,56 +978,6 @@ skinList.push(new Skin("CaliCamo","Mid-Tier","Negev","Industrial Grade Machine",
 skinList.push(new Skin("Palm","Mid-Tier","Negev","Industrial Grade Machine","The Alpha Collection")) 
 skinList.push(new Skin("Boroque Sand","Mid-Tier","Negev","Consumer Grade Machine","The Canals Collection")) 
 skinList.push(new Skin("Army Sheen","Mid-Tier","Negev","Consumer Grade Machine","The Bank Collection")) 
-skinList.push(new Skin("Inheritance","Rifle","AK-47","Covert","Kilowatt Case")) 
-skinList.push(new Skin("Head Shot","Rifle","AK-47","Covert","Revolution Case")) 
-skinList.push(new Skin("Nightwish","Rifle","AK-47","Covert","Dreams & Nightmares Case")) 
-skinList.push(new Skin("Leet Museo","Rifle","AK-47","Covert","Operation Riptide Case")) 
-skinList.push(new Skin("Legion of Anubis","Rifle","AK-47","Covert","Fracture Case")) 
-skinList.push(new Skin("Asiimov","Rifle","AK-47","Covert","Danger Zone Case")) 
-skinList.push(new Skin("Neon Rider","Rifle","AK-47","Covert","Horizon Case")) 
-skinList.push(new Skin("The Empress","Rifle","AK-47","Covert","Spectrum 2 Case")) 
-skinList.push(new Skin("Bloodsport","Rifle","AK-47","Covert","Spectrum Case")) 
-skinList.push(new Skin("Neon Revolution","Rifle","AK-47","Covert","Gamma 2 Case")) 
-skinList.push(new Skin("Fuel Injector","Rifle","AK-47","Covert","Operation Wildfire Case")) 
-skinList.push(new Skin("Aquamarine Revenge","Rifle","AK-47","Covert","Falchion Case")) 
-skinList.push(new Skin("Wasteland Rebel","Rifle","AK-47","Covert","Operation Vanguard Weapon Case")) 
-skinList.push(new Skin("Jaguar","Rifle","AK-47","Covert","eSports 2014 Summer Case")) 
-skinList.push(new Skin("Vulcan","Rifle","AK-47","Covert","Huntsman Weapon Case")) 
-skinList.push(new Skin("Fire Serpent","Rifle","AK-47","Covert","Operation Bravo Case")) 
-skinList.push(new Skin("B the Monster","Rifle","AK-47","Covert","The Overpass 2024 Collection")) 
-skinList.push(new Skin("Gold Arabesque","Rifle","AK-47","Covert","The 2021 Dust 2 Collection")) 
-skinList.push(new Skin("X-Ray","Rifle","AK-47","Covert","The Havoc Collection")) 
-skinList.push(new Skin("Wild Lotus","Rifle","AK-47","Covert","The St. Marc Collection")) 
-skinList.push(new Skin("The Outsiders","Rifle","AK-47","Classified","Gallery Case")) 
-skinList.push(new Skin("Ice Coaled","Rifle","AK-47","Classified","Recoil Case")) 
-skinList.push(new Skin("Phantom Disruptor","Rifle","AK-47","Classified","Prisma 2 Case")) 
-skinList.push(new Skin("Point Disarray","Rifle","AK-47","Classified","Revolver Case")) 
-skinList.push(new Skin("Frontside Misty","Rifle","AK-47","Classified","Shadow Case")) 
-skinList.push(new Skin("Cartel","Rifle","AK-47","Classified","Chroma Case")) 
-skinList.push(new Skin("Redline","Rifle","AK-47","Classified","Operation Phoenix Weapon Case")) 
-skinList.push(new Skin("Case Hardened","Rifle","AK-47","Classified","Case Hardened")) 
-skinList.push(new Skin("Red Laminate","Rifle","AK-47","Classified","CS:GO Weapon Case")) 
-skinList.push(new Skin("Panthera onca","Rifle","AK-47","Classified","AK-47 Case Hardened Skin & Price Details")) 
-skinList.push(new Skin("Hydroponic","Rifle","AK-47","Classified","eSports 2013 Case")) 
-skinList.push(new Skin("Jet Set","Rifle","AK-47","Classified","The Ancient Collection")) 
-skinList.push(new Skin("Slate","Rifle","AK-47","Restricted","The Rising Sun Collection")) 
-skinList.push(new Skin("Rat Rod","Rifle","AK-47","Restricted","The Baggage Collection")) 
-skinList.push(new Skin("Orbit Mk01","Rifle","AK-47","Restricted","Snakebite Case")) 
-skinList.push(new Skin("Blue Laminate","Rifle","AK-47","Restricted","Shattered Web Case")) 
-skinList.push(new Skin("Safety Net","Rifle","AK-47","Restricted","Operation Hydra Case")) 
-skinList.push(new Skin("First Class","Rifle","AK-47","Restricted","eSports 2013 Winter Case")) 
-skinList.push(new Skin("Emerald Pinstripe","Rifle","AK-47","Restricted","The 2018 Inferno Collection")) 
-skinList.push(new Skin("Uncharted","Rifle","AK-47","Mil-Spec","The Baggage Collection")) 
-skinList.push(new Skin("Elite Build","Rifle","AK-47","Mil-Spec","The Bank Collection")) 
-skinList.push(new Skin("Crossfade","Rifle","AK-47","Mil-Spec","Prisma Case")) 
-skinList.push(new Skin("Steel Delta","Rifle","AK-47","Mil-Spec","Chroma 2 Case")) 
-skinList.push(new Skin("Green Laminate","Rifle","AK-47","Mil-Spec","The Graphic Design Collection")) 
-skinList.push(new Skin("Black Laminate","Rifle","AK-47","Mil-Spec","Anubis Collection Package")) 
-skinList.push(new Skin("Olive Polycam","Rifle","AK-47","Industrial Grade","The 2021 Vertigo Collection")) 
-skinList.push(new Skin("Baroque Purple","Rifle","AK-47","Industrial Grade","The Vertigo Collection")) 
-skinList.push(new Skin("Safari Mesh","Rifle","AK-47","Industrial Grade","The Sport & Field Collection")) 
-skinList.push(new Skin("Jungle Spray","Rifle","AK-47","Industrial Grade","The Canals Collection")) 
-skinList.push(new Skin("Predator","Rifle","AK-47","Industrial Grade","The Dust 2 Collection")) 
 skinList.push(new Skin("Chameleon","Rifle","AUG","Covert","Operation Phoenix Weapon Case")) 
 skinList.push(new Skin("Akihabara Accept","Rifle","AUG","Covert","The Rising Sun Collection")) 
 skinList.push(new Skin("Death by Puppy","Rifle","AUG","Classified","CS20 Case")) 
@@ -1443,7 +1337,190 @@ skinList.push(new Skin("Red Stone","Rifle","SSG 08","Consumer Grade","The Norse 
 skinList.push(new Skin("Sand Dune","Rifle","SSG 08","Consumer Grade","The Baggage Collection")) 
 skinList.push(new Skin("Blue Spruce","Rifle","SSG 08","Consumer Grade","The Safehouse Collection")) 
 skinList.push(new Skin("Lichen Dashed","Rifle","SSG 08","Consumer Grade","The Aztec Collection")) 
-  
+skinList.push(new Skin("Angry Mob","Pistol","Five-SeveN","Covert","Prisma Case")) 
+skinList.push(new Skin("Hyper Beast","Pistol","Five-SeveN","Covert","Operation Hydra Case")) 
+skinList.push(new Skin("Fairy Tale","Pistol","Five-SeveN","Classified","Operation Broken Fang Case")) 
+skinList.push(new Skin("Monkey Business","Pistol","Five-SeveN","Classified","Chroma 2 Case")) 
+skinList.push(new Skin("Fowl Play","Pistol","Five-SeveN","Classified","Operation Breakout Weapon Case")) 
+skinList.push(new Skin("Fall Hazard","Pistol","Five-SeveN","Classified","The 2021 Vertigo Collection")) 
+skinList.push(new Skin("Hybrid","Pistol","Five-SeveN","Restricted","Kilowatt Case")) 
+skinList.push(new Skin("Boost Protocol","Pistol","Five-SeveN","Restricted","Operation Riptide Case")) 
+skinList.push(new Skin("Buddy","Pistol","Five-SeveN","Restricted","CS20 Case")) 
+skinList.push(new Skin("Triumvirate","Pistol","Five-SeveN","Restricted","Operation Wildfire Case")) 
+skinList.push(new Skin("Retrobution","Pistol","Five-SeveN","Restricted","Revolver Case")) 
+skinList.push(new Skin("Copper Galaxy","Pistol","Five-SeveN","Restricted","CS:GO Weapon Case 3")) 
+skinList.push(new Skin("Case Hardened","Pistol","Five-SeveN","Restricted","CS:GO Weapon Case 2")) 
+skinList.push(new Skin("Heat Treated","Pistol","Five-SeveN","Restricted","The Sport & Field Collection")) 
+skinList.push(new Skin("Berries And Cherries","Pistol","Five-SeveN","Restricted","The Control Collection")) 
+skinList.push(new Skin("Neon Kimono","Pistol","Five-SeveN","Restricted","The Rising Sun Collection")) 
+skinList.push(new Skin("Scrawl","Pistol","Five-SeveN","Mil-Spec","Dreams & Nightmares Case")) 
+skinList.push(new Skin("Flame Test","Pistol","Five-SeveN","Mil-Spec","Clutch Case")) 
+skinList.push(new Skin("Capillary","Pistol","Five-SeveN","Mil-Spec","Spectrum Case")) 
+skinList.push(new Skin("Scumbria","Pistol","Five-SeveN","Mil-Spec","Gamma 2 Case")) 
+skinList.push(new Skin("Violent Daimyo","Pistol","Five-SeveN","Mil-Spec","Gamma Case")) 
+skinList.push(new Skin("Urban Hazard","Pistol","Five-SeveN","Mil-Spec","Operation Vanguard Weapon Case")) 
+skinList.push(new Skin("Nightshade","Pistol","Five-SeveN","Mil-Spec","eSports 2013 Winter Case")) 
+skinList.push(new Skin("Kami","Pistol","Five-SeveN","Mil-Spec","Winter Offensive Weapon Case")) 
+skinList.push(new Skin("Crimson Blossom","Pistol","Five-SeveN","Mil-Spec","The St. Marc Collection")) 
+skinList.push(new Skin("Nitro","Pistol","Five-SeveN","Mil-Spec","The Chop Shop Collection")) 
+skinList.push(new Skin("Silver Quartz","Pistol","Five-SeveN","Mil-Spec","The Safehouse Collection")) 
+skinList.push(new Skin("Midnight Paintover","Pistol","Five-SeveN","Industrial Grade","The Overpass 2024 Collection")) 
+skinList.push(new Skin("Withered Vine","Pistol","Five-SeveN","Industrial Grade","The 2021 Dust 2 Collection")) 
+skinList.push(new Skin("Hot Shot","Pistol","Five-SeveN","Industrial Grade","The Cache Collection")) 
+skinList.push(new Skin("Orange Peel","Pistol","Five-SeveN","Industrial Grade","The Dust 2 Collection")) 
+skinList.push(new Skin("Candy Apple","Pistol","Five-SeveN","Industrial Grade","The Assault Collection")) 
+skinList.push(new Skin("Coolant","Pistol","Five-SeveN","Consumer Grade","The 2018 Nuke Collection")) 
+skinList.push(new Skin("Contractor","Pistol","Five-SeveN","Consumer Grade","The Mirage Collection")) 
+skinList.push(new Skin("Forest Night","Pistol","Five-SeveN","Consumer Grade","The Train Collection")) 
+skinList.push(new Skin("Anodized Gunmetal","Pistol","Five-SeveN","Consumer Grade","The Alpha Collection")) 
+skinList.push(new Skin("Jungle","Pistol","Five-SeveN","Consumer Grade","The Aztec Collection")) 
+skinList.push(new Skin("Stalker","Mid-Tier","MAC-10","Covert","Shattered Web Case")) 
+skinList.push(new Skin("Neon Rider","Mid-Tier","MAC-10","Covert","Chroma 2 Case")) 
+skinList.push(new Skin("Toybox","Mid-Tier","MAC-10","Classified","Operation Riptide Case")) 
+skinList.push(new Skin("Disco Tech","Mid-Tier","MAC-10","Classified","Prisma 2 Case")) 
+skinList.push(new Skin("Propaganda","Mid-Tier","MAC-10","Classified","The 2021 Train Collection")) 
+skinList.push(new Skin("Hot Snakes","Mid-Tier","MAC-10","Classified","The Havoc Collection")) 
+skinList.push(new Skin("Saibā Oni","Mid-Tier","MAC-10","Restricted","Gallery Case")) 
+skinList.push(new Skin("Sakkaku","Mid-Tier","MAC-10","Restricted","Revolution Case")) 
+skinList.push(new Skin("Button Masher","Mid-Tier","MAC-10","Restricted","Snakebite Case")) 
+skinList.push(new Skin("Allure","Mid-Tier","MAC-10","Restricted","Fracture Case")) 
+skinList.push(new Skin("Pipe Down","Mid-Tier","MAC-10","Restricted","Danger Zone Case")) 
+skinList.push(new Skin("Last Dive","Mid-Tier","MAC-10","Restricted","Spectrum Case")) 
+skinList.push(new Skin("Malachite","Mid-Tier","MAC-10","Restricted","Chroma Case")) 
+skinList.push(new Skin("Tatter","Mid-Tier","MAC-10","Restricted","Huntsman Weapon Case")) 
+skinList.push(new Skin("Curse","Mid-Tier","MAC-10","Restricted","The Huntsman Collection")) 
+skinList.push(new Skin("Heat","Mid-Tier","MAC-10","Restricted","Operation Phoenix Weapon Case")) 
+skinList.push(new Skin("Graven","Mid-Tier","MAC-10","Restricted","Operation Bravo Case")) 
+skinList.push(new Skin("Case Hardened","Mid-Tier","MAC-10","Restricted","The 2021 Dust 2 Collection")) 
+skinList.push(new Skin("Gold Brick","Mid-Tier","MAC-10","Restricted","The Ancient Collection")) 
+skinList.push(new Skin("Red Filigree","Mid-Tier","MAC-10","Restricted","The Canals Collection")) 
+skinList.push(new Skin("Light Box","Mid-Tier","MAC-10","Mil-Spec","Kilowatt Case")) 
+skinList.push(new Skin("Monkeyflage","Mid-Tier","MAC-10","Mil-Spec","Recoil Case")) 
+skinList.push(new Skin("Ensnared","Mid-Tier","MAC-10","Mil-Spec","Dreams & Nightmares Case")) 
+skinList.push(new Skin("Classic Crate","Mid-Tier","MAC-10","Mil-Spec","CS20 Case")) 
+skinList.push(new Skin("Whitefish","Mid-Tier","MAC-10","Mil-Spec","Prisma Case")) 
+skinList.push(new Skin("Oceanic","Mid-Tier","MAC-10","Mil-Spec","Spectrum 2 Case")) 
+skinList.push(new Skin("Aloha","Mid-Tier","MAC-10","Mil-Spec","Operation Hydra Case")) 
+skinList.push(new Skin("Carnivore","Mid-Tier","MAC-10","Mil-Spec","Gamma Case")) 
+skinList.push(new Skin("Lapis Gator","Mid-Tier","MAC-10","Mil-Spec","Operation Wildfire Case")) 
+skinList.push(new Skin("Rangeen","Mid-Tier","MAC-10","Mil-Spec","Shadow Case")) 
+skinList.push(new Skin("Ultraviolet","Mid-Tier","MAC-10","Mil-Spec","eSports 2014 Summer Case")) 
+skinList.push(new Skin("Pipsqueak","Mid-Tier","MAC-10","Mil-Spec","The Overpass 2024 Collection")) 
+skinList.push(new Skin("Copper Borre","Mid-Tier","MAC-10","Mil-Spec","The Norse Collection")) 
+skinList.push(new Skin("Fade","Mid-Tier","MAC-10","Mil-Spec","The Chop Shop Collection")) 
+skinList.push(new Skin("Nuclear Garden","Mid-Tier","MAC-10","Mil-Spec","The Cache Collection")) 
+skinList.push(new Skin("Amber Fade","Mid-Tier","MAC-10","Mil-Spec","The Mirage Collection")) 
+skinList.push(new Skin("Echoing Sands","Mid-Tier","MAC-10","Industrial Grade","Anubis Collection Package")) 
+skinList.push(new Skin("Calf Skin","Mid-Tier","MAC-10","Industrial Grade","The 2018 Inferno Collection")) 
+skinList.push(new Skin("Commuter","Mid-Tier","MAC-10","Industrial Grade","The Baggage Collection")) 
+skinList.push(new Skin("Silver","Mid-Tier","MAC-10","Industrial Grade","The Bank Collection")) 
+skinList.push(new Skin("Palm","Mid-Tier","MAC-10","Industrial Grade","The Dust 2 Collection")) 
+skinList.push(new Skin("Candy Apple","Mid-Tier","MAC-10","Industrial Grade","The Train Collection")) 
+skinList.push(new Skin("Strats","Mid-Tier","MAC-10","Consumer Grade","The 2021 Vertigo Collection")) 
+skinList.push(new Skin("Sienna Damask","Mid-Tier","MAC-10","Consumer Grade","The 2021 Mirage Collection")) 
+skinList.push(new Skin("Surfwood","Mid-Tier","MAC-10","Consumer Grade","The St. Marc Collection")) 
+skinList.push(new Skin("Indigo","Mid-Tier","MAC-10","Consumer Grade","The Cobblestone Collection")) 
+skinList.push(new Skin("Tornado","Mid-Tier","MAC-10","Consumer Grade","The Militia Collection")) 
+skinList.push(new Skin("Urban DDPAT","Mid-Tier","MAC-10","Consumer Grade","The Vertigo Collection")) 
+skinList.push(new Skin("Inheritance","Rifle","AK-47","Covert","Kilowatt Case")) 
+skinList.push(new Skin("Head Shot","Rifle","AK-47","Covert","Revolution Case")) 
+skinList.push(new Skin("Nightwish","Rifle","AK-47","Covert","Dreams & Nightmares Case")) 
+skinList.push(new Skin("Leet Museo","Rifle","AK-47","Covert","Operation Riptide Case")) 
+skinList.push(new Skin("Legion of Anubis","Rifle","AK-47","Covert","Fracture Case")) 
+skinList.push(new Skin("Asiimov","Rifle","AK-47","Covert","Danger Zone Case")) 
+skinList.push(new Skin("Neon Rider","Rifle","AK-47","Covert","Horizon Case")) 
+skinList.push(new Skin("The Empress","Rifle","AK-47","Covert","Spectrum 2 Case")) 
+skinList.push(new Skin("Bloodsport","Rifle","AK-47","Covert","Spectrum Case")) 
+skinList.push(new Skin("Neon Revolution","Rifle","AK-47","Covert","Gamma 2 Case")) 
+skinList.push(new Skin("Fuel Injector","Rifle","AK-47","Covert","Operation Wildfire Case")) 
+skinList.push(new Skin("Aquamarine Revenge","Rifle","AK-47","Covert","Falchion Case")) 
+skinList.push(new Skin("Wasteland Rebel","Rifle","AK-47","Covert","Operation Vanguard Weapon Case")) 
+skinList.push(new Skin("Jaguar","Rifle","AK-47","Covert","eSports 2014 Summer Case")) 
+skinList.push(new Skin("Vulcan","Rifle","AK-47","Covert","Huntsman Weapon Case")) 
+skinList.push(new Skin("Fire Serpent","Rifle","AK-47","Covert","Operation Bravo Case")) 
+skinList.push(new Skin("B the Monster","Rifle","AK-47","Covert","The Overpass 2024 Collection")) 
+skinList.push(new Skin("Gold Arabesque","Rifle","AK-47","Covert","The 2021 Dust 2 Collection")) 
+skinList.push(new Skin("X-Ray","Rifle","AK-47","Covert","The Havoc Collection")) 
+skinList.push(new Skin("Wild Lotus","Rifle","AK-47","Covert","The St. Marc Collection")) 
+skinList.push(new Skin("The Outsiders","Rifle","AK-47","Classified","Gallery Case")) 
+skinList.push(new Skin("Ice Coaled","Rifle","AK-47","Classified","Recoil Case")) 
+skinList.push(new Skin("Phantom Disruptor","Rifle","AK-47","Classified","Prisma 2 Case")) 
+skinList.push(new Skin("Point Disarray","Rifle","AK-47","Classified","Revolver Case")) 
+skinList.push(new Skin("Frontside Misty","Rifle","AK-47","Classified","Shadow Case")) 
+skinList.push(new Skin("Cartel","Rifle","AK-47","Classified","Chroma Case")) 
+skinList.push(new Skin("Redline","Rifle","AK-47","Classified","Operation Phoenix Weapon Case")) 
+skinList.push(new Skin("Case Hardened","Rifle","AK-47","Classified","CS:GO Weapon Case")) 
+skinList.push(new Skin("Red Laminate","Rifle","AK-47","Classified","eSports 2013 Case")) 
+skinList.push(new Skin("Panthera onca","Rifle","AK-47","Classified","The Ancient Collection")) 
+skinList.push(new Skin("Hydroponic","Rifle","AK-47","Classified","The Rising Sun Collection")) 
+skinList.push(new Skin("Jet Set","Rifle","AK-47","Classified","The Baggage Collection")) 
+skinList.push(new Skin("Slate","Rifle","AK-47","Restricted","Snakebite Case")) 
+skinList.push(new Skin("Rat Rod","Rifle","AK-47","Restricted","Shattered Web Case")) 
+skinList.push(new Skin("Orbit Mk01","Rifle","AK-47","Restricted","Operation Hydra Case")) 
+skinList.push(new Skin("Blue Laminate","Rifle","AK-47","Restricted","eSports 2013 Winter Case")) 
+skinList.push(new Skin("Safety Net","Rifle","AK-47","Restricted","The 2018 Inferno Collection")) 
+skinList.push(new Skin("First Class","Rifle","AK-47","Restricted","The Baggage Collection")) 
+skinList.push(new Skin("Emerald Pinstripe","Rifle","AK-47","Restricted","The Bank Collection")) 
+skinList.push(new Skin("Uncharted","Rifle","AK-47","Mil-Spec","Prisma Case")) 
+skinList.push(new Skin("Elite Build","Rifle","AK-47","Mil-Spec","Chroma 2 Case")) 
+skinList.push(new Skin("Crossfade","Rifle","AK-47","Mil-Spec","The Graphic Design Collection")) 
+skinList.push(new Skin("Steel Delta","Rifle","AK-47","Mil-Spec","Anubis Collection Package")) 
+skinList.push(new Skin("Green Laminate","Rifle","AK-47","Mil-Spec","The 2021 Vertigo Collection")) 
+skinList.push(new Skin("Black Laminate","Rifle","AK-47","Mil-Spec","The Vertigo Collection")) 
+skinList.push(new Skin("Olive Polycam","Rifle","AK-47","Industrial Grade","The Sport & Field Collection")) 
+skinList.push(new Skin("Baroque Purple","Rifle","AK-47","Industrial Grade","The Canals Collection")) 
+skinList.push(new Skin("Safari Mesh","Rifle","AK-47","Industrial Grade","The Dust 2 Collection")) 
+skinList.push(new Skin("Jungle Spray","Rifle","AK-47","Industrial Grade","The Aztec Collection")) 
+skinList.push(new Skin("Predator","Rifle","AK-47","Industrial Grade","The Dust Collection"))
+skinList.push(new Skin("See Ya Later","Pistol","P250","Covert","Spectrum 2 Case")) 
+skinList.push(new Skin("Epicenter","Pistol","P250","Classified","Gallery Case")) 
+skinList.push(new Skin("Visions","Pistol","P250","Classified","Recoil Case")) 
+skinList.push(new Skin("Asiimov","Pistol","P250","Classified","Chroma 3 Case")) 
+skinList.push(new Skin("Muertos","Pistol","P250","Classified","Chroma Case")) 
+skinList.push(new Skin("Cartel","Pistol","P250","Classified","Operation Vanguard Weapon Case")) 
+skinList.push(new Skin("Undertow","Pistol","P250","Classified","CS:GO Weapon Case 3")) 
+skinList.push(new Skin("Mehndi","Pistol","P250","Classified","Winter Offensive Weapon Case")) 
+skinList.push(new Skin("Apep's Curse","Pistol","P250","Classified","Anubis Collection Package")) 
+skinList.push(new Skin("Franklin","Pistol","P250","Classified","The Bank Collection")) 
+skinList.push(new Skin("Cyber Shell","Pistol","P250","Restricted","Snakebite Case")) 
+skinList.push(new Skin("Inferno","Pistol","P250","Restricted","CS20 Case")) 
+skinList.push(new Skin("X-Ray","Pistol","P250","Restricted","X-Ray P250 Package")) 
+skinList.push(new Skin("Nevermore","Pistol","P250","Restricted","Danger Zone Case")) 
+skinList.push(new Skin("Red Rock","Pistol","P250","Restricted","Operation Hydra Case")) 
+skinList.push(new Skin("Wingshot","Pistol","P250","Restricted","Shadow Case")) 
+skinList.push(new Skin("Supernova","Pistol","P250","Restricted","Operation Breakout Weapon Case")) 
+skinList.push(new Skin("Splash","Pistol","P250","Restricted","eSports 2013 Case")) 
+skinList.push(new Skin("Digital Architect","Pistol","P250","Restricted","The 2021 Vertigo Collection")) 
+skinList.push(new Skin("Vino Primo","Pistol","P250","Restricted","The 2018 Inferno Collection")) 
+skinList.push(new Skin("Nuclear Threat","Pistol","P250","Restricted","The Nuke Collection")) 
+skinList.push(new Skin("Re.built","Pistol","P250","Mil-Spec","Revolution Case")) 
+skinList.push(new Skin("Contaminant","Pistol","P250","Mil-Spec","Operation Broken Fang Case")) 
+skinList.push(new Skin("Cassette","Pistol","P250","Mil-Spec","Fracture Case")) 
+skinList.push(new Skin("Verdigris","Pistol","P250","Mil-Spec","Prisma Case")) 
+skinList.push(new Skin("Ripple","Pistol","P250","Mil-Spec","Spectrum Case")) 
+skinList.push(new Skin("Iron Clad","Pistol","P250","Mil-Spec","Gamma Case")) 
+skinList.push(new Skin("Valence","Pistol","P250","Mil-Spec","Chroma 2 Case")) 
+skinList.push(new Skin("Steel Disruption","Pistol","P250","Mil-Spec","eSports 2013 Winter Case")) 
+skinList.push(new Skin("Hive","Pistol","P250","Mil-Spec","CS:GO Weapon Case 2")) 
+skinList.push(new Skin("Small Game","Pistol","P250","Mil-Spec","The Sport & Field Collection")) 
+skinList.push(new Skin("Black & Tan","Pistol","P250","Mil-Spec","The 2021 Dust 2 Collection")) 
+skinList.push(new Skin("Bengal Tiger","Pistol","P250","Mil-Spec","The Havoc Collection")) 
+skinList.push(new Skin("Exchanger","Pistol","P250","Mil-Spec","The 2018 Nuke Collection")) 
+skinList.push(new Skin("Whiteout","Pistol","P250","Mil-Spec","The Chop Shop Collection")) 
+skinList.push(new Skin("Modern Hunter","Pistol","P250","Mil-Spec","The Militia Collection")) 
+skinList.push(new Skin("Dark Filigree","Pistol","P250","Industrial Grade","The Canals Collection")) 
+skinList.push(new Skin("Crimson Kimono","Pistol","P250","Industrial Grade","The Rising Sun Collection")) 
+skinList.push(new Skin("Contamination","Pistol","P250","Industrial Grade","The Cache Collection")) 
+skinList.push(new Skin("Metallic DDPAT","Pistol","P250","Industrial Grade","The Train Collection")) 
+skinList.push(new Skin("Facets","Pistol","P250","Industrial Grade","The Alpha Collection")) 
+skinList.push(new Skin("Gunsmoke","Pistol","P250","Industrial Grade","The Inferno Collection")) 
+skinList.push(new Skin("Drought","Pistol","P250","Consumer Grade","The 2021 Mirage Collection")) 
+skinList.push(new Skin("Forest Night","Pistol","P250","Consumer Grade","The Control Collection")) 
+skinList.push(new Skin("Facility Draft","Pistol","P250","Consumer Grade","The 2018 Nuke Collection")) 
+skinList.push(new Skin("Mint Kimono","Pistol","P250","Consumer Grade","The Rising Sun Collection")) 
+skinList.push(new Skin("Boreal Forest","Pistol","P250","Consumer Grade","The Lake Collection")) 
+skinList.push(new Skin("Bone Mask","Pistol","P250","Consumer Grade","The Mirage Collection")) 
+skinList.push(new Skin("Sand Dune","Pistol","P250","Consumer Grade","The Dust 2 Collection")) 
 
     sortList();
     setAnswerSkin();
