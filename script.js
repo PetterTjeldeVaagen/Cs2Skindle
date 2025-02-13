@@ -182,6 +182,7 @@ class Skin {
 let guessCounter = 0;
 let elementList=["Class", "Gun", "Rarity", "Name"]
 
+//function for checking the players guess
 let gameActive=true;
 function guess(input){
     if(gameActive==true){
@@ -225,6 +226,7 @@ function guess(input){
     }
 }
 
+//Function that restarts the game
 function restart(){
     guessCounter=0;
     gameActive=true;
@@ -249,6 +251,7 @@ function restart(){
     input.value="";
 }
 
+//Function that returns the color of the square based on the input
 function getColorOfSquare(guessInput, answerInput){
     var squareColor;
     if(guessInput == answerInput){
@@ -267,12 +270,14 @@ function randomInt(minimum, maximum) {
     return Math.floor(Math.random() * (maximum - minimum + 1) + minimum);
 }
 
+//Sets the skin that the player is supposed to guess
 let answerSkin
 function setAnswerSkin(){
     answerSkin=activeSkinList[randomInt(0,activeSkinList.length)]
     console.log(answerSkin.year)
 }
 
+//Search function that updates the list of skins based on the search input
 input=document.getElementById("searchBar");
 input.addEventListener('input', search);
 let searchList=[];
@@ -302,6 +307,7 @@ function search(){
     }    
 }
 
+//Sorts the list of skins based on the difficulty the player chooses
 let activeSkinList=[];
 function sortList(){
     activeSkinList=[];
@@ -315,6 +321,7 @@ function sortList(){
 
 }
 
+//Creates a list with all the skins in the game
 let skinList =[];
 function createSkins(){
 skinList.push(new Skin("Victoria","Pistol","CZ75-Auto","Covert","CS:GO Weapon Case 3")) 

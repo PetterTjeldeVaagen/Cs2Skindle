@@ -1,15 +1,24 @@
 table, th, tr {
     border: 1px solid black;
     border-collapse: collapse;
+    background-color: white;
   }
 
 th{
   height:2rem;
   width:6rem;
 }
+h1{
+  color: white;
+  font-size: 5rem;
+}
 
 body{
   text-align: center;
+  background: rgb(20,49,135);
+  background: linear-gradient(180deg, rgba(20,49,135,1) 0%, rgba(18,125,161,1) 25%, rgba(8,159,180,1) 51%, rgba(17,178,144,1) 75%, rgba(6,214,160,1) 100%);
+  background-attachment: fixed;
+  font-family:Arial, Helvetica, sans-serif ;
 }
 
 #GuessTable{
@@ -18,19 +27,61 @@ body{
   margin-right: auto;
 }
 
-#DifficultyPicker{
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr;
-  background-color: aqua;
-  width: 100%;
-  margin-left: 0;
-  margin-right: 0;
-  margin-top: 0;
+.dropbtn {
+  background-color: #05146b;
+  color: white; 
+  padding: 1rem; 
+  font-size: 2.5rem; 
+  border: none; 
+  cursor: pointer; 
+}
+
+.DifficultyPicker {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.DifficultyPicker-content {
+  text-align: left;
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 14rem;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.DifficultyPicker-content div {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.DifficultyPicker-content div:hover {
+  background-color: #979595;
+}
+
+.DifficultyPicker:hover .DifficultyPicker-content {
+  display: block;
+}
+
+.DifficultyPicker:hover .dropbtn {
+  background-color: #05146b;
 }
 
 #SearchList{
   list-style: none;
+  text-align: center;
+  width: 5rem;
+}
+
+.search-wrapper{
+  align-items: center;
+  background-color: white;
+  width: 17rem;
+  height: 17rem;
 }
 
 .searchListElement{

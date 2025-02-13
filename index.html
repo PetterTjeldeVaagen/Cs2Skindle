@@ -8,19 +8,22 @@
 </head>
 
 <body onload="createSkins()">
-  <div id="DifficultyPicker">
-    <div><input onchange="restart()" type="radio" id="Easiest" name="difficulty" value=1>
-    <label for="Easiest">Covert and Contraband (Easiest)</label></div>
-    <div><input onchange="restart()" type="radio" id="Easy" name="difficulty" value=2>
-    <label for="Easy">Classified and above (Easy)</label></div>
-    <div><input onchange="restart()" type="radio" id="Intermediate" name="difficulty" value=3 checked="checked">
-    <labelfor="Intermediate">Restricted and above(Intermediate)</label></div>
-    <div><input onchange="restart()" type="radio" id="Challenging" name="difficulty" value=4>
-    <label for="Challenging">Mil-Spec (Challenging)</label></div>
-    <div><input onchange="restart()" type="radio" id="Hard" name="difficulty" value=5>
-    <label for="Hard">Industrial and above (Hard)</label></div>
-    <div><input onchange="restart()" type="radio" id="VeryHard" name="difficulty" value=6>
-    <label for="VeryHard">All skins(Very Hard)</label></div>
+  <div class="DifficultyPicker">
+    <button class="dropbtn">Difficulties</button>
+    <div class="DifficultyPicker-content">
+      <div><input onchange="restart()" type="radio" id="Easiest" name="difficulty" value=1> 
+      <label for="Easiest">Covert only</label></div>
+      <div><input onchange="restart()" type="radio" id="Easy" name="difficulty" value=2>
+      <label for="Easy">Classified and above</label></div>
+      <div><input onchange="restart()" type="radio" id="Intermediate" name="difficulty" value=3 checked="checked">
+      <label for="Intermediate">Restricted and above</label></div>
+      <div><input onchange="restart()" type="radio" id="Challenging" name="difficulty" value=4>
+      <label for="Challenging">Mil-Spec and above</label></div>
+      <div><input onchange="restart()" type="radio" id="Hard" name="difficulty" value=5>
+      <label for="Hard">Industrial and above</label></div>
+      <div><input onchange="restart()" type="radio" id="VeryHard" name="difficulty" value=6>
+      <label for="VeryHard">All skins</label></div>
+    </div>
   </div>
   
   <h1>Skindle!</h1>
@@ -131,7 +134,7 @@
 
   <div style="display: none;" id="WinOrLossDiv">
     <p id="WinOrLossText"></p>
-    <button onclick="Restart()">Restart</button>
+    <button onclick="restart()">Restart</button>
   </div>
 </body>
 
