@@ -54,6 +54,48 @@ class Skin {
             break;
       }
 
+      //en del feil
+      switch (this.collection){
+        case "eSports 2013 Case" || "CS:GO Weapon Case 2" || "CS:GO Weapon Case" || "Operation Bravo Case" || "eSports 2013 Winter Case" || "Winter Offensive Weapon Case" || "The Assault Collection" || "The Aztec Collection" || "The Dust Collection" || "The Dust 2 Collection" || "The Inferno Collection" || "The Italy Collection" || "The Lake Collection" || "The Mirage Collection" || "The Nuke Collection" || "The Office Collection" || "The Train Collection" || "The Vertigo Collection" || "The Safehouse Collection" || "The Italy Collection" || "The Milita Collection":
+            this.year = 2013;
+            break;
+        case "CS:GO Weapon Case 3" || "Operation Breakout Weapon Case" || "eSports 2014 Summer Case"  || "Operation Phoenix Weapon Case" || "Operation Vanguard Weapon Case" || "Huntsman Weapon Case" || "The Bank Collection" || "The Baggage Collection" || "The Cobblestone Collection" || "The Overpass Collection" || "The Cache Collection":
+            this.year = 2014;   
+            break;
+        case "Chroma Case" || "Chroma 2 Case" || "Falchion Case" || "Shadow Case" || "Revolver Case" || "The Rising Sun Collection" || "The Chop Shop Collection" || "The Gods and Monsters Collection" :
+            this.year = 2015;
+            break;
+        case "Operation Wildfire Case" || "Chroma 3 Case" || "Gamma Case" || "Gamma 2 Case" || "Glove Case":
+            this.year = 2016;
+            break;
+        case "Operation Hydra Case" || "Spectrum Case" || "Spectrum 2 Case":
+            this.year = 2017;
+            break;
+        case "Clutch Case" || "Horizon Case" || "Danger Zone Case" || "The 2018 Nuke Collection" || "The 2018 Inferno Collection":
+            this.year = 2018;
+            break;
+        case "Prisma Case" || "CS20 Case" || "Shattered Web Case" || "The Canals Collection" || "The Norse Collection" || "The St.Marc Collection" || "X-Ray P250 Package":
+            this.year = 2019;
+            break;
+        case "Operation Broken Fang Case" || "Fracture Case" || "Prisma 2 Case" || "The Ancient Collection" || "The Control Collection" || "The Havoc Collection":
+            this.year = 2020;
+            break;
+        case "Snakebite Case" || "Operation Riptide Case" || "The 2021 Vertigo Collection"  || "The 2021 Mirage Collection" || "The 2021 Dust 2 Collection" || "The 2021 Train Collection":
+            this.year = 2021;
+            break;
+        case "Dreams & Nightmares Case" || "Recoil Case":
+            this.year = 2022;
+            break;
+        case "Revolution Case" || "Anubis Collection Package":
+            this.year = 2023;
+            break;
+        case "Kilowatt Case" || "Gallery Case" || "The Graphic Design Collection" || "The Sport & Field Collection" || "The Overpass 2024 Collection":
+            this.year = 2024;
+            
+            break;   
+        default:
+            print(this.collection);
+      }
 
     }  
 }
@@ -131,7 +173,7 @@ function randomInt(minimum, maximum) {
 let answerSkin
 function setAnswerSkin(){
     answerSkin=activeSkinList[randomInt(0,activeSkinList.length)]
-    console.log(activeSkinList.length);
+    console.log(answerSkin.year);
 }
 
 input=document.getElementById("searchBar");
