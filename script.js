@@ -2,11 +2,10 @@ class Skin {
     constructor(name, weaponClass,gun, rarity, collection) { 
       this.rarity = rarity;
       this.name = name;
-      this.class = weaponClass;
       this.gun = gun;
       this.collection = collection;
 
-      switch (rarity){
+      switch (this.rarity){
         case "Covert":
             this.rawRarity = 1;
             this.color = "#EB4B4B"
@@ -30,6 +29,28 @@ class Skin {
         case "Consumer Grade":
             this.rawRarity = 6;
             this.color = "#B0C3D9"
+            break;
+      }
+
+      switch (weaponClass){
+        case "Pistol":
+            this.class = weaponClass;
+            break;
+        case "Rifle":
+            if(this.gun == "AWP" || this.gun == "SSG 08" || this.gun == "SCAR-20" || this.gun == "G3SG1"){
+                this.class = "Sniper Rifle";
+            }else{
+                this.class = "Assault Rifle";
+            }
+            break;
+        case "Mid-Tier":
+            if(this.gun == "Negev" || this.gun == "M249"){
+                this.class = "Machine Gun";
+            }else if(this.gun == "XM1014" || this.gun == "MAG-7" || this.gun == "Nova" || this.gun == "Sawed-Off"){
+                this.class = "Shotgun";
+            }else {
+                this.class = "SMG";
+            }
             break;
       }
 
@@ -69,9 +90,10 @@ function guess(input){
     }
 }
 
-function Restart(){
+function restart(){
     guessCounter=0;
     gameActive=true;
+    sortList()
     for(let i =1; i<11; i++){
         guessRow=document.getElementById(i);
         guessRow.getElementsByClassName("Name")[0].innerHTML=" ";
@@ -109,7 +131,7 @@ function randomInt(minimum, maximum) {
 let answerSkin
 function setAnswerSkin(){
     answerSkin=activeSkinList[randomInt(0,activeSkinList.length)]
-    console.log(answerSkin.name);
+    console.log(activeSkinList.length);
 }
 
 input=document.getElementById("searchBar");
