@@ -180,7 +180,7 @@ class Skin {
 }
 
 let guessCounter = 0;
-let elementList=["Class", "Gun", "Rarity", "Name"]
+
 
 //function for checking the players guess
 let gameActive=true;
@@ -237,12 +237,16 @@ function restart(){
         guessRow.getElementsByClassName("Gun")[0].innerHTML=" ";
         guessRow.getElementsByClassName("Rarity")[0].innerHTML=" ";
         guessRow.getElementsByClassName("Class")[0].innerHTML=" ";
+        guessRow.getElementsByClassName("Collection")[0].innerHTML=" ";
+        guessRow.getElementsByClassName("Year")[0].innerHTML=" ";
         guessRow.getElementsByClassName("Name")[0].style.backgroundColor="white";
         guessRow.getElementsByClassName("Gun")[0].style.backgroundColor="white";
         guessRow.getElementsByClassName("Rarity")[0].style.backgroundColor="white";
         guessRow.getElementsByClassName("Class")[0].style.backgroundColor="white";
+        guessRow.getElementsByClassName("Collection")[0].style.backgroundColor="white";
+        guessRow.getElementsByClassName("Year")[0].style.backgroundColor="white";
     }
-    for(let k= 15; k<21; k++){
+    for(let k= 15; k<25; k++){
         let element =document.getElementById(k);
         element.innerHTML=" ";
     }  
@@ -287,7 +291,7 @@ function search(){
     search = search.replace(/-|\s/g,"");
     results=0;
     if(gameActive==true){
-        for(let i =0; i<activeSkinList.length && results<6;i++){
+        for(let i =0; i<activeSkinList.length && results<10;i++){
             var skinName =activeSkinList[i].name.toLowerCase()
             skinName=skinName.replace(/-|\s/g,"");
             if(skinName.includes(search)){
@@ -295,10 +299,10 @@ function search(){
                 results++;
             }
         }
-        for(let b=15; b<21; b++){
+        for(let b=15; b<25; b++){
             document.getElementById(b).innerHTML=" ";         
         }
-        for(let k= 15; k<21; k++){
+        for(let k= 15; k<25; k++){
             let element =document.getElementById(k);
             element.innerHTML=" ";
             element.innerHTML=searchList[k-15].name + " " + searchList[k-15].gun;
@@ -323,7 +327,7 @@ function sortList(){
 
 //Creates a list with all the skins in the game
 let skinList =[];
-function createSkins(){
+function createSkins(input){
 skinList.push(new Skin("Victoria","Pistol","CZ75-Auto","Covert","CS:GO Weapon Case 3")) 
 skinList.push(new Skin("Xiangliu","Pistol","CZ75-Auto","Classified","Spectrum Case")) 
 skinList.push(new Skin("Yellow Jacket","Pistol","CZ75-Auto","Classified","Falchion Case")) 
@@ -1548,8 +1552,15 @@ skinList.push(new Skin("Boreal Forest","Pistol","P250","Consumer Grade","The Lak
 skinList.push(new Skin("Bone Mask","Pistol","P250","Consumer Grade","The Mirage Collection")) 
 skinList.push(new Skin("Sand Dune","Pistol","P250","Consumer Grade","The Dust 2 Collection")) 
 
+if(input == 1){
     sortList();
     setAnswerSkin();
+}else if(input == 2){
+    dailyChallenge();
+}
 }
 
-
+function dailyChallenge(){
+    //get skin based on the date
+   
+}

@@ -7,9 +7,27 @@
     <title>Skindle</title>
 </head>
 
-<body onload="createSkins(2)">
-<h1>Skindle!</h1>
-<a href="freeplay.html">Free Play</a>
+<body onload="createSkins(1)">
+  <div class="DifficultyPicker">
+    <button class="dropbtn">Difficulties</button>
+    <div class="DifficultyPicker-content">
+      <div><input onchange="restart()" type="radio" id="Easiest" name="difficulty" value=1> 
+      <label for="Easiest">Covert only</label></div>
+      <div><input onchange="restart()" type="radio" id="Easy" name="difficulty" value=2>
+      <label for="Easy">Classified and above</label></div>
+      <div><input onchange="restart()" type="radio" id="Intermediate" name="difficulty" value=3 checked="checked">
+      <label for="Intermediate">Restricted and above</label></div>
+      <div><input onchange="restart()" type="radio" id="Challenging" name="difficulty" value=4>
+      <label for="Challenging">Mil-Spec and above</label></div>
+      <div><input onchange="restart()" type="radio" id="Hard" name="difficulty" value=5>
+      <label for="Hard">Industrial and above</label></div>
+      <div><input onchange="restart()" type="radio" id="VeryHard" name="difficulty" value=6>
+      <label for="VeryHard">All skins</label></div>
+    </div>
+  </div>
+  
+  <h1>Skindle!</h1>
+  <a href="index.html">Daily Challenge</a>
 <div id="mainGrid"> 
   <div class="search-wrapper">
     <label>Search for a skin</label><br>
