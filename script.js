@@ -345,7 +345,6 @@ function dailyChallenge(){
     answerSkin = activeSkinList[daysDifference]
 }
 
-
 //Creates a list with all the skins in the game
 let skinList =[];
 function createSkins(input){

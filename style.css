@@ -4,16 +4,23 @@ table, th, tr {
   background-color: white;
 }
 
-th{
-height:2rem;
-width:8rem;
-font-size: 0.8rem;
+th {
+  height: 2rem;
+  width: 8rem;
+  font-size: 0.8rem;
 }
-h1{
-color: white;
-margin-top:2rem;
-margin-bottom: 0.5rem;
-font-size: 5rem;
+
+h1 {
+  color: white;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  font-size: 5rem;
+}
+
+#mainWrapper {
+  width: 80vw;
+  max-width: 1200px;
+  aspect-ratio: 16 / 9;
 }
 
 body {
@@ -32,15 +39,17 @@ body {
 #GuessTable {
   margin-left: auto;
   margin-right: auto;
+  width: 100%;
+  max-width: 800px;
 }
 
 .dropbtn {
   background-color: #05146b;
-  color: white; 
-  padding: 1rem; 
-  font-size: 2.5rem; 
-  border: none; 
-  cursor: pointer; 
+  color: white;
+  padding: 1rem;
+  font-size: 2.5rem;
+  border: none;
+  cursor: pointer;
 }
 
 .DifficultyPicker {
@@ -82,47 +91,78 @@ body {
   position: absolute;
   list-style: none;
   text-align: center;
-  width: 5rem;
+  width: 100%;
+  max-width: 12rem;
 }
 
-#SearchList button{
+#SearchList button {
   margin-left: auto;
   margin-right: auto;
   background-color: white;
   border: 1px solid black;
-  width: 12rem;
+  width: 100%;
   font-size: 0.75rem;
 }
 
-
 .search-wrapper {
-  padding-bottom: .6rem;
-  outline: .4rem solid black;
+  padding-bottom: 0.6rem;
+  outline: 0.4rem solid black;
   align-items: center;
   background-color: white;
-  width: 16rem;
+  width: 100%;
+  max-width: 16rem;
   height: 24rem;
   margin-left: auto;
   margin-right: auto;
 }
 
 .searchListElement {
-  width: 12rem;
+  width: 100%;
   height: 1.5rem;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   margin-left: auto;
   margin-right: auto;
 }
 
 #mainGrid {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem; 
+  gap: 2rem;
   margin-top: 1rem;
 }
 
 #gameModeLink {
   color: white;
   font-size: 1.5rem;
+}
+
+/* Media Queries for Responsive Design */
+@media (min-width: 768px) {
+  #mainGrid {
+    flex-direction: row;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  .dropbtn {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 767px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  .dropbtn {
+    font-size: 1.5rem;
+  }
+
+  th {
+    font-size: 0.7rem;
+  }
 }
