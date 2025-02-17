@@ -87,7 +87,7 @@ body {
   background-color: #05146b;
 }
 
-.SearchList {
+#SearchList {
   position: absolute;
   list-style: none;
   text-align: center;
@@ -95,7 +95,7 @@ body {
   max-width: 12rem;
 }
 
-.SearchList button {
+#SearchList button {
   margin-left: auto;
   margin-right: auto;
   background-color: white;
