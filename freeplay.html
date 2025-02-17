@@ -26,8 +26,11 @@
     </div>
   </div>
   
-  <h1>Skindle!</h1>
-  <a href="index.html">Daily Challenge</a>
+<h1>Skindle!</h1>
+<a id="gameModeLink" href="index.html">Daily Challenge</a>
+<div style="display: none;" id="WinOrLossDiv">
+  <p id="WinOrLossText"></p>
+</div>
 <div id="mainGrid"> 
   <div class="search-wrapper">
     <label>Search for a skin</label><br>
@@ -136,12 +139,6 @@
       <th class="Year"></th>
     </tr>
   </table>
-</div>
-
-  <div style="display: none;" id="WinOrLossDiv">
-    <p id="WinOrLossText"></p>
-    <button onclick="restart()">Restart</button>
-  </div>
 </body>
 
 <script src="script.js" type="text/javascript"></script>

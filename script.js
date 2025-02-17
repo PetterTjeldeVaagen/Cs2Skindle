@@ -284,30 +284,37 @@ function setAnswerSkin(){
 input=document.getElementById("searchBar");
 input.addEventListener('input', search);
 let searchList=[];
-function search(){
-    searchList=[];
-    search = input.value.toLowerCase();
-    search = search.replace(/-|\s/g,"");
-    results=0;
-    if(gameActive==true){
-        for(let i =0; i<activeSkinList.length && results<10;i++){
-            var skinName =activeSkinList[i].name.toLowerCase()
-            skinName=skinName.replace(/-|\s/g,"");
-            if(skinName.includes(search)){
+function search() {
+    searchList = [];
+    let searchInput = input.value.toLowerCase().replace(/-|\s/g, "");
+    let searchWords = input.value.toLowerCase().split(/-|\s/g);
+    results = 0;
+    if (gameActive == true) {
+        for (let i = 0; i < activeSkinList.length && results < 10; i++) {
+            let skinName = activeSkinList[i].name.toLowerCase().replace(/-|\s/g, "");
+            let gunName = activeSkinList[i].gun.toLowerCase().replace(/-|\s/g, "");
+            let combinedName = skinName + gunName;
+            let combinedNameReversed = gunName + skinName;
+
+            let match = searchWords.every(word => combinedName.includes(word) || combinedNameReversed.includes(word));
+
+            if (match) {
                 searchList.push(activeSkinList[i]);
                 results++;
             }
         }
-        for(let b=15; b<25; b++){
-            document.getElementById(b).innerHTML=" ";         
+        for (let b = 15; b < 25; b++) {
+            document.getElementById(b).innerHTML = " ";
         }
-        for(let k= 15; k<25; k++){
-            let element =document.getElementById(k);
-            element.innerHTML=" ";
-            element.innerHTML=searchList[k-15].name + " " + searchList[k-15].gun;
-            element.style.color=searchList[k-15].color;
+        for (let k = 15; k < 25; k++) {
+            let element = document.getElementById(k);
+            element.innerHTML = " ";
+            if (searchList[k - 15]) {
+                element.innerHTML = searchList[k - 15].name + " " + searchList[k - 15].gun;
+                element.style.color = searchList[k - 15].color;
+            }
         }
-    }    
+    }
 }
 
 //Sorts the list of skins based on the difficulty the player chooses
@@ -330,7 +337,11 @@ function dailyChallenge(){
     const startDate = new Date('2025-01-01');
     const timeDifference = date - startDate;
     const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-    activeSkinList = skinList;
+    for(skin of skinList){
+        if(skin.rawRarity<5){
+            activeSkinList.push(skin);
+        }
+    }
     answerSkin = activeSkinList[daysDifference]
 }
 
