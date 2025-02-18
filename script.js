@@ -185,7 +185,7 @@ let guessCounter = 0;
 //function for checking the players guess
 let gameActive=true;
 function guess(input){
-    if(gameActive==true){
+    if(gameActive==true && searchList[input].innerHTML != " "){
         let skinGuess = searchList[input];
         guessCounter++;
         var guessRow=document.getElementById(guessCounter);
