@@ -215,13 +215,13 @@ function guess(input){
         if(skinGuess == answerSkin ){
             gameActive = false;
             document.getElementById("WinOrLossDiv").style.display="block";
-            document.getElementById("WinOrLossText").innerHTML = "You got it the skin was:" + answerSkin.gun + " " + answerSkin.name + "!";
+            document.getElementById("WinOrLossText").innerHTML = "You got it the skin was: " + answerSkin.gun + " " + answerSkin.name + "!";
         }
 
         if(guessCounter == 10 && skinGuess != answerSkin){
             gameActive = false;
             document.getElementById("WinOrLossDiv").style.display="block";
-            document.getElementById("WinOrLossText").innerHTML = "You lost😂 the correct skin was:" + answerSkin.gun + " " + answerSkin.name + "!";
+            document.getElementById("WinOrLossText").innerHTML = "You lost😂 the correct skin was: " + answerSkin.gun + " " + answerSkin.name + "!";
         }
     }
 }

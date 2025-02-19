@@ -104,6 +104,11 @@ body {
   font-size: 0.75rem;
 }
 
+#WinOrLossText{
+  font-size: 1.5rem;
+  color: white;
+}
+
 .search-wrapper {
   padding-bottom: 0.6rem;
   outline: 0.4rem solid black;
