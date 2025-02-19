@@ -42,4 +42,26 @@
     <h2>Legal Basis for Processing (GDPR Compliance)</h2>
     <p>Under the General Data Protection Regulation (GDPR), we rely on:</p>
     <ul>
-        <li
+        <li><strong>Legitimate Interest</strong> for essential cookies.</li>
+        <li><strong>User Consent</strong> for analytics and advertising cookies.</li>
+    </ul>
+
+    <h2>Managing Cookies</h2>
+    <p>You can control or delete cookies at any time through your browser settings. If you choose to disable cookies, some parts of our website may not function properly.</p>
+    <p>For detailed instructions, visit <a href="https://www.aboutcookies.org/" target="_blank">AboutCookies.org</a>.</p>
+
+    <h2>Changing Your Cookie Preferences</h2>
+    <p>You can update your cookie preferences at any time by clearing your browser cookies or adjusting settings in our <a href="javascript:void(0);" onclick="resetCookies()">Cookie Preferences</a>.</p>
+
+    <script>
+        function resetCookies() {
+            document.cookie.split(";").forEach(function(cookie) {
+                document.cookie = cookie.replace(/^ +/, "").replace(/=.*/, "=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/");
+            });
+            alert("Cookies have been reset. Please refresh the page.");
+        }
+    </script>
+
+</body>
+</html>
+
