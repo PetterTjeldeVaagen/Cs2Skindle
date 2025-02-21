@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1F5GMMWRRS"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-1F5GMMWRRS');
-    </script>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="icon.png">
@@ -155,23 +146,5 @@
 <p>Send feedback to <a href="mailto:blinkendelys.com@gmail.com">blinkendelys.com@gmail.com</a></p> 
 </div>
 </body>
-<script>
-  window.addEventListener("load", function () {
-    if (!localStorage.getItem("cookiesAccepted")) {
-      let banner = document.createElement("div");
-      banner.innerHTML = `
-        <div style="position:fixed;bottom:0;left:0;width:100%;background:#222;color:#fff;padding:10px;text-align:center;">
-          We use cookies to improve user experience. <a href="cookies.html" style="color:#0af;">Read more</a>.
-          <button id="acceptCookies" style="margin-left:10px;padding:5px 10px;background:#0af;color:#fff;border:none;cursor:pointer;">OK</button>
-        </div>
-      `;
-      document.body.appendChild(banner);
-      document.getElementById("acceptCookies").onclick = function () {
-        localStorage.setItem("cookiesAccepted", "true");
-        banner.remove();
-      };
-    }
-  });
-</script>
 <script src="script.js" type="text/javascript"></script>
 </html>
