@@ -129,24 +129,7 @@
 </div>
 </body>
 
-<script>
-  window.addEventListener("load", function () {
-    if (!localStorage.getItem("cookiesAccepted")) {
-      let banner = document.createElement("div");
-      banner.innerHTML = `
-        <div style="position:fixed;bottom:0;left:0;width:100%;background:#222;color:#fff;padding:10px;text-align:center;">
-          We use cookies to improve user experience. <a href="cookies.html" style="color:#0af;">Read more</a>.
-          <button id="acceptCookies" style="margin-left:10px;padding:5px 10px;background:#0af;color:#fff;border:none;cursor:pointer;">OK</button>
-        </div>
-      `;
-      document.body.appendChild(banner);
-      document.getElementById("acceptCookies").onclick = function () {
-        localStorage.setItem("cookiesAccepted", "true");
-        banner.remove();
-      };
-    }
-  });
-</script>
-
+<script data-goatcounter="https://csskindle.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
 <script src="script.js" type="text/javascript"></script>
 </html>
