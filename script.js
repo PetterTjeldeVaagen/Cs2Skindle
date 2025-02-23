@@ -184,75 +184,75 @@ let guessCounter = 0;
 
 //function for checking the players guess
 let gameActive=true;
-function guess(input){
-    if(gameActive==true && searchList[input].innerHTML != " "){
+function guess(input) {
+    if (gameActive == true && searchList[input].innerHTML != " ") {
         let skinGuess = searchList[input];
         guessCounter++;
-        var guessRow=document.getElementById(guessCounter);
-        guessRow.getElementsByClassName("Class")[0].innerHTML=skinGuess.class;
-        guessRow.getElementsByClassName("Class")[0].style.backgroundColor =getColorOfSquare(skinGuess.class, answerSkin.class);
-        guessRow.getElementsByClassName("Gun")[0].innerHTML=skinGuess.gun;
-        guessRow.getElementsByClassName("Gun")[0].style.backgroundColor =getColorOfSquare(skinGuess.gun, answerSkin.gun);
-        guessRow.getElementsByClassName("Rarity")[0].innerHTML=skinGuess.rarity;
-        guessRow.getElementsByClassName("Rarity")[0].style.backgroundColor =getColorOfSquare(skinGuess.rarity, answerSkin.rarity);
-        guessRow.getElementsByClassName("Name")[0].innerHTML=skinGuess.name;
-        guessRow.getElementsByClassName("Name")[0].style.backgroundColor =getColorOfSquare(skinGuess.name, answerSkin.name);
-        guessRow.getElementsByClassName("Collection")[0].innerHTML=skinGuess.collection;
-        guessRow.getElementsByClassName("Collection")[0].style.backgroundColor =getColorOfSquare(skinGuess.collection, answerSkin.collection);
+        var guessRow = document.getElementById(guessCounter);
+        guessRow.getElementsByClassName("Class")[0].innerHTML = skinGuess.class;
+        guessRow.getElementsByClassName("Class")[0].style.backgroundColor = getColorOfSquare(skinGuess.class, answerSkin.class);
+        guessRow.getElementsByClassName("Gun")[0].innerHTML = skinGuess.gun;
+        guessRow.getElementsByClassName("Gun")[0].style.backgroundColor = getColorOfSquare(skinGuess.gun, answerSkin.gun);
+        guessRow.getElementsByClassName("Rarity")[0].innerHTML = skinGuess.rarity;
+        guessRow.getElementsByClassName("Rarity")[0].style.backgroundColor = getColorOfSquare(skinGuess.rarity, answerSkin.rarity);
+        guessRow.getElementsByClassName("Name")[0].innerHTML = skinGuess.name;
+        guessRow.getElementsByClassName("Name")[0].style.backgroundColor = getColorOfSquare(skinGuess.name, answerSkin.name);
+        guessRow.getElementsByClassName("Collection")[0].innerHTML = skinGuess.collection;
+        guessRow.getElementsByClassName("Collection")[0].style.backgroundColor = getColorOfSquare(skinGuess.collection, answerSkin.collection);
 
-        guessRow.getElementsByClassName("Year")[0].style.backgroundColor =getColorOfSquare(skinGuess.year, answerSkin.year);
-        if(skinGuess.year < answerSkin.year){
-            guessRow.getElementsByClassName("Year")[0].innerHTML=skinGuess.year + '🔼';
-        }else if(skinGuess.year > answerSkin.year){
-            guessRow.getElementsByClassName("Year")[0].innerHTML=skinGuess.year + '🔽';
-        }else{
-            guessRow.getElementsByClassName("Year")[0].innerHTML=skinGuess.year;
+        guessRow.getElementsByClassName("Year")[0].style.backgroundColor = getColorOfSquare(skinGuess.year, answerSkin.year);
+        if (skinGuess.year < answerSkin.year) {
+            guessRow.getElementsByClassName("Year")[0].innerHTML = skinGuess.year + '🔼';
+        } else if (skinGuess.year > answerSkin.year) {
+            guessRow.getElementsByClassName("Year")[0].innerHTML = skinGuess.year + '🔽';
+        } else {
+            guessRow.getElementsByClassName("Year")[0].innerHTML = skinGuess.year;
         }
-        
-        
 
+        saveGuesses();
 
-        if(skinGuess == answerSkin ){
+        if (skinGuess == answerSkin) {
             gameActive = false;
-            document.getElementById("WinOrLossDiv").style.display="block";
+            document.getElementById("WinOrLossDiv").style.display = "block";
             document.getElementById("WinOrLossText").innerHTML = "You got it the skin was: " + answerSkin.gun + " " + answerSkin.name + "!";
         }
 
-        if(guessCounter == 10 && skinGuess != answerSkin){
+        if (guessCounter == 10 && skinGuess != answerSkin) {
             gameActive = false;
-            document.getElementById("WinOrLossDiv").style.display="block";
+            document.getElementById("WinOrLossDiv").style.display = "block";
             document.getElementById("WinOrLossText").innerHTML = "You lost😂 the correct skin was: " + answerSkin.gun + " " + answerSkin.name + "!";
         }
     }
 }
-
 //Function that restarts the game
-function restart(){
-    guessCounter=0;
-    gameActive=true;
-    sortList()
-    for(let i =1; i<11; i++){
-        guessRow=document.getElementById(i);
-        guessRow.getElementsByClassName("Name")[0].innerHTML=" ";
-        guessRow.getElementsByClassName("Gun")[0].innerHTML=" ";
-        guessRow.getElementsByClassName("Rarity")[0].innerHTML=" ";
-        guessRow.getElementsByClassName("Class")[0].innerHTML=" ";
-        guessRow.getElementsByClassName("Collection")[0].innerHTML=" ";
-        guessRow.getElementsByClassName("Year")[0].innerHTML=" ";
-        guessRow.getElementsByClassName("Name")[0].style.backgroundColor="white";
-        guessRow.getElementsByClassName("Gun")[0].style.backgroundColor="white";
-        guessRow.getElementsByClassName("Rarity")[0].style.backgroundColor="white";
-        guessRow.getElementsByClassName("Class")[0].style.backgroundColor="white";
-        guessRow.getElementsByClassName("Collection")[0].style.backgroundColor="white";
-        guessRow.getElementsByClassName("Year")[0].style.backgroundColor="white";
+function restart() {
+    guessCounter = 0;
+    gameActive = true;
+    sortList();
+    for (let i = 1; i < 11; i++) {
+        guessRow = document.getElementById(i);
+        guessRow.getElementsByClassName("Class")[0].innerHTML = " ";
+        guessRow.getElementsByClassName("Gun")[0].innerHTML = " ";
+        guessRow.getElementsByClassName("Rarity")[0].innerHTML = " ";
+        guessRow.getElementsByClassName("Name")[0].innerHTML = " ";
+        guessRow.getElementsByClassName("Collection")[0].innerHTML = " ";
+        guessRow.getElementsByClassName("Year")[0].innerHTML = " ";
+        guessRow.getElementsByClassName("Class")[0].style.backgroundColor = "white";
+        guessRow.getElementsByClassName("Gun")[0].style.backgroundColor = "white";
+        guessRow.getElementsByClassName("Rarity")[0].style.backgroundColor = "white";
+        guessRow.getElementsByClassName("Name")[0].style.backgroundColor = "white";
+        guessRow.getElementsByClassName("Collection")[0].style.backgroundColor = "white";
+        guessRow.getElementsByClassName("Year")[0].style.backgroundColor = "white";
     }
-    for(let k= 15; k<25; k++){
-        let element =document.getElementById(k);
-        element.innerHTML=" ";
-    }  
-    document.getElementById("WinOrLossDiv").style.display="none";
+    for (let k = 15; k < 25; k++) {
+        let element = document.getElementById(k);
+        element.innerHTML = " ";
+    }
+    document.getElementById("WinOrLossDiv").style.display = "none";
     setAnswerSkin();
-    input.value="";
+    input.value = "";
+    localStorage.removeItem('guesses');
+    localStorage.removeItem('guessDate');
 }
 
 //Function that returns the color of the square based on the input
@@ -376,7 +376,7 @@ skinList.push(new Skin("Violent Daimyo","Pistol","Five-SeveN","Mil-Spec","Gamma 
 skinList.push(new Skin("Olive Plaid","Mid-Tier","MP7","Consumer Grade","The Baggage Collection")) 
 skinList.push(new Skin("Irradiated Alert","Mid-Tier","MAG-7","Consumer Grade","The Nuke Collection")) 
 skinList.push(new Skin("Heat","Mid-Tier","MAC-10","Restricted","Operation Phoenix Weapon Case")) 
-skinList.push(new Skin("Full Stop","Mid-Tier","Sawed-Off","Mil-Spec","The Italy Collection")) 
+skinList.push(new Skin("Full Stop","Mid-Tier","MP9","Mil-Spec","The Italy Collection")) 
 skinList.push(new Skin("Midnight Paintover","Pistol","Five-SeveN","Industrial Grade","The Overpass 2024 Collection")) 
 skinList.push(new Skin("Carved Jade","Rifle","AUG","Mil-Spec","The Ancient Collection")) 
 skinList.push(new Skin("Blood Tiger","Pistol","USP-S","Mil-Spec","eSports 2014 Summer Case")) 
@@ -970,7 +970,7 @@ skinList.push(new Skin("Inlay","Pistol","R8 Revolver","Consumer Grade","Anubis C
 skinList.push(new Skin("Ice Coaled","Rifle","AK-47","Classified","Recoil Case")) 
 skinList.push(new Skin("Leet Museo","Rifle","AK-47","Covert","Operation Riptide Case")) 
 skinList.push(new Skin("Nevermore","Pistol","P250","Restricted","Danger Zone Case")) 
-skinList.push(new Skin("Stinger","Rifle","G3SG1","Restricted","Glove Case")) 
+skinList.push(new Skin("Stinger","Rifle","SSG 08","Restricted","Glove Case")) 
 skinList.push(new Skin("Momentum","Rifle","AUG","Classified","Prisma Case")) 
 skinList.push(new Skin("Wildfire","Rifle","AWP","Covert","CS20 Case")) 
 skinList.push(new Skin("Damascus Steel","Rifle","SG 553","Mil-Spec","The Dust 2 Collection")) 
@@ -1578,5 +1578,64 @@ if(input == 1){
 }else if(input == 2){
     dailyChallenge();
 }
+}
+
+function loadGuesses() {
+    const savedGuesses = JSON.parse(localStorage.getItem('guesses'));
+    const savedDate = localStorage.getItem('guessDate');
+    const today = new Date().toISOString().split('T')[0];
+
+    if (savedGuesses && savedDate === today) {
+        guessCounter = savedGuesses.length;
+        for (let i = 0; i < savedGuesses.length; i++) {
+            const guess = savedGuesses[i];
+            const guessRow = document.getElementById(i + 1);
+            guessRow.getElementsByClassName("Class")[0].innerHTML = guess.class;
+            guessRow.getElementsByClassName("Class")[0].style.backgroundColor = guess.classColor;
+            guessRow.getElementsByClassName("Gun")[0].innerHTML = guess.gun;
+            guessRow.getElementsByClassName("Gun")[0].style.backgroundColor = guess.gunColor;
+            guessRow.getElementsByClassName("Rarity")[0].innerHTML = guess.rarity;
+            guessRow.getElementsByClassName("Rarity")[0].style.backgroundColor = guess.rarityColor;
+            guessRow.getElementsByClassName("Name")[0].innerHTML = guess.name;
+            guessRow.getElementsByClassName("Name")[0].style.backgroundColor = guess.nameColor;
+            guessRow.getElementsByClassName("Collection")[0].innerHTML = guess.collection;
+            guessRow.getElementsByClassName("Collection")[0].style.backgroundColor = guess.collectionColor;
+            guessRow.getElementsByClassName("Year")[0].innerHTML = guess.year;
+            guessRow.getElementsByClassName("Year")[0].style.backgroundColor = guess.yearColor;
+        }
+    } else {
+        localStorage.removeItem('guesses');
+        localStorage.removeItem('guessDate');
+    }
+}
+
+function saveGuesses() {
+    const guesses = [];
+    for (let i = 1; i <= guessCounter; i++) {
+        const guessRow = document.getElementById(i);
+        const guess = {
+            class: guessRow.getElementsByClassName("Class")[0].innerHTML,
+            classColor: guessRow.getElementsByClassName("Class")[0].style.backgroundColor,
+            gun: guessRow.getElementsByClassName("Gun")[0].innerHTML,
+            gunColor: guessRow.getElementsByClassName("Gun")[0].style.backgroundColor,
+            rarity: guessRow.getElementsByClassName("Rarity")[0].innerHTML,
+            rarityColor: guessRow.getElementsByClassName("Rarity")[0].style.backgroundColor,
+            name: guessRow.getElementsByClassName("Name")[0].innerHTML,
+            nameColor: guessRow.getElementsByClassName("Name")[0].style.backgroundColor,
+            collection: guessRow.getElementsByClassName("Collection")[0].innerHTML,
+            collectionColor: guessRow.getElementsByClassName("Collection")[0].style.backgroundColor,
+            year: guessRow.getElementsByClassName("Year")[0].innerHTML,
+            yearColor: guessRow.getElementsByClassName("Year")[0].style.backgroundColor
+        };
+        guesses.push(guess);
+    }
+    const today = new Date().toISOString().split('T')[0]; // Get current date in YYYY-MM-DD format
+    localStorage.setItem('guesses', JSON.stringify(guesses));
+    localStorage.setItem('guessDate', today);
+}
+
+window.onload = function() {
+    createSkins(2);
+    loadGuesses();
 }
 
