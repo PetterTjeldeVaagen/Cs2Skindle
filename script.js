@@ -180,12 +180,12 @@ class Skin {
 }
 
 let guessCounter = 0;
-
+let gameActive = true;
+let dailyChallengeActive = false; // Flag to indicate if daily challenge mode is active
 
 //function for checking the players guess
-let gameActive=true;
 function guess(input) {
-    if (gameActive == true && searchList[input].innerHTML != " ") {
+    if (gameActive && searchList[input].innerHTML != " ") {
         let skinGuess = searchList[input];
         guessCounter++;
         var guessRow = document.getElementById(guessCounter);
@@ -209,7 +209,9 @@ function guess(input) {
             guessRow.getElementsByClassName("Year")[0].innerHTML = skinGuess.year;
         }
 
-        saveGuesses();
+        if (dailyChallengeActive) {
+            saveGuesses();
+        }
 
         if (skinGuess == answerSkin) {
             gameActive = false;
@@ -228,6 +230,7 @@ function guess(input) {
 function restart() {
     guessCounter = 0;
     gameActive = true;
+    dailyChallengeActive = false; // Reset the daily challenge flag
     sortList();
     for (let i = 1; i < 11; i++) {
         guessRow = document.getElementById(i);
@@ -328,10 +331,10 @@ function sortList(){
             activeSkinList.push(skinList[i]);
         }
     }
-
 }
 
 function dailyChallenge(){
+    dailyChallengeActive = true; // Set the daily challenge flag
     //get skin based on the date
     const date = new Date();
     const startDate = new Date('2025-01-01');
@@ -343,6 +346,7 @@ function dailyChallenge(){
         }
     }
     answerSkin = activeSkinList[daysDifference]
+    loadGuesses();
 }
 
 //Creates a list with all the skins in the game
@@ -1573,7 +1577,6 @@ skinList.push(new Skin("Hieroglyph","Mid-Tier","XM1014","Consumer Grade","Anubis
 skinList.push(new Skin("Blaze","Pistol","R8 Revolver","Mil-Spec","The 2021 Train Collection")) 
 
 if(input == 1){
-    sortList();
     setAnswerSkin();
 }else if(input == 2){
     dailyChallenge();
@@ -1585,7 +1588,7 @@ function loadGuesses() {
     const savedDate = localStorage.getItem('guessDate');
     const today = new Date().toISOString().split('T')[0];
 
-    if (savedGuesses && savedDate === today) {
+    if (savedGuesses && savedDate === today && dailyChallengeActive) {
         guessCounter = savedGuesses.length;
         for (let i = 0; i < savedGuesses.length; i++) {
             const guess = savedGuesses[i];
@@ -1610,32 +1613,30 @@ function loadGuesses() {
 }
 
 function saveGuesses() {
-    const guesses = [];
-    for (let i = 1; i <= guessCounter; i++) {
-        const guessRow = document.getElementById(i);
-        const guess = {
-            class: guessRow.getElementsByClassName("Class")[0].innerHTML,
-            classColor: guessRow.getElementsByClassName("Class")[0].style.backgroundColor,
-            gun: guessRow.getElementsByClassName("Gun")[0].innerHTML,
-            gunColor: guessRow.getElementsByClassName("Gun")[0].style.backgroundColor,
-            rarity: guessRow.getElementsByClassName("Rarity")[0].innerHTML,
-            rarityColor: guessRow.getElementsByClassName("Rarity")[0].style.backgroundColor,
-            name: guessRow.getElementsByClassName("Name")[0].innerHTML,
-            nameColor: guessRow.getElementsByClassName("Name")[0].style.backgroundColor,
-            collection: guessRow.getElementsByClassName("Collection")[0].innerHTML,
-            collectionColor: guessRow.getElementsByClassName("Collection")[0].style.backgroundColor,
-            year: guessRow.getElementsByClassName("Year")[0].innerHTML,
-            yearColor: guessRow.getElementsByClassName("Year")[0].style.backgroundColor
-        };
-        guesses.push(guess);
+    if (dailyChallengeActive) {
+        // Save the guesses only if daily challenge mode is active
+        const guesses = [];
+        for (let i = 1; i <= guessCounter; i++) {
+            const guessRow = document.getElementById(i);
+            const guess = {
+                class: guessRow.getElementsByClassName("Class")[0].innerHTML,
+                classColor: guessRow.getElementsByClassName("Class")[0].style.backgroundColor,
+                gun: guessRow.getElementsByClassName("Gun")[0].innerHTML,
+                gunColor: guessRow.getElementsByClassName("Gun")[0].style.backgroundColor,
+                rarity: guessRow.getElementsByClassName("Rarity")[0].innerHTML,
+                rarityColor: guessRow.getElementsByClassName("Rarity")[0].style.backgroundColor,
+                name: guessRow.getElementsByClassName("Name")[0].innerHTML,
+                nameColor: guessRow.getElementsByClassName("Name")[0].style.backgroundColor,
+                collection: guessRow.getElementsByClassName("Collection")[0].innerHTML,
+                collectionColor: guessRow.getElementsByClassName("Collection")[0].style.backgroundColor,
+                year: guessRow.getElementsByClassName("Year")[0].innerHTML,
+                yearColor: guessRow.getElementsByClassName("Year")[0].style.backgroundColor
+            };
+            guesses.push(guess);
+        }
+        const today = new Date().toISOString().split('T')[0]; // Get current date in YYYY-MM-DD format
+        localStorage.setItem('guesses', JSON.stringify(guesses));
+        localStorage.setItem('guessDate', today);
     }
-    const today = new Date().toISOString().split('T')[0]; // Get current date in YYYY-MM-DD format
-    localStorage.setItem('guesses', JSON.stringify(guesses));
-    localStorage.setItem('guessDate', today);
-}
-
-window.onload = function() {
-    createSkins(2);
-    loadGuesses();
 }
 

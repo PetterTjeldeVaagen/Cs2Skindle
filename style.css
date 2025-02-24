@@ -171,3 +171,40 @@ body {
     font-size: 0.7rem;
   }
 }
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  color: white;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 2000%; /* Use percentage for responsive width */
+  max-width: 40rem; /* Set a maximum width */
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 0.6rem;
+  padding: 0.5rem;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%; /* Position the tooltip above the text */
+  left: 50%;
+  transform: translateX(-50%); /* Center the tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 767px) {
+  .tooltip .tooltiptext {
+    width: 350%; /* Adjust width for smaller screens */
+    padding: 1rem; /* Increase padding for readability */
+  }
+}
