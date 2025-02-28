@@ -195,6 +195,7 @@ function guess(input) {
         guessRow.getElementsByClassName("Gun")[0].style.backgroundColor = getColorOfSquare(skinGuess.gun, answerSkin.gun);
         guessRow.getElementsByClassName("Rarity")[0].innerHTML = skinGuess.rarity;
         guessRow.getElementsByClassName("Rarity")[0].style.backgroundColor = getColorOfSquare(skinGuess.rarity, answerSkin.rarity);
+        guessRow.getElementsByClassName("Rarity")[0].style.color = getRarityColor(skinGuess.rarity); 
         guessRow.getElementsByClassName("Name")[0].innerHTML = skinGuess.name;
         guessRow.getElementsByClassName("Name")[0].style.backgroundColor = getColorOfSquare(skinGuess.name, answerSkin.name);
         guessRow.getElementsByClassName("Collection")[0].innerHTML = skinGuess.collection;
@@ -226,6 +227,27 @@ function guess(input) {
         }
     }
 }
+
+// Function to get the color based on rarity
+function getRarityColor(rarity) {
+    switch (rarity) {
+        case "Covert":
+            return "#eb4b4b"; 
+        case "Classified":
+            return "#d32ce6"; 
+        case "Restricted":
+            return "#8847ff"; 
+        case "Mil-Spec":
+            return "#4b69ff";
+        case "Industrial Grade":
+            return "#5e98d9";
+        case "Consumer Grade":
+            return "#b0c3d9"; 
+        default:
+            return "#000000"; 
+    }
+}
+
 //Function that restarts the game
 function restart() {
     guessCounter = 0;
@@ -1577,7 +1599,7 @@ skinList.push(new Skin("Hieroglyph","Mid-Tier","XM1014","Consumer Grade","Anubis
 skinList.push(new Skin("Blaze","Pistol","R8 Revolver","Mil-Spec","The 2021 Train Collection")) 
 
 if(input == 1){
-    setAnswerSkin();
+    restart();
 }else if(input == 2){
     dailyChallenge();
 }
