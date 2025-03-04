@@ -248,14 +248,12 @@ function getRarityColor(rarity) {
     }
 }
 
-//Function that restarts the game
 function restart() {
     guessCounter = 0;
     gameActive = true;
-    dailyChallengeActive = false; // Reset the daily challenge flag
     sortList();
     for (let i = 1; i < 11; i++) {
-        guessRow = document.getElementById(i);
+        let guessRow = document.getElementById(i);
         guessRow.getElementsByClassName("Class")[0].innerHTML = " ";
         guessRow.getElementsByClassName("Gun")[0].innerHTML = " ";
         guessRow.getElementsByClassName("Rarity")[0].innerHTML = " ";
@@ -276,8 +274,28 @@ function restart() {
     document.getElementById("WinOrLossDiv").style.display = "none";
     setAnswerSkin();
     input.value = "";
-    localStorage.removeItem('guesses');
-    localStorage.removeItem('guessDate');
+    if (!dailyChallengeActive) {
+        localStorage.removeItem('guesses');
+        localStorage.removeItem('guessDate');
+    }
+}
+
+function saveGuesses() {
+    const guesses = [];
+    for (let i = 1; i <= guessCounter; i++) {
+        const guessRow = document.getElementById(i);
+        const guess = {
+            class: guessRow.getElementsByClassName("Class")[0].innerHTML,
+            gun: guessRow.getElementsByClassName("Gun")[0].innerHTML,
+            rarity: guessRow.getElementsByClassName("Rarity")[0].innerHTML,
+            name: guessRow.getElementsByClassName("Name")[0].innerHTML,
+            collection: guessRow.getElementsByClassName("Collection")[0].innerHTML,
+            year: guessRow.getElementsByClassName("Year")[0].innerHTML
+        };
+        guesses.push(guess);
+    }
+    localStorage.setItem('guesses', JSON.stringify(guesses));
+    localStorage.setItem('guessDate', new Date().toISOString().split('T')[0]);
 }
 
 //Function that returns the color of the square based on the input
@@ -1603,62 +1621,5 @@ if(input == 1){
 }else if(input == 2){
     dailyChallenge();
 }
-}
-
-function loadGuesses() {
-    const savedGuesses = JSON.parse(localStorage.getItem('guesses'));
-    const savedDate = localStorage.getItem('guessDate');
-    const today = new Date().toISOString().split('T')[0];
-
-    if (savedGuesses && savedDate === today && dailyChallengeActive) {
-        guessCounter = savedGuesses.length;
-        for (let i = 0; i < savedGuesses.length; i++) {
-            const guess = savedGuesses[i];
-            const guessRow = document.getElementById(i + 1);
-            guessRow.getElementsByClassName("Class")[0].innerHTML = guess.class;
-            guessRow.getElementsByClassName("Class")[0].style.backgroundColor = guess.classColor;
-            guessRow.getElementsByClassName("Gun")[0].innerHTML = guess.gun;
-            guessRow.getElementsByClassName("Gun")[0].style.backgroundColor = guess.gunColor;
-            guessRow.getElementsByClassName("Rarity")[0].innerHTML = guess.rarity;
-            guessRow.getElementsByClassName("Rarity")[0].style.backgroundColor = guess.rarityColor;
-            guessRow.getElementsByClassName("Name")[0].innerHTML = guess.name;
-            guessRow.getElementsByClassName("Name")[0].style.backgroundColor = guess.nameColor;
-            guessRow.getElementsByClassName("Collection")[0].innerHTML = guess.collection;
-            guessRow.getElementsByClassName("Collection")[0].style.backgroundColor = guess.collectionColor;
-            guessRow.getElementsByClassName("Year")[0].innerHTML = guess.year;
-            guessRow.getElementsByClassName("Year")[0].style.backgroundColor = guess.yearColor;
-        }
-    } else {
-        localStorage.removeItem('guesses');
-        localStorage.removeItem('guessDate');
-    }
-}
-
-function saveGuesses() {
-    if (dailyChallengeActive) {
-        // Save the guesses only if daily challenge mode is active
-        const guesses = [];
-        for (let i = 1; i <= guessCounter; i++) {
-            const guessRow = document.getElementById(i);
-            const guess = {
-                class: guessRow.getElementsByClassName("Class")[0].innerHTML,
-                classColor: guessRow.getElementsByClassName("Class")[0].style.backgroundColor,
-                gun: guessRow.getElementsByClassName("Gun")[0].innerHTML,
-                gunColor: guessRow.getElementsByClassName("Gun")[0].style.backgroundColor,
-                rarity: guessRow.getElementsByClassName("Rarity")[0].innerHTML,
-                rarityColor: guessRow.getElementsByClassName("Rarity")[0].style.backgroundColor,
-                name: guessRow.getElementsByClassName("Name")[0].innerHTML,
-                nameColor: guessRow.getElementsByClassName("Name")[0].style.backgroundColor,
-                collection: guessRow.getElementsByClassName("Collection")[0].innerHTML,
-                collectionColor: guessRow.getElementsByClassName("Collection")[0].style.backgroundColor,
-                year: guessRow.getElementsByClassName("Year")[0].innerHTML,
-                yearColor: guessRow.getElementsByClassName("Year")[0].style.backgroundColor
-            };
-            guesses.push(guess);
-        }
-        const today = new Date().toISOString().split('T')[0]; // Get current date in YYYY-MM-DD format
-        localStorage.setItem('guesses', JSON.stringify(guesses));
-        localStorage.setItem('guessDate', today);
-    }
 }
 
