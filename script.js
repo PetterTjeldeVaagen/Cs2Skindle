@@ -2,7 +2,7 @@ let guessCounter = 0;
 let gameActive = true;
 let dailyChallengeActive = false; // Flag to indicate if daily challenge mode is active
 
-//function for checking the players guess
+// Function for checking the player's guess
 function guess(input) {
     if (gameActive && searchList[input].innerHTML != " ") {
         let skinGuess = searchList[input];
@@ -68,14 +68,15 @@ function getRarityColor(rarity) {
 }
 
 function start(input){
+    createSkins(); // Ensure skins are created
     if(input == 1){
-        createSkins();
-        restart();
+        sortList();
+        setAnswerSkin();
     }else if(input == 2){
-        createSkins();
         dailyChallenge();
     }
 }
+
 function restart() {
     guessCounter = 0;
     gameActive = true;
@@ -152,7 +153,7 @@ function loadGuesses() {
     }
 }
 
-//Function that returns the color of the square based on the input
+// Function that returns the color of the square based on the input
 function getColorOfSquare(guessInput, answerInput){
     var squareColor;
     if(guessInput == answerInput){
@@ -171,14 +172,14 @@ function randomInt(minimum, maximum) {
     return Math.floor(Math.random() * (maximum - minimum + 1) + minimum);
 }
 
-//Sets the skin that the player is supposed to guess
+// Sets the skin that the player is supposed to guess
 let answerSkin
 function setAnswerSkin(){
     answerSkin=activeSkinList[randomInt(0,activeSkinList.length)]
 }
 
-//Search function that updates the list of skins based on the search input
-input=document.getElementById("searchBar");
+// Search function that updates the list of skins based on the search input
+let input = document.getElementById("searchBar");
 input.addEventListener('input', search);
 let searchList=[];
 function search() {
@@ -208,13 +209,13 @@ function search() {
             element.innerHTML = " ";
             if (searchList[k - 15]) {
                 element.innerHTML = searchList[k - 15].name + " " + searchList[k - 15].gun;
-                element.style.color = searchList[k - 15].color;
+                element.style.color = getRarityColor(searchList[k - 15].rarity);
             }
         }
     }
 }
 
-//Sorts the list of skins based on the difficulty the player chooses
+// Sorts the list of skins based on the difficulty the player chooses
 let activeSkinList=[];
 function sortList(){
     activeSkinList=[];
