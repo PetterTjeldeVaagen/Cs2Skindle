@@ -77,10 +77,9 @@ function start(input){
     }
 }
 
-function restart() {
+function restart(input) {
     guessCounter = 0;
     gameActive = true;
-    sortList();
     for (let i = 1; i < 11; i++) {
         let guessRow = document.getElementById(i);
         guessRow.getElementsByClassName("Class")[0].innerHTML = " ";
@@ -101,7 +100,10 @@ function restart() {
         element.innerHTML = " ";
     }
     document.getElementById("WinOrLossDiv").style.display = "none";
-    setAnswerSkin();
+    if(input != "daily"){
+        sortList();
+        setAnswerSkin();
+    }
     input.value = "";
 }
 
@@ -184,9 +186,8 @@ input.addEventListener('input', search);
 let searchList=[];
 function search() {
     searchList = [];
-    let searchInput = input.value.toLowerCase().replace(/-|\s/g, "");
     let searchWords = input.value.toLowerCase().split(/-|\s/g);
-    results = 0;
+    let results = 0;
     if (gameActive == true) {
         for (let i = 0; i < activeSkinList.length && results < 10; i++) {
             let skinName = activeSkinList[i].name.toLowerCase().replace(/-|\s/g, "");
@@ -230,17 +231,26 @@ function sortList(){
 
 function dailyChallenge(){
     dailyChallengeActive = true; // Set the daily challenge flag
+    const date = new Date().toISOString().split('T')[0];
+    const savedDate = localStorage.getItem('guessDate');
+
+    if (savedDate !== date) {
+        restart("daily")
+    } else {
+        loadGuesses(); // Load previous guesses if the player has already played the daily challenge
+        gameActive = true; // Ensure game is active for searching
+    }
+
     //get skin based on the date
-    const date = new Date();
     const startDate = new Date('2025-01-01');
-    const timeDifference = date - startDate;
+    const timeDifference = new Date() - startDate;
     const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
     for(skin of skinList){
         if(skin.rawRarity<5){
             activeSkinList.push(skin);
         }
     }
-    answerSkin = activeSkinList[daysDifference]
-    loadGuesses();
+    answerSkin = activeSkinList[daysDifference];
+    gameActive = savedDate !== date; // Ensure game is not active if already played
 }
 
