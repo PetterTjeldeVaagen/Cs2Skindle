@@ -25,7 +25,6 @@ h1 {
 
 body {
   text-align: center;
-  background: rgb(20,49,135);
   background: linear-gradient(180deg, rgba(20,49,135,1) 0%, rgba(18,125,161,1) 25%, rgba(8,159,180,1) 51%, rgba(17,178,144,1) 75%, rgba(6,214,160,1) 100%);
   background-attachment: fixed;
   font-family: Arial, Helvetica, sans-serif;
@@ -83,10 +82,6 @@ body {
   display: block;
 }
 
-.DifficultyPicker:hover .dropbtn {
-  background-color: #05146b;
-}
-
 #SearchList {
   position: absolute;
   list-style: none;
@@ -138,11 +133,6 @@ body {
   margin-top: 1rem;
 }
 
-#gameModeLink {
-  color: white;
-  font-size: 1.5rem;
-}
-
 /* Media Queries for Responsive Design */
 @media (min-width: 768px) {
   #mainGrid {
@@ -172,39 +162,18 @@ body {
   }
 }
 
-.tooltip {
-  position: relative;
+.navBar{
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.navBar li{
   display: inline-block;
+}
+
+.gameModeLink{
+  text-decoration: none;
   color: white;
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 2000%; /* Use percentage for responsive width */
-  max-width: 40rem; /* Set a maximum width */
-  background-color: #555;
-  color: #fff;
-  text-align: center;
-  border-radius: 0.6rem;
-  padding: 0.5rem;
-  position: absolute;
-  z-index: 1;
-  bottom: 125%; /* Position the tooltip above the text */
-  left: 50%;
-  transform: translateX(-50%); /* Center the tooltip */
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
-}
-
-/* Media Queries for Responsive Design */
-@media (max-width: 767px) {
-  .tooltip .tooltiptext {
-    width: 350%; /* Adjust width for smaller screens */
-    padding: 1rem; /* Increase padding for readability */
-  }
+  font-size: 2rem;
+  padding: 2rem;
 }

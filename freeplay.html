@@ -11,6 +11,14 @@
 </head>
 
 <body onload="start(1)">
+  <div id="navBar">
+    <ul class="navBar">
+      <li ><a class="gameModeLink" href="freeplay.html">Freeplay</a></li>
+      <li><a class="gameModeLink" href="index.html">Daily challenge</a></li>
+      <li><a class="gameModeLink" href="how_to_play.html">How to play</a></li>
+    </ul>
+  </div>
+  
   <div class="DifficultyPicker">
     <button class="dropbtn">Difficulties</button>
     <div class="DifficultyPicker-content">
@@ -27,15 +35,10 @@
       <div><input onchange="restart()" type="radio" id="VeryHard" name="difficulty" value=6>
       <label for="VeryHard">All skins</label></div>
     </div>
+
   </div>
 <div id="mainWrapper">
 <h1>Skindle!</h1>
-<a class="tooltip">how to play?
-  <span class="tooltiptext">Guess the CS:2 skin using the search bar. Correct elements will be highlighted in green. Use arrows for year hints.
-  </span>
-</a>
-<br>
-<a id="gameModeLink" href="index.html">Daily Challenge</a>
 <div style="display: none;" id="WinOrLossDiv">
   <p id="WinOrLossText"></p>
   <button onclick="restart()">Play again</button>
