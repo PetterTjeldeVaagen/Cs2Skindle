@@ -179,6 +179,7 @@ class Skin {
         case "The Boreal Collection":
         case "The Ascent Collection":
         case "The Train 2025 Collection":
+        case "Sealed Genesis Terminal":
             this.year = 2025;
             break;
 

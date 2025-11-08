@@ -29,6 +29,11 @@ function guess(input) {
             guessRow.getElementsByClassName("Year")[0].innerHTML = skinGuess.year;
         }
 
+        let index = searchList.name.indexOf(skinGuess.name);
+        if (index !== -1) {
+            searchList.splice(index, 1);
+        }
+
         if (dailyChallengeActive) {
             saveGuesses();
         }
