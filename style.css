@@ -177,3 +177,11 @@ body {
   font-size: 1.5rem;
   padding: 2rem;
 }
+
+#pageSelector{
+  display: flex;  
+}
+
+#pageNumber{
+  color: #000;
+}

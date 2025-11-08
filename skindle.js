@@ -29,11 +29,6 @@ function guess(input) {
             guessRow.getElementsByClassName("Year")[0].innerHTML = skinGuess.year;
         }
 
-        let index = searchList.name.indexOf(skinGuess.name);
-        if (index !== -1) {
-            searchList.splice(index, 1);
-        }
-
         if (dailyChallengeActive) {
             saveGuesses();
         }
@@ -80,6 +75,7 @@ function start(input){
     }else if(input == 2){
         dailyChallenge();
     }
+    changePage(0); //update pagecount
 }
 
 function restart(input) {
@@ -189,12 +185,13 @@ function setAnswerSkin(){
 let input = document.getElementById("searchBar");
 input.addEventListener('input', search);
 let searchList=[];
+let page = 0;
 function search() {
     searchList = [];
     let searchWords = input.value.toLowerCase().split(/-|\s/g);
     let results = 0;
     if (gameActive == true) {
-        for (let i = 0; i < activeSkinList.length && results < 10; i++) {
+        for (let i = 0; i < activeSkinList.length; i++) {
             let skinName = activeSkinList[i].name.toLowerCase().replace(/-|\s/g, "");
             let gunName = activeSkinList[i].gun.toLowerCase().replace(/-|\s/g, "");
             let combinedName = skinName + gunName;
@@ -213,11 +210,32 @@ function search() {
         for (let k = 15; k < 25; k++) {
             let element = document.getElementById(k);
             element.innerHTML = " ";
-            if (searchList[k - 15]) {
-                element.innerHTML = searchList[k - 15].name + " " + searchList[k - 15].gun;
-                element.style.color = getRarityColor(searchList[k - 15].rarity);
+            let index = (k+10*page) - 15;
+            if (searchList[index]) {
+                element.innerHTML = searchList[index].name + " " + searchList[index].gun;
+                element.style.color = getRarityColor(searchList[index].rarity);
             }
         }
+        changePage(-2)
+    }
+}
+
+function changePage(input){
+    let maxPage = 0;
+    if(searchList.length > 1){
+        maxPage = Math.ceil(searchList.length/10);
+    } else {
+        maxPage = Math.ceil(activeSkinList.length/10);
+    }
+    
+    if(page > -1 && page < maxPage+1 && input>-2) {
+        page += input;
+        document.getElementById("pageNumber").innerHTML = page+1 + "/" + maxPage;
+        
+    }
+
+    if(input>-2){
+        search();
     }
 }
 
