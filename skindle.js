@@ -105,7 +105,7 @@ function restart(input) {
         sortList();
         setAnswerSkin();
     }
-    input.value = "";
+    changePage(0);
 }
 
 function saveGuesses() {
@@ -228,15 +228,11 @@ function changePage(input){
         maxPage = Math.ceil(activeSkinList.length/10);
     }
     
-    if(page > -1 && page < maxPage+1 && input>-2) {
+    if(page+input > -1 && page+input <= maxPage && input>-2) {
         page += input;
-        document.getElementById("pageNumber").innerHTML = page+1 + "/" + maxPage;
-        
-    }
-
-    if(input>-2){
         search();
     }
+    document.getElementById("pageNumber").innerHTML = page+1 + "/" + maxPage;
 }
 
 // Sorts the list of skins based on the difficulty the player chooses
@@ -250,6 +246,7 @@ function sortList(){
             activeSkinList.push(skinList[i]);
         }
     }
+    changePage(0);
 }
 
 function dailyChallenge(){
