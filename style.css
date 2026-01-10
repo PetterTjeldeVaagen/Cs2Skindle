@@ -83,11 +83,14 @@ body {
 }
 
 #SearchList {
-  position: absolute;
+  position: static;
   list-style: none;
-  text-align: center;
+  padding: 0;
+  margin: 0.5rem auto 0;
   width: 100%;
   max-width: 12rem;
+
+  overflow: visible;
 }
 
 #SearchList button {
@@ -105,15 +108,16 @@ body {
 }
 
 .search-wrapper {
-  padding-bottom: 0.6rem;
   outline: 0.4rem solid black;
   align-items: center;
   background-color: white;
   width: 100%;
   max-width: 16rem;
-  height: 24rem;
+  height: auto;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
+  padding-bottom: 0.1rem;
 }
 
 .searchListElement {
@@ -180,6 +184,15 @@ body {
 
 #pageSelector{
   display: flex;  
+  position: static;
+  left: 0;
+  right: 0;
+  bottom: 0.1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.1rem;
 }
 
 #pageNumber{
