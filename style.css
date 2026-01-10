@@ -198,3 +198,7 @@ body {
 #pageNumber{
   color: #000;
 }
+
+.skinTacToeBoard{
+  border: 1px solid black;
+}

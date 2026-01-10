@@ -9,7 +9,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1577759186995249"
      crossorigin="anonymous"></script>
 </head>
-<body>
+<body onload="loadBoard()">
     <div id="navBar">
         <ul class="navBar">
             <li ><a class="gameModeLink" href="freeplay.html">Freeplay</a></li>
@@ -18,5 +18,64 @@
             <li><a class="gameModeLink" href="how_to_play.html">How to play</a></li>
         </ul>
     </div>
+    <h1>Skin-Tac-Toe!</h1>
+    <div id="mainWrapper">
+        <div class="search-wrapper">
+            <label>Search for a skin</label><br>
+            <input type="search" placeholder="Skin search" id="searchBar">
+            <ul id="SearchList">
+            <li class="searchListElement"><button class="searchListElement" onclick="guess(0)" id=15> </button></li>
+            <li class="searchListElement"><button class="searchListElement" onclick="guess(1)" id=16> </button> </li>
+            <li class="searchListElement"><button class="searchListElement" onclick="guess(2)" id=17> </button> </li>
+            <li class="searchListElement"><button class="searchListElement" onclick="guess(3)" id=18> </button></li>
+            <li class="searchListElement"><button class="searchListElement" onclick="guess(4)" id=19> </button></li>
+            <li class="searchListElement"><button class="searchListElement" onclick="guess(5)" id=20> </button></li>
+            <li class="searchListElement"><button class="searchListElement" onclick="guess(6)" id=21> </button> </li>
+            <li class="searchListElement"><button class="searchListElement" onclick="guess(7)" id=22> </button></li>
+            <li class="searchListElement"><button class="searchListElement" onclick="guess(8)" id=23> </button></li>
+            <li class="searchListElement"><button class="searchListElement" onclick="guess(9)" id=24> </button></li>
+            </ul> 
+            <br>
+            <div id="pageSelector">
+            <button onclick="changePage(-1)"> < </button>
+            <p id="pageNumber"></p>
+            <button onclick="changePage(1)"> > </button>
+            </div>
+        </div>
+
+        <div class="skinTacToeBoard">
+            <table>
+                <tr>
+                    <td>Skin-Tac-Toe</td>
+                    <td id="tileA"><p></p></td>
+                    <td id="tileB"></td>
+                    <td id="tileC"></td>
+                </tr>
+                <tr>
+                    <td id="tile1"></td>
+                    <td><button onclick="chose()">+</button></td>
+                    <td><button onclick="chose()">+</button></td>
+                    <td><button onclick="chose()">+</button></td>
+                </tr>
+                <tr>
+                    <td id="tile2"></td>
+                    <td><button onclick="chose()">+</button></td>
+                    <td><button onclick="chose()">+</button></td>
+                    <td><button onclick="chose()">+</button></td>
+                </tr>
+                <tr>
+                    <td id="tile3"></td>
+                    <td><button onclick="chose()">+</button></td>
+                    <td><button onclick="chose()">+</button></td>
+                    <td><button onclick="chose()">+</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
 </body>
+<script data-goatcounter="https://csskindle.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+<script src="skinTacToe.js" type="text/javascript"></script>
+<script src="skins.js" type="text/javascript"></script>
 </html>
