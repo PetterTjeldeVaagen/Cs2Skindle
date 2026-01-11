@@ -1,10 +1,13 @@
+let guessCounter = 0;
 let gameActive = true;
+const conditionTiles = ["tileA", "tileB", "tileC","tile1","tile2", "tile3"];
 function loadBoard(){
     createSkins();
-    const conditionTiles = ["tileA", "tileB", "tileC","tile1","tile2", "tile3"];
-    for(let i = 0; i < conditionTiles.length; i++){
-        let condition = getCondition(i);
-        document.getElementById(conditionTiles[i]).innerHTML = condition.conditionText;
+    sortList()
+    changePage(0);
+    setConditions();
+    for(let i = 0; i < boardConditions.length; i++){
+        document.getElementById(conditionTiles[i]).innerHTML = boardConditions[i].conditionText;
     }
 }
 
@@ -14,56 +17,92 @@ class Condition {
         this.skinAttribute = skinAttribute;
         this.skinAttributeName = skinAttributeName;
     }
+
+    //fungerer bare av og til
+    checkSkin(skinToCheck){
+        switch(this.skinAttributeName){
+            case "collection":
+                if(this.skinAttribute == "case" && skinToCheck.collection.trim().split(/\s+/).pop() == "case"){
+                    return true;
+                }else if(this.skinAttribute == "collection" && skinToCheck.collection.trim().split(/\s+/).pop() == "collection"){
+                    return true;
+                } else {
+                    return false;
+                }
+            case "year":
+                if(this.skinAttribute == 2018 && skinToCheck.year < 2019){
+                    return true;
+                } else if(this.skinAttribute == 2019 && skinToCheck.year > 2018){
+                    return true;
+                } else {
+                    return false;
+                }
+            case "class":
+                if(skinToCheck.class == this.skinAttribute){
+                    return true;
+                } else {
+                    return false;
+                }
+            case "rarity":
+                if(skinToCheck.rarity == this.skinAttribute){
+                    return true;
+                } else {
+                    return false;
+                }
+            default:
+                return false;
+        }
+    }
 }
 
 let topBoardType1;
 let topBoardType2;
 let sideBoardType1;
 let sideBoardType2;
-function getCondition(tileNumber){
+let boardConditions = [];
+function setConditions(){
     const numbers = [0,1,2,3];
-    if(tileNumber == 0) {
-        topBoardType1 = Math.floor(Math.random() * 4);
-        let index = numbers.indexOf(topBoardType1);
-        if (index !== -1) {
-            numbers.splice(index, 1);
-        }
-
-        do {
-            topBoardType2 = Math.floor(Math.random() * 4);
-        } while (topBoardType2 === topBoardType1);
-
-        index = numbers.indexOf(topBoardType2);
-        if (index !== -1) {
-            numbers.splice(index, 1);
-        }
-        sideBoardType1 = numbers[0];
-        sideBoardType2 = numbers[1];
-    } 
-
-    let number = Math.floor(Math.random()*2);
-    
+    boardConditions = [];
     let condition;
-    if(tileNumber<3){
-        if(number == 0){
-            condition = getRandomCondition(topBoardType1);
-        } else {
-            condition = getRandomCondition(topBoardType2);
-        }
-    } else {
-        if(number == 0){
-            condition = getRandomCondition(sideBoardType1);
-        } else {
-            condition = getRandomCondition(sideBoardType2);
-        }
+    topBoardType1 = Math.floor(Math.random() * 4);
+    let index = numbers.indexOf(topBoardType1);
+    if (index !== -1) {
+        numbers.splice(index, 1);
     }
 
-    checkPossibilities(condition);
-    return condition
+    do {
+        topBoardType2 = Math.floor(Math.random() * 4);
+    } while (topBoardType2 === topBoardType1);
 
+    index = numbers.indexOf(topBoardType2);
+    if (index !== -1) {
+        numbers.splice(index, 1);
+    }
+    sideBoardType1 = numbers[0];
+    sideBoardType2 = numbers[1];
+
+    for(let i = 0; i <6; i++){
+        let number = Math.floor(Math.random()*2);
+            
+        if(i<3){
+            if(number == 0){
+                condition = getRandomCondition(topBoardType1);
+            } else {
+                condition = getRandomCondition(topBoardType2);
+            }
+        } else {
+            if(number == 0){
+                condition = getRandomCondition(sideBoardType1);
+            } else {
+                condition = getRandomCondition(sideBoardType2);
+            }
+        }
+        boardConditions.push(condition);
+    }
+    checkPossibilities(condition);
 
     //newer/older than 0
-    // case or collection 1
+    //case or collection 1
     //specific class 2
     //rarity 3
 }
@@ -110,12 +149,22 @@ function checkPossibilities(){
 
 }
 
-function guess(){
-
+function guess(input){
+    let skinGuess = searchList[input];
+    for(let top = 0; top<3; top++){
+        for(let side = 3; side<6; side++){
+            let conditionTop = boardConditions[top];
+            let conditionSide = boardConditions[side];
+            //console.log(conditionSide.conditionText + "   " + conditionTop.conditionText + "    " + skinGuess.name);
+            if(conditionTop.checkSkin(skinGuess) && conditionSide.checkSkin(skinGuess)){
+                console.log("hit");
+            } else {
+                console.log("miss");
+            }
+        }
+    }
 }
 
-
-// Search function that updates the list of skins based on the search input
 let input = document.getElementById("searchBar");
 input.addEventListener('input', search);
 let searchList=[];
@@ -147,11 +196,19 @@ function search() {
             let index = (k+10*page) - 15;
             if (searchList[index]) {
                 element.innerHTML = searchList[index].name + " " + searchList[index].gun;
-                element.style.color = getRarityColor(searchList[index].rarity);
             }
         }
         changePage(-2)
     }
+}
+
+let activeSkinList=[];
+function sortList(){
+    activeSkinList=[];
+    for(let i = 0; i<skinList.length;i++){
+        activeSkinList.push(skinList[i]);
+    }
+    changePage(0);
 }
 
 function changePage(input){
