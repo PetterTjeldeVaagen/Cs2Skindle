@@ -22,9 +22,9 @@ class Condition {
     checkSkin(skinToCheck){
         switch(this.skinAttributeName){
             case "collection":
-                if(this.skinAttribute == "case" && skinToCheck.collection.trim().split(/\s+/).pop() == "case"){
+                if(this.skinAttribute == "case" && skinToCheck.collection.toLowerCase().includes("case")){
                     return true;
-                }else if(this.skinAttribute == "collection" && skinToCheck.collection.trim().split(/\s+/).pop() == "collection"){
+                }else if(this.skinAttribute == "collection" && skinToCheck.collection.toLowerCase().includes("collection")){
                     return true;
                 } else {
                     return false;
@@ -154,13 +154,26 @@ function guess(input){
     for(let top = 0; top<3; top++){
         for(let side = 3; side<6; side++){
             let conditionTop = boardConditions[top];
-            let conditionSide = boardConditions[side];
-            //console.log(conditionSide.conditionText + "   " + conditionTop.conditionText + "    " + skinGuess.name);
-            if(conditionTop.checkSkin(skinGuess) && conditionSide.checkSkin(skinGuess)){
-                console.log("hit");
+            let letter="";
+            let number=side-2;
+            if(top==0){
+                letter="A";
+            }else if(top == 1){
+                letter = "B";
             } else {
-                console.log("miss");
+                letter = "C"
             }
+            let conditionSide = boardConditions[side];
+            let squareID="tile"+number+letter;
+            console.log(conditionTop.conditionText + "  " + conditionSide.conditionText + " " + skinGuess.name)
+            if(conditionTop.checkSkin(skinGuess) && conditionSide.checkSkin(skinGuess)){
+                console.log("hit " + squareID);
+                document.getElementById(squareID).style.display = "block";
+            } else {
+                console.log("miss " + squareID);
+                document.getElementById(squareID).style.display = "none";
+            }
+            console.log(" ");
         }
     }
 }
