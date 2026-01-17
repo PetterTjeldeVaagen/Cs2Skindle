@@ -158,8 +158,10 @@ function checkPossibilities(){
     }  
 }
 
+let skinGuess;
 function guess(input){
-    let skinGuess = searchList[input];
+    skinGuess = searchList[input];
+    let validGuess = false;
     for(let top = 0; top<3; top++){
         for(let side = 3; side<6; side++){
             let conditionTop = boardConditions[top];
@@ -174,12 +176,41 @@ function guess(input){
             }
             let conditionSide = boardConditions[side];
             let squareID="tile"+number+letter;
+            //legg inn sjekk for å vite om en tile allered har et element
             if(conditionTop.checkSkin(skinGuess) && conditionSide.checkSkin(skinGuess)){
                 document.getElementById(squareID).style.display = "block";
+                validGuess = true;
             } else {
                 document.getElementById(squareID).style.display = "none";
             }
-            console.log(" ");
+        }
+    }
+
+    if(validGuess == false){
+        clearBoard();
+    }
+}
+
+function choose(input){
+    input.style.display = "none";
+    input.parentElement.innerHTML = skinGuess.gun + " " + skinGuess.name;
+    clearBoard();
+}
+
+function clearBoard(){
+    for(let top = 0; top<3; top++){
+        for(let side = 3; side<6; side++){
+            let letter="";
+            let number=side-2;
+            if(top==0){
+                letter="A";
+            }else if(top == 1){
+                letter = "B";
+            } else {
+                letter = "C"
+            }
+            let squareID="tile"+number+letter;
+            document.getElementById(squareID).style.display = "none";
         }
     }
 }
