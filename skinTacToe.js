@@ -18,10 +18,9 @@ class Condition {
         this.skinAttributeName = skinAttributeName;
     }
 
-    //fungerer bare av og til
     checkSkin(skinToCheck){
         switch(this.skinAttributeName){
-            case "collection":
+            case "collectionOrCase":
                 if(this.skinAttribute == "case" && skinToCheck.collection.toLowerCase().includes("case")){
                     return true;
                 }else if(this.skinAttribute == "collection" && skinToCheck.collection.toLowerCase().includes("collection")){
@@ -30,84 +29,47 @@ class Condition {
                     return false;
                 }
             case "year":
-                if(this.skinAttribute == 2018 && skinToCheck.year < 2019){
+                if(this.skinAttribute == 2017 && skinToCheck.year < 2018){
                     return true;
-                } else if(this.skinAttribute == 2019 && skinToCheck.year > 2018){
+                } else if(this.skinAttribute == 2018 && skinToCheck.year > 2017 && skinToCheck.year < 2022){
+                    return true;
+                } else if(this.skinAttribute == 2022 && skinToCheck.year > 2021){
                     return true;
                 } else {
                     return false;
                 }
             case "class":
-                if(skinToCheck.class == this.skinAttribute){
-                    return true;
-                } else {
-                    return false;
-                }
+                return skinToCheck.class == this.skinAttribute;
             case "rarity":
-                if(skinToCheck.rarity == this.skinAttribute){
-                    return true;
-                } else {
-                    return false;
-                }
+                return skinToCheck.rarity == this.skinAttribute;
+            case "collection":
+                return skinToCheck.collection.toLowerCase().includes(this.skinAttribute.toLowerCase());
+            case "gun":
+                return skinToCheck.gun == this.skinAttribute;
+
             default:
                 return false;
         }
     }
 }
 
-let topBoardType1;
-let topBoardType2;
-let sideBoardType1;
-let sideBoardType2;
+function pickCondition(array){
+    const index = randomNumBetween(array.length);
+    return array.splice(index, 1)[0];
+}
+let fails = 0;
 let boardConditions = [];
 function setConditions(){
-    const numbers = [0,1,2,3];
+    const numbers = [0,1,2,3,4,5];
     boardConditions = [];
-    let condition;
-    topBoardType1 = Math.floor(Math.random() * 4);
-    let index = numbers.indexOf(topBoardType1);
-    if (index !== -1) {
-        numbers.splice(index, 1);
-    }
 
-    do {
-        topBoardType2 = Math.floor(Math.random() * 4);
-    } while (topBoardType2 === topBoardType1);
-
-    index = numbers.indexOf(topBoardType2);
-    if (index !== -1) {
-        numbers.splice(index, 1);
-    }
-    sideBoardType1 = numbers[0];
-    sideBoardType2 = numbers[1];
-
-    for(let i = 0; i <6; i++){
-        let number = Math.floor(Math.random()*2);
-            
-        if(i<3){
-            if(number == 0){
-                condition = getRandomCondition(topBoardType1);
-            } else {
-                condition = getRandomCondition(topBoardType2);
-            }
-        } else {
-            if(number == 0){
-                condition = getRandomCondition(sideBoardType1);
-            } else {
-                condition = getRandomCondition(sideBoardType2);
-            }
-        }
-        boardConditions.push(condition);
+    for (let i = 0; i<6; i++){
+        boardConditions.push(getRandomCondition(pickCondition(numbers)));
     }
 
     if(!checkPossibilities()){
         setConditions();
     }
-
-    //newer/older than 0
-    //case or collection 1
-    //specific class 2
-    //rarity 3
 }
 
 function getRandomCondition(conditionSeed){
@@ -115,18 +77,21 @@ function getRandomCondition(conditionSeed){
     let skinAttributeName = "";
     let skinAttribute = "";
     if(conditionSeed === 0){
-        let number = Math.floor(Math.random()*2);
+        let number = randomNumBetween(3);
         skinAttributeName = "year";
         if(number == 0){
-            skinAttribute = 2018;
-            conditionText = "Skin was released before 2019";
+            skinAttribute = 2017;
+            conditionText = "Skin was released before 2018";
+        } else if(number == 1) {
+            skinAttribute = 2022;
+            conditionText = "Skin was released in 2022 or later";
         } else {
-            skinAttribute = 2019;
-            conditionText = "Skin was released in 2019 or later";
+            skinAttribute = 2018;
+            conditionText = "Skin was released between 2018 and 2021"
         }
     } else if(conditionSeed === 1) {
-        let number = Math.floor(Math.random()*2);
-        skinAttributeName = "collection";
+        let number = randomNumBetween(2);
+        skinAttributeName = "collectionOrCase";
         if(number == 0){
             skinAttribute = "case";
             conditionText = "Skin comes from a case";
@@ -137,13 +102,31 @@ function getRandomCondition(conditionSeed){
     } else if(conditionSeed === 2) {
         let classes = ["Sniper Rifle", "Pistol", "Assault Rifle", "Shotgun", "SMG"];
         skinAttributeName = "class";
-        skinAttribute = classes[Math.floor(Math.random()*classes.length)]
+        skinAttribute = classes[randomNumBetween(classes.length)]
         conditionText = "Needs to be a " + skinAttribute;
     } else if(conditionSeed === 3){
         let rarities = ["Covert", "Classified", "Restricted", "Mil-Spec"];
         skinAttributeName = "rarity";
-        skinAttribute = rarities[Math.floor(Math.random() * 4)];
+        skinAttribute = rarities[randomNumBetween(rarities.length)];
         conditionText = "Skin with " + skinAttribute + " rarity";
+    } else if(conditionSeed === 4){
+        let weapons = ["AWP", "Desert Eagle", "AK-47", "M4A1-S", "M4A4"]
+        skinAttributeName = "gun";
+        skinAttribute = weapons[randomNumBetween(weapons.length)]
+        conditionText = "Skin for " + skinAttribute;
+    } else if(conditionSeed === 5){
+        let collections = ["Train", "Mirage", "Dust", "Inferno", "Nuke", "Vertigo"];
+        skinAttributeName = "collection";
+        let num = randomNumBetween(3);
+        if(num < 2){
+            skinAttribute = collections[randomNumBetween(collections.length)]
+            conditionText = "Skin from any " + skinAttribute + " collection";
+        } else {
+            skinAttribute = "Operation";
+            conditionText = "Skin from any " + skinAttribute + " case";
+        }
+        
+        
     }
     return new Condition(conditionText, skinAttribute, skinAttributeName);
 }
@@ -260,4 +243,8 @@ function changePage(input){
         search();
     }
     document.getElementById("pageNumber").innerHTML = page+1 + "/" + maxPage;
+}
+
+function randomNumBetween(input){
+    return Math.floor(Math.random() * input);
 }
