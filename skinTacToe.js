@@ -99,7 +99,10 @@ function setConditions(){
         }
         boardConditions.push(condition);
     }
-    checkPossibilities(condition);
+
+    if(!checkPossibilities()){
+        setConditions();
+    }
 
     //newer/older than 0
     //case or collection 1
@@ -146,7 +149,30 @@ function getRandomCondition(conditionSeed){
 }
 
 function checkPossibilities(){
+    let boardPossible= [];
+    for(let top = 0; top<3; top++){
+        for(let side = 3; side<6; side++){
+            let counter = 1;
+            let conditionTop = boardConditions[top];
+            let conditionSide = boardConditions[side];
+            for(let i = 0; i < activeSkinList.length; i++){
+                if(conditionTop.checkSkin(activeSkinList[i]) && conditionSide.checkSkin(activeSkinList[i])){
+                    counter++;
+                    if(counter>5) {
+                        boardPossible.push(true);
+                        break;
+                    }
+                }
+            }
 
+        }
+    }
+
+    if(boardPossible.length == 9){
+        return true;
+    } else {
+        return false;
+    }  
 }
 
 function guess(input){
@@ -165,12 +191,9 @@ function guess(input){
             }
             let conditionSide = boardConditions[side];
             let squareID="tile"+number+letter;
-            console.log(conditionTop.conditionText + "  " + conditionSide.conditionText + " " + skinGuess.name)
             if(conditionTop.checkSkin(skinGuess) && conditionSide.checkSkin(skinGuess)){
-                console.log("hit " + squareID);
                 document.getElementById(squareID).style.display = "block";
             } else {
-                console.log("miss " + squareID);
                 document.getElementById(squareID).style.display = "none";
             }
             console.log(" ");
