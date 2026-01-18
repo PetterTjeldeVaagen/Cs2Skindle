@@ -199,6 +199,13 @@ body {
   color: #000;
 }
 
-.skinTacToeBoard{
-  border: 1px solid black;
+.skinTacToeBoard td, table, tr{
+  border: 1px solid black; 
+  border-collapse: collapse; 
+  padding: 10px;
+}
+
+.skinTacToeBoard td{
+  width: 10rem;
+  height: 0.8rem;
 }

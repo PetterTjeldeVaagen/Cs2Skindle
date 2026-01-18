@@ -2,6 +2,7 @@ let guessCounter = 0;
 let gameActive = true;
 const conditionTiles = ["tileA", "tileB", "tileC","tile1","tile2", "tile3"];
 function loadBoard(){
+    document.getElementById("WinOrLossText").innerHTML = "";
     createSkins();
     sortList()
     changePage(0);
@@ -18,6 +19,7 @@ class Condition {
         this.skinAttributeName = skinAttributeName;
     }
 
+    //sometimes wrong skin text is shown and sometimes valid guesses dont work
     checkSkin(skinToCheck){
         switch(this.skinAttributeName){
             case "collectionOrCase":
@@ -135,13 +137,13 @@ function checkPossibilities(){
     let boardPossible= [];
     for(let top = 0; top<3; top++){
         for(let side = 3; side<6; side++){
-            let counter = 1;
+            let counter = 0;
             let conditionTop = boardConditions[top];
             let conditionSide = boardConditions[side];
             for(let i = 0; i < activeSkinList.length; i++){
                 if(conditionTop.checkSkin(activeSkinList[i]) && conditionSide.checkSkin(activeSkinList[i])){
                     counter++;
-                    if(counter>5) {
+                    if(counter>=5) {
                         boardPossible.push(true);
                         break;
                     }
@@ -176,12 +178,9 @@ function guess(input){
             }
             let conditionSide = boardConditions[side];
             let squareID="tile"+number+letter;
-            //legg inn sjekk for å vite om en tile allered har et element
-            if(conditionTop.checkSkin(skinGuess) && conditionSide.checkSkin(skinGuess)){
+            if(conditionTop.checkSkin(skinGuess) && conditionSide.checkSkin(skinGuess) && document.getElementById(squareID)){
                 document.getElementById(squareID).style.display = "block";
                 validGuess = true;
-            } else {
-                document.getElementById(squareID).style.display = "none";
             }
         }
     }
@@ -195,6 +194,7 @@ function choose(input){
     input.style.display = "none";
     input.parentElement.innerHTML = skinGuess.gun + " " + skinGuess.name;
     clearBoard();
+    checkBoard()
 }
 
 function clearBoard(){
@@ -210,10 +210,43 @@ function clearBoard(){
                 letter = "C"
             }
             let squareID="tile"+number+letter;
-            document.getElementById(squareID).style.display = "none";
+            if(document.getElementById(squareID)){
+                document.getElementById(squareID).style.display = "none";
+            }
         }
     }
 }
+
+let gameType = 0;
+function checkBoard(){
+    let filledTiles = 0;
+    if(gameType === 0){
+        for(let top = 0; top<3; top++){
+            for(let side = 3; side<6; side++){
+                let letter="";
+                let number=side-2;
+                if(top==0){
+                    letter="A";
+                }else if(top == 1){
+                    letter = "B";
+                } else {
+                    letter = "C"
+                }
+                let squareID="tile"+number+letter;
+                if(!document.getElementById(squareID)){
+                    filledTiles++;
+                } 
+            }
+        }
+
+        if(filledTiles === 9){
+            document.getElementById("WinOrLossText").innerHTML = "Congratulations you managed to fill the grid🎉"
+        }
+    }
+
+}
+
+    
 
 let input = document.getElementById("searchBar");
 input.addEventListener('input', search);
@@ -248,7 +281,7 @@ function search() {
                 element.innerHTML = searchList[index].name + " " + searchList[index].gun;
             }
         }
-        changePage(-2)
+        changePage(-2);
     }
 }
 
@@ -273,6 +306,7 @@ function changePage(input){
         page += input;
         search();
     }
+
     document.getElementById("pageNumber").innerHTML = page+1 + "/" + maxPage;
 }
 

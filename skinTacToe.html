@@ -19,7 +19,8 @@
         </ul>
     </div>
     <h1>Skin-Tac-Toe!</h1>
-    <div id="mainWrapper">
+    <p id="WinOrLossText"></p>
+    <div id="mainGrid">
         <div class="search-wrapper">
             <label>Search for a skin</label><br>
             <input type="search" placeholder="Skin search" id="searchBar">
@@ -47,7 +48,7 @@
             <table>
                 <tr>
                     <td>Skin-Tac-Toe</td>
-                    <td id="tileA"><p></p></td>
+                    <td id="tileA"></td>
                     <td id="tileB"></td>
                     <td id="tileC"></td>
                 </tr>
@@ -67,12 +68,12 @@
                     <td id="tile3"></td>
                     <td><button id="tile3A" style="display:none" onclick="choose(tile3A)">+</button></td>
                     <td><button id="tile3B" style="display:none" onclick="choose(tile3B)">+</button></td>
-                    <td><button id="tile3C" style="display:none" onclick="choose(tile3Cå)">+</button></td>
+                    <td><button id="tile3C" style="display:none" onclick="choose(tile3C)">+</button></td>
                 </tr>
             </table>
         </div>
     </div>
-
+<p id="victoryText"></p>
 </body>
 <script data-goatcounter="https://csskindle.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
