@@ -288,7 +288,7 @@ function search() {
             element.innerHTML = " ";
             let index = (k+10*page) - 15;
             if (searchList[index]) {
-                element.innerHTML = searchList[index].name + " " + searchList[index].gun;
+                element.innerHTML = searchList[index].gun + " " + searchList[index].name;
             }
         }
         changePage(-2);

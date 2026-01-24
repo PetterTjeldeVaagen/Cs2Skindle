@@ -38,9 +38,9 @@
             </ul> 
             <br>
             <div id="pageSelector">
-            <button onclick="changePage(-1)"> < </button>
+            <button class="pageArrow" onclick="changePage(-1)"> < </button>
             <p id="pageNumber"></p>
-            <button onclick="changePage(1)"> > </button>
+            <button class="pageArrow" onclick="changePage(1)"> > </button>
             </div>
         </div>
 
@@ -54,21 +54,21 @@
                 </tr>
                 <tr>
                     <td id="tile1"></td>
-                    <td><button id="tile1A" style="display:none" onclick="choose(tile1A)">+</button></td>
-                    <td><button id="tile1B" style="display:none" onclick="choose(tile1B)">+</button></td>
-                    <td><button id="tile1C" style="display:none" onclick="choose(tile1C)">+</button></td>
+                    <td><button class="skinGridButtons" id="tile1A" style="display:none" onclick="choose(this)">+</button></td>
+                    <td><button class="skinGridButtons" id="tile1B" style="display:none" onclick="choose(this)">+</button></td>
+                    <td><button class="skinGridButtons" id="tile1C" style="display:none" onclick="choose(this)">+</button></td>
                 </tr>
                 <tr>
                     <td id="tile2"></td>
-                    <td><button id="tile2A" style="display:none" onclick="choose(tile2A)">+</button></td>
-                    <td><button id="tile2B" style="display:none" onclick="choose(tile2B)">+</button></td>
-                    <td><button id="tile2C" style="display:none" onclick="choose(tile2C)">+</button></td>
+                    <td><button class="skinGridButtons" id="tile2A" style="display:none" onclick="choose(this)">+</button></td>
+                    <td><button class="skinGridButtons" id="tile2B" style="display:none" onclick="choose(this)">+</button></td>
+                    <td><button class="skinGridButtons" id="tile2C" style="display:none" onclick="choose(this)">+</button></td>
                 </tr>
                 <tr>
                     <td id="tile3"></td>
-                    <td><button id="tile3A" style="display:none" onclick="choose(tile3A)">+</button></td>
-                    <td><button id="tile3B" style="display:none" onclick="choose(tile3B)">+</button></td>
-                    <td><button id="tile3C" style="display:none" onclick="choose(tile3C)">+</button></td>
+                    <td><button class="skinGridButtons" id="tile3A" style="display:none" onclick="choose(this)">+</button></td>
+                    <td><button class="skinGridButtons" id="tile3B" style="display:none" onclick="choose(this)">+</button></td>
+                    <td><button class="skinGridButtons" id="tile3C" style="display:none" onclick="choose(this)">+</button></td>
                 </tr>
             </table>
         </div>
