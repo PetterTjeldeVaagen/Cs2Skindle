@@ -11,6 +11,15 @@
 </head>
 
 <body onload="start(1)">
+  <div id="navBar">
+    <ul class="navBar">
+      <li ><a class="gameModeLink" href="freeplay.html">Freeplay</a></li>
+      <li><a class="gameModeLink" href="index.html">Daily challenge</a></li>
+      <li><a class="gameModeLink" href="skinTacToe.html">Skin grid</a></li>
+      <li><a class="gameModeLink" href="how_to_play.html">How to play</a></li>
+    </ul>
+  </div>
+  
   <div class="DifficultyPicker">
     <button class="dropbtn">Difficulties</button>
     <div class="DifficultyPicker-content">
@@ -27,15 +36,10 @@
       <div><input onchange="restart()" type="radio" id="VeryHard" name="difficulty" value=6>
       <label for="VeryHard">All skins</label></div>
     </div>
+
   </div>
 <div id="mainWrapper">
 <h1>Skindle!</h1>
-<a class="tooltip">how to play?
-  <span class="tooltiptext">Guess the CS:2 skin using the search bar. Correct elements will be highlighted in green. Use arrows for year hints.
-  </span>
-</a>
-<br>
-<a id="gameModeLink" href="index.html">Daily Challenge</a>
 <div style="display: none;" id="WinOrLossDiv">
   <p id="WinOrLossText"></p>
   <button onclick="restart()">Play again</button>
@@ -56,105 +60,110 @@
       <li class="searchListElement"><button class="searchListElement" onclick="guess(8)" id=23> </button></li>
       <li class="searchListElement"><button class="searchListElement" onclick="guess(9)" id=24> </button></li>
     </ul> 
+    <br>
+    <div id="pageSelector">
+      <button class="pageArrow" onclick="changePage(-1)"> < </button>
+      <p id="pageNumber"></p>
+      <button class="pageArrow" onclick="changePage(1)"> > </button>
+    </div>
   </div>
-
-  <table id="GuessTable">
-    <tr>
-      <th>Class</th>
-      <th>Gun</th>
-      <th>Rarity</th>
-      <th>Name</th>
-      <th>Collection</th>
-      <th>Release Year</th>
-    </tr>
-    <tr id=1>
-      <th class="Class"></th>
-      <th class="Gun"></th>
-      <th class="Rarity"></th>
-      <th class="Name"></th>
-      <th class="Collection"></th>
-      <th class="Year"></th>
-    </tr>
-    <tr id=2>
-      <th class="Class"></th>
-      <th class="Gun"></th>
-      <th class="Rarity"></th>
-      <th class="Name"></th>
-      <th class="Collection"></th>
-      <th class="Year"></th>
-    </tr>
-    <tr id=3>
-      <th class="Class"></th>
-      <th class="Gun"></th>
-      <th class="Rarity"></th>
-      <th class="Name"></th>
-      <th class="Collection"></th>
-      <th class="Year"></th>
-    </tr>
-    <tr id=4>
-      <th class="Class"></th>
-      <th class="Gun"></th>
-      <th class="Rarity"></th>
-      <th class="Name"></th>
-      <th class="Collection"></th>
-      <th class="Year"></th>
-    </tr>
-    <tr id=5>
-      <th class="Class"></th>
-      <th class="Gun"></th>
-      <th class="Rarity"></th>
-      <th class="Name"></th>
-      <th class="Collection"></th>
-      <th class="Year"></th>
-    </tr>
-    <tr id=6>
-      <th class="Class"></th>
-      <th class="Gun"></th>
-      <th class="Rarity"></th>
-      <th class="Name"></th>
-      <th class="Collection"></th>
-      <th class="Year"></th>
-    </tr>
-    <tr id=7>
-      <th class="Class"></th>
-      <th class="Gun"></th>
-      <th class="Rarity"></th>
-      <th class="Name"></th>
-      <th class="Collection"></th>
-      <th class="Year"></th>
-    </tr>
-    <tr id=8>
-      <th class="Class"></th>
-      <th class="Gun"></th>
-      <th class="Rarity"></th>
-      <th class="Name"></th>
-      <th class="Collection"></th>
-      <th class="Year"></th>
-    </tr>
-    <tr id=9>
-      <th class="Class"></th>
-      <th class="Gun"></th>
-      <th class="Rarity"></th>
-      <th class="Name"></th>
-      <th class="Collection"></th>
-      <th class="Year"></th>
-    </tr>
-    <tr id=10>
-      <th class="Class"></th>
-      <th class="Gun"></th>
-      <th class="Rarity"></th>
-      <th class="Name"></th>
-      <th class="Collection"></th>
-      <th class="Year"></th>
-    </tr>
-  </table>
+  <div class="tableWrap">
+    <table id="GuessTable">
+      <tr>
+        <th>Class</th>
+        <th>Gun</th>
+        <th>Rarity</th>
+        <th>Name</th>
+        <th>Collection</th>
+        <th>Release Year</th>
+      </tr>
+      <tr id=1>
+        <th class="Class"></th>
+        <th class="Gun"></th>
+        <th class="Rarity"></th>
+        <th class="Name"></th>
+        <th class="Collection"></th>
+        <th class="Year"></th>
+      </tr>
+      <tr id=2>
+        <th class="Class"></th>
+        <th class="Gun"></th>
+        <th class="Rarity"></th>
+        <th class="Name"></th>
+        <th class="Collection"></th>
+        <th class="Year"></th>
+      </tr>
+      <tr id=3>
+        <th class="Class"></th>
+        <th class="Gun"></th>
+        <th class="Rarity"></th>
+        <th class="Name"></th>
+        <th class="Collection"></th>
+        <th class="Year"></th>
+      </tr>
+      <tr id=4>
+        <th class="Class"></th>
+        <th class="Gun"></th>
+        <th class="Rarity"></th>
+        <th class="Name"></th>
+        <th class="Collection"></th>
+        <th class="Year"></th>
+      </tr>
+      <tr id=5>
+        <th class="Class"></th>
+        <th class="Gun"></th>
+        <th class="Rarity"></th>
+        <th class="Name"></th>
+        <th class="Collection"></th>
+        <th class="Year"></th>
+      </tr>
+      <tr id=6>
+        <th class="Class"></th>
+        <th class="Gun"></th>
+        <th class="Rarity"></th>
+        <th class="Name"></th>
+        <th class="Collection"></th>
+        <th class="Year"></th>
+      </tr>
+      <tr id=7>
+        <th class="Class"></th>
+        <th class="Gun"></th>
+        <th class="Rarity"></th>
+        <th class="Name"></th>
+        <th class="Collection"></th>
+        <th class="Year"></th>
+      </tr>
+      <tr id=8>
+        <th class="Class"></th>
+        <th class="Gun"></th>
+        <th class="Rarity"></th>
+        <th class="Name"></th>
+        <th class="Collection"></th>
+        <th class="Year"></th>
+      </tr>
+      <tr id=9>
+        <th class="Class"></th>
+        <th class="Gun"></th>
+        <th class="Rarity"></th>
+        <th class="Name"></th>
+        <th class="Collection"></th>
+        <th class="Year"></th>
+      </tr>
+      <tr id=10>
+        <th class="Class"></th>
+        <th class="Gun"></th>
+        <th class="Rarity"></th>
+        <th class="Name"></th>
+        <th class="Collection"></th>
+        <th class="Year"></th>
+      </tr>
+    </table>
+  </div>
 </div>
-
-<p>Send feedback to <a href="mailto:counter.strike.skindle@gmail.com">counter.strike.skindle@gmail.com</a></p> 
 </div>
 </body>
 <script data-goatcounter="https://csskindle.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
-<script src="script.js" type="text/javascript"></script>
+<script src="skindle.js" type="text/javascript"></script>
 <script src="skins.js" type="text/javascript"></script>
 </html>
