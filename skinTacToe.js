@@ -19,7 +19,6 @@ class Condition {
         this.skinAttributeName = skinAttributeName;
     }
 
-    //sometimes wrong skin text is shown and sometimes valid guesses dont work
     checkSkin(skinToCheck){
         switch(this.skinAttributeName){
             case "collectionOrCase":
@@ -193,8 +192,19 @@ function guess(input){
 function choose(input){
     input.style.display = "none";
     input.parentElement.innerHTML = skinGuess.gun + " " + skinGuess.name;
+
+    for(let i = 0; i < activeSkinList.length; i++){
+        if(activeSkinList[i].gun == skinGuess.gun && activeSkinList[i].name == skinGuess.name){
+            activeSkinList.splice(i, 1);
+        }
+    }
+
+    document.getElementById("searchBar").value = "";
+    search()
+    changePage(-2);
+    
     clearBoard();
-    checkBoard()
+    checkBoard();
 }
 
 function clearBoard(){
