@@ -3,6 +3,7 @@ let gameActive = true;
 const conditionTiles = ["tileA", "tileB", "tileC","tile1","tile2", "tile3"];
 function loadBoard(){
     document.getElementById("WinOrLossText").innerHTML = "";
+    setColoredText(false);
     createSkins();
     sortList()
     changePage(0);
@@ -55,7 +56,7 @@ class Condition {
 }
 
 function pickCondition(array){
-    const index = randomNumBetween(array.length);
+    const index = randomNumBetween(0, array.length);
     return array.splice(index, 1)[0];
 }
 let fails = 0;
@@ -78,7 +79,7 @@ function getRandomCondition(conditionSeed){
     let skinAttributeName = "";
     let skinAttribute = "";
     if(conditionSeed === 0){
-        let number = randomNumBetween(3);
+        let number = randomNumBetween(0, 3);
         skinAttributeName = "year";
         if(number == 0){
             skinAttribute = 2017;
@@ -91,7 +92,7 @@ function getRandomCondition(conditionSeed){
             conditionText = "Skin was released between 2018 and 2021"
         }
     } else if(conditionSeed === 1) {
-        let number = randomNumBetween(2);
+        let number = randomNumBetween(0, 2);
         skinAttributeName = "collectionOrCase";
         if(number == 0){
             skinAttribute = "case";
@@ -103,24 +104,24 @@ function getRandomCondition(conditionSeed){
     } else if(conditionSeed === 2) {
         let classes = ["Sniper Rifle", "Pistol", "Assault Rifle", "Shotgun", "SMG"];
         skinAttributeName = "class";
-        skinAttribute = classes[randomNumBetween(classes.length)]
+        skinAttribute = classes[randomNumBetween(0, classes.length)]
         conditionText = "Needs to be a " + skinAttribute;
     } else if(conditionSeed === 3){
         let rarities = ["Covert", "Classified", "Restricted", "Mil-Spec"];
         skinAttributeName = "rarity";
-        skinAttribute = rarities[randomNumBetween(rarities.length)];
+        skinAttribute = rarities[randomNumBetween(0, rarities.length)];
         conditionText = "Skin with " + skinAttribute + " rarity";
     } else if(conditionSeed === 4){
         let weapons = ["AWP", "Desert Eagle", "AK-47", "M4A1-S", "M4A4"]
         skinAttributeName = "gun";
-        skinAttribute = weapons[randomNumBetween(weapons.length)]
+        skinAttribute = weapons[randomNumBetween(0, weapons.length)]
         conditionText = "Skin for " + skinAttribute;
     } else if(conditionSeed === 5){
         let collections = ["Train", "Mirage", "Dust", "Inferno", "Nuke", "Vertigo"];
         skinAttributeName = "collection";
-        let num = randomNumBetween(3);
+        let num = randomNumBetween(0,3);
         if(num < 2){
-            skinAttribute = collections[randomNumBetween(collections.length)]
+            skinAttribute = collections[randomNumBetween(0, collections.length)]
             conditionText = "Skin from any " + skinAttribute + " collection";
         } else {
             skinAttribute = "Operation";
@@ -256,45 +257,8 @@ function checkBoard(){
 
 }
 
-    
-
-let input = document.getElementById("searchBar");
-input.addEventListener('input', search);
 let searchList=[];
 let page = 0;
-function search() {
-    searchList = [];
-    let searchWords = input.value.toLowerCase().split(/-|\s/g);
-    let results = 0;
-    if (gameActive == true) {
-        for (let i = 0; i < activeSkinList.length; i++) {
-            let skinName = activeSkinList[i].name.toLowerCase().replace(/-|\s/g, "");
-            let gunName = activeSkinList[i].gun.toLowerCase().replace(/-|\s/g, "");
-            let combinedName = skinName + gunName;
-            let combinedNameReversed = gunName + skinName;
-
-            let match = searchWords.every(word => combinedName.includes(word) || combinedNameReversed.includes(word));
-
-            if (match) {
-                searchList.push(activeSkinList[i]);
-                results++;
-            }
-        }
-        for (let b = 15; b < 25; b++) {
-            document.getElementById(b).innerHTML = " ";
-        }
-        for (let k = 15; k < 25; k++) {
-            let element = document.getElementById(k);
-            element.innerHTML = " ";
-            let index = (k+10*page) - 15;
-            if (searchList[index]) {
-                element.innerHTML = searchList[index].gun + " " + searchList[index].name;
-            }
-        }
-        changePage(-2);
-    }
-}
-
 let activeSkinList=[];
 function sortList(){
     activeSkinList=[];
@@ -302,24 +266,4 @@ function sortList(){
         activeSkinList.push(skinList[i]);
     }
     changePage(0);
-}
-
-function changePage(input){
-    let maxPage = 0;
-    if(searchList.length > 1){
-        maxPage = Math.ceil(searchList.length/10);
-    } else {
-        maxPage = Math.ceil(activeSkinList.length/10);
-    }
-    
-    if(page+input > -1 && page+input <= maxPage && input>-2) {
-        page += input;
-        search();
-    }
-
-    document.getElementById("pageNumber").innerHTML = page+1 + "/" + maxPage;
-}
-
-function randomNumBetween(input){
-    return Math.floor(Math.random() * input);
 }
