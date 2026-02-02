@@ -1,9 +1,12 @@
 let guessCounter = 0;
 let gameActive = true;
-let dailyChallengeActive = false; 
+let dailyChallengeActive = false;
+let dailyAlreadyPlayed = false;
+
 
 // Function for checking the player's guess
 function guess(input) {
+    if (dailyChallengeActive && dailyAlreadyPlayed) return;
     if (gameActive && searchList[input].innerHTML != " ") {
         let skinGuess = searchList[input];
         guessCounter++;
@@ -37,26 +40,38 @@ function guess(input) {
             gameActive = false;
             document.getElementById("WinOrLossDiv").style.display = "block";
             document.getElementById("WinOrLossText").innerHTML = "You got it the skin was: " + answerSkin.gun + " " + answerSkin.name + " 🎉";
+            if (dailyChallengeActive) {
+                markDailyCompleted();
+            }
         }
 
         if (guessCounter == 10 && skinGuess != answerSkin) {
             gameActive = false;
             document.getElementById("WinOrLossDiv").style.display = "block";
             document.getElementById("WinOrLossText").innerHTML = "You lost😂 the correct skin was: " + answerSkin.gun + " " + answerSkin.name + "!";
+            if (dailyChallengeActive) {
+                markDailyCompleted();
+            }
         }
     }
 }
 
-function start(input){
+function start(){
     setColoredText(true);
-    createSkins(); // Ensure skins are created
-    if(input == 1){
+    createSkins();
+    const raw = location.search.slice(1);
+    const mode = raw === "2" ? 2 : 1;
+    document.getElementById("restartButton").style.display = "inline-block";
+    document.getElementById("DifficultyPicker").style.display = "block";
+    if(mode == 1){
         sortList();
         setAnswerSkin();
-    }else if(input == 2){
+    }else if(mode == 2){
+        document.getElementById("restartButton").style.display = "none";
+        document.getElementById("DifficultyPicker").style.display = "none";
         dailyChallenge();
     }
-    changePage(0); //update pagecount
+    changePage(0);
 }
 
 function restart(input) {
@@ -111,8 +126,22 @@ function saveGuesses() {
         guesses.push(guess);
     }
     localStorage.setItem('guesses', JSON.stringify(guesses));
-    localStorage.setItem('guessDate', new Date().toISOString().split('T')[0]);
+    localStorage.setItem("dailyProgressDate", getLocalISODate());
 }
+
+function markDailyCompleted() {
+  localStorage.setItem('guessDate', getLocalISODate());
+  localStorage.removeItem("dailyProgressDate");
+}
+
+function getLocalISODate() {
+  const d = new Date();
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, "0");
+  const day = String(d.getDate()).padStart(2, "0");
+  return `${y}-${m}-${day}`;
+}
+
 
 function loadGuesses() {
     const savedGuesses = JSON.parse(localStorage.getItem('guesses'));
@@ -137,7 +166,6 @@ function loadGuesses() {
     }
 }
 
-// Function that returns the color of the square based on the input
 function getColorOfSquare(guessInput, answerInput){
     var squareColor;
     if(guessInput == answerInput){
@@ -152,7 +180,6 @@ function getColorOfSquare(guessInput, answerInput){
     return squareColor;
 }
 
-// Sets the skin that the player is supposed to guess
 let answerSkin
 function setAnswerSkin(){
     answerSkin=activeSkinList[randomNumBetween(0,activeSkinList.length)]
@@ -161,13 +188,12 @@ function setAnswerSkin(){
 let searchList=[];
 let page = 0;
 
-// Sorts the list of skins based on the difficulty the player chooses
 let activeSkinList=[];
 function sortList(){
     activeSkinList=[];
     let difficulty=document.querySelector('input[name="difficulty"]:checked').value;
 
-    for(let i = 0; i<skinList.length;i++){ //legger til alle skins som er så sjelden som spilleren bestemmer
+    for(let i = 0; i<skinList.length;i++){
         if(skinList[i].rawRarity <= difficulty){
             activeSkinList.push(skinList[i]);
         }
@@ -176,27 +202,38 @@ function sortList(){
 }
 
 function dailyChallenge(){
-    dailyChallengeActive = true; // Set the daily challenge flag
+    dailyChallengeActive = true; 
+        
+    const today = getLocalISODate();
     const date = new Date().toISOString().split('T')[0];
-    const savedDate = localStorage.getItem('guessDate');
+    const savedDate = localStorage.getItem('guessDate');  
+    const progressDate  = localStorage.getItem("dailyProgressDate"); 
 
-    if (savedDate !== date) {
-        restart("daily")
+    if (savedDate === today) {
+        loadGuesses();
+        gameActive = false; 
+    }else if (progressDate === today) {
+        loadGuesses();
+        gameActive = true;
     } else {
-        loadGuesses(); // Load previous guesses if the player has already played the daily challenge
-        gameActive = true; // Ensure game is active for searching
+        localStorage.removeItem("guesses");
+        localStorage.removeItem("dailyProgressDate");
+        restart("daily");
+        gameActive = true;
     }
-
-    //get skin based on the date
+    
     const startDate = new Date('2025-01-01');
     const timeDifference = new Date() - startDate;
     const daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-    for(skin of skinList){
-        if(skin.rawRarity<5){
+    activeSkinList = [];
+    for (const skin of skinList){
+        if (skin.rawRarity < 5){
             activeSkinList.push(skin);
         }
     }
     answerSkin = activeSkinList[daysDifference];
-    gameActive = savedDate !== date; // Ensure game is not active if already played
+    gameActive = true;
+
+    changePage(0);
 }
 

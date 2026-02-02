@@ -10,17 +10,17 @@
      crossorigin="anonymous"></script>
 </head>
 
-<body onload="start(1)">
+<body onload="start()">
   <div id="navBar">
     <ul class="navBar">
-      <li ><a class="gameModeLink" href="freeplay.html">Freeplay</a></li>
-      <li><a class="gameModeLink" href="index.html">Daily challenge</a></li>
+      <li ><a class="gameModeLink" href="skindle.html?1">Freeplay</a></li>
+      <li><a class="gameModeLink" href="skindle.html?2">Daily challenge</a></li>
       <li><a class="gameModeLink" href="skinTacToe.html">Skin grid</a></li>
       <li><a class="gameModeLink" href="how_to_play.html">How to play</a></li>
     </ul>
   </div>
   
-  <div class="DifficultyPicker">
+  <div id="DifficultyPicker">
     <button class="dropbtn">Difficulties</button>
     <div class="DifficultyPicker-content">
       <div><input onchange="restart()" type="radio" id="Easiest" name="difficulty" value=1> 
@@ -42,7 +42,7 @@
 <h1>Skindle!</h1>
 <div style="display: none;" id="WinOrLossDiv">
   <p id="WinOrLossText"></p>
-  <button onclick="restart()">Play again</button>
+  <button id="restartButton" onclick="restart()">Play again</button>
 </div>
 <div id="mainGrid"> 
   <div class="search-wrapper">
