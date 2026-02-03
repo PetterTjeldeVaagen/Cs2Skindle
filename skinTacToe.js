@@ -1,6 +1,27 @@
 let guessCounter = 0;
 let gameActive = true;
 const conditionTiles = ["tileA", "tileB", "tileC","tile1","tile2", "tile3"];
+let gameType = 1;
+let multiplayerBoard = [0,0,0,0,0,0,0,0,0]
+let activePlayer = 0;
+function start(){
+    const raw = location.search.slice(1);
+    const mode = raw === "2" ? 2 : 1;
+    loadBoard()
+    const title = document.getElementById("title");
+    if(mode == 1){
+        //skin grid
+        title.innerHTML ="Skin grid!";
+        gameType = 1
+    } else if (mode == 2){
+        //skin tac toe
+        title.innerHTML ="Skin-Tac-Toe!";
+        gameType = 2;
+        activePlayer = 1;
+        //legg in tids evt tidsbegrensning
+    }
+}
+
 function loadBoard(){
     document.getElementById("WinOrLossText").innerHTML = "";
     setColoredText(false);
@@ -11,6 +32,10 @@ function loadBoard(){
     for(let i = 0; i < boardConditions.length; i++){
         document.getElementById(conditionTiles[i]).innerHTML = boardConditions[i].conditionText;
     }
+}
+
+function restart(){
+    //TODO add restart functionality
 }
 
 class Condition {
@@ -45,7 +70,7 @@ class Condition {
             case "rarity":
                 return skinToCheck.rarity == this.skinAttribute;
             case "collection":
-                return skinToCheck.collection.toLowerCase().includes(this.skinAttribute.toLowerCase());
+                return skinToCheck.collection.toLowerCase().includes(this.skinAttribute.toLowerCase()); //TODO noe kødd her
             case "gun":
                 return skinToCheck.gun == this.skinAttribute;
 
@@ -149,7 +174,6 @@ function checkPossibilities(){
                     }
                 }
             }
-
         }
     }
 
@@ -191,9 +215,23 @@ function guess(input){
 }
 
 function choose(input){
+    const td = input.closest("td")
     input.style.display = "none";
     input.parentElement.innerHTML = skinGuess.gun + " " + skinGuess.name;
-
+    console.log(gameType + " " + activePlayer );
+    if(gameType == 2){
+        //TODO finn bedre farger 
+        if(activePlayer == 1){
+            td.style.backgroundColor = "red";
+            multiplayerBoard[tileIdToIndex(input.id)] = 1;
+            activePlayer = 2;
+        } else if(activePlayer == 2){
+            td.style.backgroundColor = "blue";
+            multiplayerBoard[tileIdToIndex(input.id)] = 2;
+            activePlayer = 1;
+        }
+    }
+    
     for(let i = 0; i < activeSkinList.length; i++){
         if(activeSkinList[i].gun == skinGuess.gun && activeSkinList[i].name == skinGuess.name){
             activeSkinList.splice(i, 1);
@@ -206,6 +244,19 @@ function choose(input){
     
     clearBoard();
     checkBoard();
+}
+
+function tileIdToIndex(input){
+    let index = 0;
+    let letter = input[input.length - 1];
+    let number = input[input.length - 2]-1;
+    index+=number;
+    if(letter === 'B'){
+        index+=3
+    }else if(letter === 'C'){
+        index+=6
+    }
+    return index;
 }
 
 function clearBoard(){
@@ -228,10 +279,9 @@ function clearBoard(){
     }
 }
 
-let gameType = 0;
 function checkBoard(){
     let filledTiles = 0;
-    if(gameType === 0){
+    if(gameType === 1){
         for(let top = 0; top<3; top++){
             for(let side = 3; side<6; side++){
                 let letter="";
@@ -253,6 +303,8 @@ function checkBoard(){
         if(filledTiles === 9){
             document.getElementById("WinOrLossText").innerHTML = "Congratulations you managed to fill the grid🎉"
         }
+    } else {
+        
     }
 
 }
