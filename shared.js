@@ -62,20 +62,28 @@ function search() {
                 results++;
             }
         }
-        for (let b = 15; b < 25; b++) {
-            document.getElementById(b).innerHTML = " ";
-        }
-        for (let k = 15; k < 25; k++) {
-            let element = document.getElementById(k);
-            element.innerHTML = " ";
-            let index = (k+10*page) - 15;
+        
+        clearSearchList()
+        const searchListElement = document.getElementById("SearchList");
+        const searchListChildren =searchListElement.children;
+        for (let i = 0; i < searchListChildren.length; i++) {
+            let element = searchListChildren[i];
+            let index = i+10*page;
             if (searchList[index]) {
-                element.innerHTML = searchList[index].gun + " " + searchList[index].name;
+                element.firstElementChild.innerHTML = searchList[index].gun + " " + searchList[index].name;
                 if(coloredText){
-                    element.style.color = getRarityColor(searchList[index].rarity);
+                    element.firstElementChild.style.color = getRarityColor(searchList[index].rarity);
                 }
             }
         }
         changePage(-2);
+    }
+}
+
+function clearSearchList(){
+    const searchListElement = document.getElementById("SearchList");
+    const searchListChildren =searchListElement.children;
+    for (let i = 0; i < searchListChildren.length; i++) {
+        searchListChildren[i].children.innerHTML = " ";
     }
 }

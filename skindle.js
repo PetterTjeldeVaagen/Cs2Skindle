@@ -92,10 +92,8 @@ function restart(input) {
         guessRow.getElementsByClassName("Collection")[0].style.backgroundColor = "white";
         guessRow.getElementsByClassName("Year")[0].style.backgroundColor = "white";
     }
-    for (let k = 15; k < 25; k++) {
-        let element = document.getElementById(k);
-        element.innerHTML = " ";
-    }
+
+    clearSearchList()
     document.getElementById("WinOrLossDiv").style.display = "none";
     if(input != "daily"){
         sortList();
@@ -205,7 +203,6 @@ function dailyChallenge(){
     dailyChallengeActive = true; 
         
     const today = getLocalISODate();
-    const date = new Date().toISOString().split('T')[0];
     const savedDate = localStorage.getItem('guessDate');  
     const progressDate  = localStorage.getItem("dailyProgressDate"); 
 
