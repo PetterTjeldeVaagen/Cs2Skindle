@@ -13,17 +13,19 @@ function start(){
         //skin grid
         title.innerHTML ="Skin grid!";
         gameType = 1
+        hideElement("scoreboard");
     } else if (mode == 2){
         //skin tac toe
         title.innerHTML ="Skin-Tac-Toe!";
         gameType = 2;
         activePlayer = 1;
+        updateScoreboard()
         //legg in tids evt tidsbegrensning
     }
 }
 
 function loadBoard(){
-    document.getElementById("WinOrLossText").innerHTML = "";
+    hideElement("celebrationDiv");
     setColoredText(false);
     createSkins();
     sortList()
@@ -33,9 +35,18 @@ function loadBoard(){
         document.getElementById(conditionTiles[i]).innerHTML = boardConditions[i].conditionText;
     }
 }
-
 function restart(){
+    console.log("seier!");
     //TODO add restart functionality
+    loadBoard()
+    for(let i = 0; i <multiplayerBoard.length; i++){
+        multiplayerBoard[i] = 0;
+    }
+
+    const elements = document.getElementsByClassName("skinGridButtons");
+    for (let i = 0; i < elements.length; i++) {
+        elements[i].closest("td").style.backgroundColor = "white";
+    }
 }
 
 class Condition {
@@ -214,11 +225,12 @@ function guess(input){
     }
 }
 
+const player1color = "red";
+const player2color = "blue";
 function choose(input){
     const td = input.closest("td")
     input.style.display = "none";
     input.parentElement.innerHTML = skinGuess.gun + " " + skinGuess.name;
-    console.log(gameType + " " + activePlayer );
     if(gameType == 2){
         //TODO finn bedre farger 
         if(activePlayer == 1){
@@ -304,9 +316,37 @@ function checkBoard(){
             document.getElementById("WinOrLossText").innerHTML = "Congratulations you managed to fill the grid🎉"
         }
     } else {
-        
-    }
+        const waysToWin = [
+            [0,1,2], [3,4,5], [6,7,8],
+            [0,3,6], [1,4,7], [2,5,8],
+            [0,4,8], [2,4,6]       
+        ];
 
+        for (const [a, b, c] of waysToWin) {
+            const player = multiplayerBoard[a];
+            if (player !== 0 && player === multiplayerBoard[b] && player === multiplayerBoard[c]) {
+                //TODO visually show which boxes won
+                showElement("celebrationDiv");
+                if(player == 1){
+                    document.getElementById("WinOrLossText").innerHTML = "Player 1 won!";
+                    player1score++;
+                } else if(player == 2) {
+                    document.getElementById("WinOrLossText").innerHTML = "Player 2 won!";
+                    player2score++;
+                }
+                updateScoreboard();
+            }
+        }
+    }
+}
+
+let player1score = 0;
+let player2score = 0;
+function updateScoreboard(){
+    document.getElementById("player1score").parentElement.style.backgroundColor = player1color;
+    document.getElementById("player1score").innerHTML = player1score
+    document.getElementById("player2score").parentElement.style.backgroundColor = player2color;
+    document.getElementById("player2score").innerHTML = player2score
 }
 
 let searchList=[];

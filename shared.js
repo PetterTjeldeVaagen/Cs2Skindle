@@ -87,3 +87,11 @@ function clearSearchList(){
         searchListChildren[i].children.innerHTML = " ";
     }
 }
+
+function showElement(input) {
+    document.getElementById(input).style.display = "block";
+}
+
+function hideElement(input) {
+    document.getElementById(input).style.display = "none";
+}

@@ -19,7 +19,11 @@
         </ul>
     </div>
     <h1 id="title"></h1>
-    <p id="WinOrLossText"></p>
+    <div id="celebrationDiv">
+        <p id="WinOrLossText"></p>
+        <button id="restartButton" onclick="restart()">replay</button>
+     </div>
+    
     <div id="mainGrid">
         <div class="search-wrapper">
             <label>Search for a skin</label><br>
@@ -44,36 +48,49 @@
             </div>
         </div>
 
-        <div class="skinTacToeBoard">
-            <table>
-                <tr>
-                    <td>Skin-Tac-Toe</td>
-                    <td id="tileA"></td>
-                    <td id="tileB"></td>
-                    <td id="tileC"></td>
-                </tr>
-                <tr>
-                    <td id="tile1"></td>
-                    <td><button class="skinGridButtons" id="tile1A" style="display:none" onclick="choose(this)">+</button></td>
-                    <td><button class="skinGridButtons" id="tile1B" style="display:none" onclick="choose(this)">+</button></td>
-                    <td><button class="skinGridButtons" id="tile1C" style="display:none" onclick="choose(this)">+</button></td>
-                </tr>
-                <tr>
-                    <td id="tile2"></td>
-                    <td><button class="skinGridButtons" id="tile2A" style="display:none" onclick="choose(this)">+</button></td>
-                    <td><button class="skinGridButtons" id="tile2B" style="display:none" onclick="choose(this)">+</button></td>
-                    <td><button class="skinGridButtons" id="tile2C" style="display:none" onclick="choose(this)">+</button></td>
-                </tr>
-                <tr>
-                    <td id="tile3"></td>
-                    <td><button class="skinGridButtons" id="tile3A" style="display:none" onclick="choose(this)">+</button></td>
-                    <td><button class="skinGridButtons" id="tile3B" style="display:none" onclick="choose(this)">+</button></td>
-                    <td><button class="skinGridButtons" id="tile3C" style="display:none" onclick="choose(this)">+</button></td>
-                </tr>
-            </table>
+        <div id="scoreAndPlayingboard">
+            <div id="scoreboard">
+                <div>
+                    <p id="player1score"></p>
+                    <p>Player 1</p>
+                </div>
+
+                <div>
+                    <p id="player2score"></p>
+                    <p>Player 2</p>
+                </div>
+            </div>
+
+            <div class="skinTacToeBoard">
+                <table>
+                    <tr>
+                        <td>Skin-Tac-Toe</td>
+                        <td id="tileA"></td>
+                        <td id="tileB"></td>
+                        <td id="tileC"></td>
+                    </tr>
+                    <tr>
+                        <td id="tile1"></td>
+                        <td><button class="skinGridButtons" id="tile1A" style="display:none" onclick="choose(this)">+</button></td>
+                        <td><button class="skinGridButtons" id="tile1B" style="display:none" onclick="choose(this)">+</button></td>
+                        <td><button class="skinGridButtons" id="tile1C" style="display:none" onclick="choose(this)">+</button></td>
+                    </tr>
+                    <tr>
+                        <td id="tile2"></td>
+                        <td><button class="skinGridButtons" id="tile2A" style="display:none" onclick="choose(this)">+</button></td>
+                        <td><button class="skinGridButtons" id="tile2B" style="display:none" onclick="choose(this)">+</button></td>
+                        <td><button class="skinGridButtons" id="tile2C" style="display:none" onclick="choose(this)">+</button></td>
+                    </tr>
+                    <tr>
+                        <td id="tile3"></td>
+                        <td><button class="skinGridButtons" id="tile3A" style="display:none" onclick="choose(this)">+</button></td>
+                        <td><button class="skinGridButtons" id="tile3B" style="display:none" onclick="choose(this)">+</button></td>
+                        <td><button class="skinGridButtons" id="tile3C" style="display:none" onclick="choose(this)">+</button></td>
+                    </tr>
+                </table>
+            </div>
         </div>
     </div>
-<p id="victoryText"></p>
 </body>
 <script data-goatcounter="https://csskindle.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>

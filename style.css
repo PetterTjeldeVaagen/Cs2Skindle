@@ -415,40 +415,40 @@ th {
 }
 
 .menuBox {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 6rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 6rem;
 
-    justify-items: center;
-    padding: 0px;
+  justify-items: center;
+  padding: 0px;
 }
 
 
 .menuGameBox {
-    width: 22rem;
-    padding: 2rem;
+  width: 22rem;
+  padding: 2rem;
 }
 
 .menuGameBox a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
 
-    padding: 20px;
+  padding: 20px;
 
-    background: #f9f9f9;
-    border: 3px solid #000;
-    border-radius: 14px;
+  background: #f9f9f9;
+  border: 3px solid #000;
+  border-radius: 14px;
 
-    text-decoration: none;
-    color: #000;
+  text-decoration: none;
+  color: #000;
 
-    box-shadow: 6px 6px 0 #000;
-    transition: 
-        transform 0.15s ease,
-        box-shadow 0.15s ease,
-        background 0.15s ease;
+  box-shadow: 6px 6px 0 #000;
+  transition: 
+    transform 0.15s ease,
+    box-shadow 0.15s ease,
+    background 0.15s ease;
 }
 
 .menuGameBox a:active {
@@ -457,20 +457,35 @@ th {
 }
 
 .menuGameBox img {
-    width: 90px;
+  width: 90px;
 
-    background: #fff;
-    border: 3px solid #000;
-    border-radius: 12px;
+  background: #fff;
+  border: 3px solid #000;
+  border-radius: 12px;
 }
 
 
 
 .menuGameBox p {
-    margin: 0;
-    font-size: 1.2rem;
-    font-weight: 700;
-    text-align: center;
-    letter-spacing: 0.5px;
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-align: center;
+  letter-spacing: 0.5px;
 }
 
+#scoreboard{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
+  padding: 2rem;
+}
+
+#scoreboard > div{
+  width: 90px;
+
+  background: #fff;
+  border: 3px solid #000;
+  border-radius: 12px;
+}
