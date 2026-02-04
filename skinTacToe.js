@@ -81,10 +81,9 @@ class Condition {
             case "rarity":
                 return skinToCheck.rarity == this.skinAttribute;
             case "collection":
-                return skinToCheck.collection.toLowerCase().includes(this.skinAttribute.toLowerCase()); //TODO noe kødd her
+                return skinToCheck.collection.toLowerCase().includes(this.skinAttribute.toLowerCase());
             case "gun":
                 return skinToCheck.gun == this.skinAttribute;
-
             default:
                 return false;
         }
@@ -95,6 +94,7 @@ function pickCondition(array){
     const index = randomNumBetween(0, array.length);
     return array.splice(index, 1)[0];
 }
+
 let fails = 0;
 let boardConditions = [];
 function setConditions(){
@@ -153,18 +153,9 @@ function getRandomCondition(conditionSeed){
         skinAttribute = weapons[randomNumBetween(0, weapons.length)]
         conditionText = "Skin for " + skinAttribute;
     } else if(conditionSeed === 5){
-        let collections = ["Train", "Mirage", "Dust", "Inferno", "Nuke", "Vertigo"];
         skinAttributeName = "collection";
-        let num = randomNumBetween(0,3);
-        if(num < 2){
-            skinAttribute = collections[randomNumBetween(0, collections.length)]
-            conditionText = "Skin from any " + skinAttribute + " collection";
-        } else {
-            skinAttribute = "Operation";
-            conditionText = "Skin from any " + skinAttribute + " case";
-        }
-        
-        
+        skinAttribute = "Operation";
+        conditionText = "Skin from any " + skinAttribute + " case";
     }
     return new Condition(conditionText, skinAttribute, skinAttributeName);
 }
