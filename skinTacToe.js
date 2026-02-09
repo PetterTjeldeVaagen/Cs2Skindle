@@ -7,7 +7,9 @@ let activePlayer = 0;
 function start(){
     const raw = location.search.slice(1);
     const mode = raw === "2" ? 2 : 1;
-    loadBoard()
+    
+    createSkins();
+    loadBoard();
     const title = document.getElementById("title");
     if(mode == 1){
         //skin grid
@@ -27,27 +29,36 @@ function start(){
 function loadBoard(){
     hideElement("celebrationDiv");
     setColoredText(false);
-    createSkins();
-    sortList()
+    activeSkinList = [];
+    sortList();
     changePage(0);
     setConditions();
     for(let i = 0; i < boardConditions.length; i++){
         document.getElementById(conditionTiles[i]).innerHTML = boardConditions[i].conditionText;
     }
 }
+
 function restart(){
-    console.log("seier!");
-    //TODO add restart functionality
-    loadBoard()
-    for(let i = 0; i <multiplayerBoard.length; i++){
-        multiplayerBoard[i] = 0;
+    multiplayerBoard = [0,0,0,0,0,0,0,0,0];
+    activePlayer = 1;
+    const table = document.querySelector(".skinTacToeBoard table");
+    const letters = ["A","B","C"];
+
+    for (let r = 1; r <= 3; r++) {
+        for (let c = 1; c <= 3; c++) {
+            const td = table.rows[r].cells[c];
+            td.style.backgroundColor = "white";
+
+            const btnId = `tile${r}${letters[c-1]}`; 
+            td.innerHTML = `<button class="skinGridButtons" id="${btnId}" style="display:none" onclick="choose(this)">+</button>`;
+        }
     }
 
-    const elements = document.getElementsByClassName("skinGridButtons");
-    for (let i = 0; i < elements.length; i++) {
-        elements[i].closest("td").style.backgroundColor = "white";
-    }
+    hideElement("celebrationDiv");
+
+    loadBoard();
 }
+
 
 class Condition {
     constructor(conditionText,skinAttribute, skinAttributeName){
@@ -91,7 +102,7 @@ class Condition {
 }
 
 function pickCondition(array){
-    const index = randomNumBetween(0, array.length);
+    const index = randomNumBetween(0, array.length-1);
     return array.splice(index, 1)[0];
 }
 
@@ -105,7 +116,8 @@ function setConditions(){
         boardConditions.push(getRandomCondition(pickCondition(numbers)));
     }
 
-    if(!checkPossibilities()){
+    if(!checkPossibilities() && fails < 1000){
+        fails++;
         setConditions();
     }
 }
