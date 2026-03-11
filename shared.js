@@ -84,7 +84,7 @@ function clearSearchList(){
     const searchListElement = document.getElementById("SearchList");
     const searchListChildren =searchListElement.children;
     for (let i = 0; i < searchListChildren.length; i++) {
-        searchListChildren[i].children.innerHTML = " ";
+        searchListChildren[i].firstElementChild.innerHTML = " ";
     }
 }
 

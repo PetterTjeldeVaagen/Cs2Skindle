@@ -4,6 +4,7 @@ const conditionTiles = ["tileA", "tileB", "tileC","tile1","tile2", "tile3"];
 let gameType = 1;
 let multiplayerBoard = [0,0,0,0,0,0,0,0,0]
 let activePlayer = 0;
+let guessTime = 30;
 function start(){
     const raw = location.search.slice(1);
     const mode = raw === "2" ? 2 : 1;
@@ -19,10 +20,14 @@ function start(){
     } else if (mode == 2){
         //skin tac toe
         title.innerHTML ="Skin-Tac-Toe!";
+        showElement("skinTacToeTimer");
         gameType = 2;
         activePlayer = 1;
         updateScoreboard()
-        //legg in tids evt tidsbegrensning
+        activePlayer = 2;
+        startTimer();
+        //legg til forklaring i how to play
+        //opdatter top menyen med main menu og skin tac toe
     }
 }
 
@@ -59,6 +64,24 @@ function restart(){
     loadBoard();
 }
 
+let timerInterval = null;
+function startTimer(){
+    clearInterval(timerInterval);
+    activePlayer = activePlayer === 1 ? 2 : 1;
+    let timeRemaining = guessTime;
+    const timerText = document.getElementById("timerText");
+    timerText.innerHTML = "Time remaining: " + timeRemaining;
+    document.getElementById("playersTurnText").innerHTML = "Player " + activePlayer + "'s turn";
+
+    timerInterval = setInterval(() => {
+        timeRemaining--;
+        timerText.innerHTML = "Time remaining: " + timeRemaining;
+        if (timeRemaining <= 0) {
+            clearInterval(timerInterval);
+            startTimer();
+        }
+    }, 1000);
+}
 
 class Condition {
     constructor(conditionText,skinAttribute, skinAttributeName){
@@ -195,7 +218,7 @@ function checkPossibilities(){
         return true;
     } else {
         return false;
-    }  
+    } 
 }
 
 let skinGuess;
@@ -224,7 +247,22 @@ function guess(input){
     }
 
     if(validGuess == false){
-        clearBoard();
+        let elements = document.querySelectorAll(".searchListElement");
+        let element = elements[input];
+        element.style.backgroundColor = "red";
+        for(let i = 0; i < elements.length; i++){
+            elements[i].disabled = true;
+        }
+        setTimeout(() => {
+            element.style.backgroundColor = "white";
+            for(let i = 0; i < elements.length; i++){
+                elements[i].disabled = false;
+            }
+            removeFromActiveList(skinGuess);
+            clearBoard();
+            startTimer();
+        }, 1000);
+        
     }
 }
 
@@ -247,11 +285,7 @@ function choose(input){
         }
     }
     
-    for(let i = 0; i < activeSkinList.length; i++){
-        if(activeSkinList[i].gun == skinGuess.gun && activeSkinList[i].name == skinGuess.name){
-            activeSkinList.splice(i, 1);
-        }
-    }
+    removeFromActiveList(skinGuess);
 
     document.getElementById("searchBar").value = "";
     search()
@@ -259,6 +293,16 @@ function choose(input){
     
     clearBoard();
     checkBoard();
+    startTimer();
+}
+
+function removeFromActiveList(skin){
+    for(let i = 0; i < activeSkinList.length; i++){
+        if(activeSkinList[i].gun == skin.gun && activeSkinList[i].name == skin.name){
+            activeSkinList.splice(i, 1);
+        }
+    }
+    search();
 }
 
 function tileIdToIndex(input){
