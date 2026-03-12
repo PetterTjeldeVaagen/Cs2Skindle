@@ -17,17 +17,28 @@ function start(){
         title.innerHTML ="Skin grid!";
         gameType = 1
         hideElement("scoreboard");
-    } else if (mode == 2){
-        //skin tac toe
-        title.innerHTML ="Skin-Tac-Toe!";
+        hideElement("skinTacToeTimer");
+    } else if(mode == 2){
+        //skin tic tac toe
+        title.innerHTML = "Skin-Tac-Toe!";
+        updateScoreboard()
         showElement("skinTacToeTimer");
         gameType = 2;
-        activePlayer = 1;
-        updateScoreboard()
         activePlayer = 2;
-        startTimer();
-        //opdatter top menyen med main menu og skin tac toe
     }
+}
+
+function startMultiplayer(){
+    let timerOptions = document.getElementsByName("timer");
+    for(let i = 0; i < timerOptions.length; i++){
+        if(timerOptions[i].checked){
+            guessTime = timerOptions[i].value;
+        }
+    }
+    startTimer();
+    restart();
+    hideElement("timeSetterAndStartButton");
+    hideElement("startButton");
 }
 
 function loadBoard(){
@@ -292,6 +303,7 @@ function choose(input){
     
     clearBoard();
     checkBoard();
+    activePlayer = activePlayer === 1 ? 2 : 1;
     startTimer();
 }
 
@@ -373,6 +385,7 @@ function checkBoard(){
             if (player !== 0 && player === multiplayerBoard[b] && player === multiplayerBoard[c]) {
                 //TODO visually show which boxes won
                 showElement("celebrationDiv");
+                hideElement("restartButton");
                 if(player == 1){
                     document.getElementById("WinOrLossText").innerHTML = "Player 1 won!";
                     player1score++;
@@ -380,6 +393,8 @@ function checkBoard(){
                     document.getElementById("WinOrLossText").innerHTML = "Player 2 won!";
                     player2score++;
                 }
+                showElement("timeSetterAndStartButton");
+                showElement("startButton")
                 updateScoreboard();
             }
         }

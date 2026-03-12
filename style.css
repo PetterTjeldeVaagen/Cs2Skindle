@@ -478,14 +478,54 @@ th {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 5rem;
+  gap: 2rem;
   padding: 2rem;
 }
 
 #scoreboard > div{
-  width: 90px;
-
+  width: 25%;
   background: #fff;
   border: 3px solid #000;
   border-radius: 12px;
 }
+
+#startButton{
+  width: 25%;
+  background: #fff;
+  border: 3px solid #000;
+  border-radius: 12px;
+  font-size: 2rem;
+}
+
+#timerForm{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.radio-btn input{
+  display:none;
+}
+
+.radio-btn span{
+  padding:8px 18px;
+  border-radius:20px;
+  border:2px solid white;
+  color:white;
+  cursor:pointer;
+  transition:all 0.25s ease;
+  font-weight:500;
+}
+
+.radio-btn span:hover{
+  background:rgba(255,255,255,0.15);
+}
+
+.radio-btn input:checked + span{
+  background:white;
+  color:#1e5a8c;
+  border-color:white;
+}
+

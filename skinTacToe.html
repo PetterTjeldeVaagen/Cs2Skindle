@@ -13,9 +13,10 @@
     <div id="navBar">
         <ul class="navBar">
             <li ><a class="gameModeLink" href="skindle.html?1">Freeplay</a></li>
-            <li><a class="gameModeLink" href="skindle.html?2">Daily challenge</a></li>
-            <li><a class="gameModeLink" href="skinTacToe.html">Skin grid</a></li>
-            <li><a class="gameModeLink" href="how_to_play.html">How to play</a></li>
+        <li><a class="gameModeLink" href="skindle.html?2">Daily challenge</a></li>
+        <li><a class="gameModeLink" href="skinTacToe.html?1">Skin grid</a></li>
+        <li><a class="gameModeLink" href="skinTacToe.html?2">Skin-Tac-Toe</a></li>
+        <li><a class="gameModeLink" href="how_to_play.html">How to play</a></li>
         </ul>
     </div>
     <h1 id="title"></h1>
@@ -48,7 +49,36 @@
             </div>
         </div>
 
+
         <div id="scoreAndPlayingboard">
+            <div id="timeSetterAndStartButton">
+                <div id="timerForm">
+                    <label style="color: white; font-size: 1.5rem;">
+                        Time limit:
+                    </label>
+
+                    <label class="radio-btn">
+                        <input type="radio" name="timer" value="60">
+                        <span>60 sec</span>
+                    </label>
+
+                    <label class="radio-btn">
+                        <input type="radio" name="timer" value="30" checked>
+                        <span>30 sec</span>
+                    </label>
+
+                    <label class="radio-btn">
+                        <input type="radio" name="timer" value="20">
+                        <span>20 sec</span>
+                    </label>
+
+                    <label class="radio-btn">
+                        <input type="radio" name="timer" value="10">
+                        <span>10 sec</span>
+                    </label>
+                </div>
+            </div>
+
             <div id="scoreboard">
                 <div id="player1scoreDiv">
                     <p id="player1score"></p>
@@ -59,14 +89,14 @@
                     <p id="player2score"></p>
                     <p>Player 2</p>
                 </div>
-            </div>
 
-            
+                <div id="skinTacToeTimer">
+                    <p id="playersTurnText"></p>
+                    
+                    <p id="timerText">Time remaining: 0</p>
+                </div>
 
-            <div id="skinTacToeTimer">
-                <p id="playersTurnText"></p>
-                
-                <p id="timerText">Time remaining: 0</p>
+                <button id="startButton" onclick="startMultiplayer()">Start game</button>
             </div>
 
             <div class="skinTacToeBoard">
