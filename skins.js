@@ -186,6 +186,7 @@ class Skin {
         case "The Achroma Collection":
         case "The Harlequin Collection":
         case "Limited Edition Item 2026":
+        case "Sealed Dead Hand Terminal":
             this.year = 2026;
             break;
     }
@@ -1604,6 +1605,24 @@ function createSkins(input){
     skinList.push(new Skin("Mockingbird","Mid-Tier","XM1014","Mil-Spec","Fever Case"))
     skinList.push(new Skin("Resupply","Mid-Tier","MAG-7","Mil-Spec","Fever Case"))
     skinList.push(new Skin("Sure Grip","Pistol","P2000","Mil-Spec","Fever Case"))
+
+    skinList.push(new Skin("Fully Tuned", "Pistol", "Glock-18", "Covert", "Sealed Dead Hand Terminal"))
+    skinList.push(new Skin("Queen's Gambit", "Rifle", "AWP", "Covert", "Sealed Dead Hand Terminal"))
+    skinList.push(new Skin("Deathgaze", "Mid-Tier", "P90", "Classified", "Sealed Dead Hand Terminal"))
+    skinList.push(new Skin("Kintsugi", "Pistol", "P250", "Classified", "Sealed Dead Hand Terminal"))
+    skinList.push(new Skin("Crane Flight", "Rifle", "AK-47", "Classified", "Sealed Dead Hand Terminal"))
+    skinList.push(new Skin("Urban Sovereign", "Mid-Tier", "MP9", "Restricted", "Sealed Dead Hand Terminal"))
+    skinList.push(new Skin("Amberline", "Mid-Tier", "MP7", "Restricted", "Sealed Dead Hand Terminal"))
+    skinList.push(new Skin("Electrum", "Rifle", "M4A1-S", "Restricted", "Sealed Dead Hand Terminal"))
+    skinList.push(new Skin("Galigator", "Rifle", "Galil AR", "Restricted", "Sealed Dead Hand Terminal"))
+    skinList.push(new Skin("Firebreathing", "Pistol", "Desert Eagle", "Restricted", "Sealed Dead Hand Terminal"))
+    skinList.push(new Skin("Silent Shot", "Pistol", "USP-S", "Mil-Spec", "Sealed Dead Hand Terminal"))
+    skinList.push(new Skin("Fragment", "Mid-Tier", "UMP-45", "Mil-Spec", "Sealed Dead Hand Terminal"))
+    skinList.push(new Skin("Fusion", "Mid-Tier", "Sawed-Off", "Mil-Spec", "Sealed Dead Hand Terminal"))
+    skinList.push(new Skin("RMX", "Mid-Tier", "PP-Bizon", "Mil-Spec", "Sealed Dead Hand Terminal"))
+    skinList.push(new Skin("Zubastick", "Rifle", "M4A4", "Mil-Spec", "Sealed Dead Hand Terminal"))
+    skinList.push(new Skin("Bock Blocks", "Mid-Tier", "M249", "Mil-Spec", "Sealed Dead Hand Terminal"))
+    skinList.push(new Skin("Dark Plymer", "Pistol", "Five-SeveN", "Mil-Spec", "Sealed Dead Hand Terminal"))
 
     skinList.push(new Skin("Aphrodite","Rifle","AK-47","Covert","Limited Edition Item 2026"))
     skinList.push(new Skin("Solitude","Rifle","M4A1-S","Classified","Limited Edition Item 2025"))

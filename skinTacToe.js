@@ -26,7 +26,6 @@ function start(){
         updateScoreboard()
         activePlayer = 2;
         startTimer();
-        //legg til forklaring i how to play
         //opdatter top menyen med main menu og skin tac toe
     }
 }
