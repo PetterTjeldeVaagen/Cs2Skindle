@@ -1,5 +1,5 @@
 let guessCounter = 0;
-let gameActive = true;
+let gameActive = false;
 const conditionTiles = ["tileA", "tileB", "tileC","tile1","tile2", "tile3"];
 let gameType = 1;
 let multiplayerBoard = [0,0,0,0,0,0,0,0,0]
@@ -18,6 +18,8 @@ function start(){
         gameType = 1
         hideElement("scoreboard");
         hideElement("skinTacToeTimer");
+        hideElement("timeSetterAndStartButton");
+        gameActive = true;
     } else if(mode == 2){
         //skin tic tac toe
         title.innerHTML = "Skin-Tac-Toe!";
@@ -29,6 +31,7 @@ function start(){
 }
 
 function startMultiplayer(){
+    gameActive = true;
     let timerOptions = document.getElementsByName("timer");
     for(let i = 0; i < timerOptions.length; i++){
         if(timerOptions[i].checked){
@@ -233,63 +236,64 @@ function checkPossibilities(){
 
 let skinGuess;
 function guess(input){
-    skinGuess = searchList[input];
-    let validGuess = false;
-    for(let top = 0; top<3; top++){
-        for(let side = 3; side<6; side++){
-            let conditionTop = boardConditions[top];
-            let letter="";
-            let number=side-2;
-            if(top==0){
-                letter="A";
-            }else if(top == 1){
-                letter = "B";
-            } else {
-                letter = "C"
-            }
-            let conditionSide = boardConditions[side];
-            let squareID="tile"+number+letter;
-            if(conditionTop.checkSkin(skinGuess) && conditionSide.checkSkin(skinGuess) && document.getElementById(squareID)){
-                document.getElementById(squareID).style.display = "block";
-                validGuess = true;
+    if(gameActive == true){
+        skinGuess = searchList[input];
+        let validGuess = false;
+        for(let top = 0; top<3; top++){
+            for(let side = 3; side<6; side++){
+                let conditionTop = boardConditions[top];
+                let letter="";
+                let number=side-2;
+                if(top==0){
+                    letter="A";
+                }else if(top == 1){
+                    letter = "B";
+                } else {
+                    letter = "C"
+                }
+                let conditionSide = boardConditions[side];
+                let squareID="tile"+number+letter;
+                if(conditionTop.checkSkin(skinGuess) && conditionSide.checkSkin(skinGuess) && document.getElementById(squareID)){
+                    document.getElementById(squareID).style.display = "block";
+                    validGuess = true;
+                }
             }
         }
-    }
 
-    if(validGuess == false){
-        let elements = document.querySelectorAll(".searchListElement");
-        let element = elements[input];
-        element.style.backgroundColor = "red";
-        for(let i = 0; i < elements.length; i++){
-            elements[i].disabled = true;
-        }
-        setTimeout(() => {
-            element.style.backgroundColor = "white";
+        if(validGuess == false){
+            let elements = document.querySelectorAll(".searchListElement");
+            let element = elements[input];
+            element.style.backgroundColor = "red";
             for(let i = 0; i < elements.length; i++){
-                elements[i].disabled = false;
+                elements[i].disabled = true;
             }
-            removeFromActiveList(skinGuess);
-            clearBoard();
-            startTimer();
-        }, 1000);
-        
+            setTimeout(() => {
+                element.style.backgroundColor = "white";
+                for(let i = 0; i < elements.length; i++){
+                    elements[i].disabled = false;
+                }
+                removeFromActiveList(skinGuess);
+                clearBoard();
+                startTimer();
+            }, 1000);
+            
+    }
     }
 }
 
-const player1color = "red";
-const player2color = "blue";
+const player1color = " rgba(18, 125, 161, 1)";
+const player2color = "rgba(6, 214, 160, 1)";
 function choose(input){
     const td = input.closest("td")
     input.style.display = "none";
     input.parentElement.innerHTML = skinGuess.gun + " " + skinGuess.name;
-    if(gameType == 2){
-        //TODO finn bedre farger 
+    if(gameType == 2){ 
         if(activePlayer == 1){
-            td.style.backgroundColor = "red";
+            td.style.backgroundColor = player1color;
             multiplayerBoard[tileIdToIndex(input.id)] = 1;
             activePlayer = 2;
         } else if(activePlayer == 2){
-            td.style.backgroundColor = "blue";
+            td.style.backgroundColor = player2color;
             multiplayerBoard[tileIdToIndex(input.id)] = 2;
             activePlayer = 1;
         }
@@ -383,7 +387,6 @@ function checkBoard(){
         for (const [a, b, c] of waysToWin) {
             const player = multiplayerBoard[a];
             if (player !== 0 && player === multiplayerBoard[b] && player === multiplayerBoard[c]) {
-                //TODO visually show which boxes won
                 showElement("celebrationDiv");
                 hideElement("restartButton");
                 if(player == 1){

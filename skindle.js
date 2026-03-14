@@ -7,8 +7,8 @@ let dailyAlreadyPlayed = false;
 // Function for checking the player's guess
 function guess(input) {
     if (dailyChallengeActive && dailyAlreadyPlayed) return;
-    if (gameActive && searchList[input].innerHTML != " ") {
-        let skinGuess = searchList[input];
+    if (gameActive && searchList[input+10*page].innerHTML != " ") {
+        let skinGuess = searchList[input+10*page];
         guessCounter++;
         var guessRow = document.getElementById(guessCounter);
         guessRow.getElementsByClassName("Class")[0].innerHTML = skinGuess.class;
@@ -229,8 +229,6 @@ function dailyChallenge(){
         }
     }
     answerSkin = activeSkinList[daysDifference];
-    gameActive = true;
-
     changePage(0);
 }
 

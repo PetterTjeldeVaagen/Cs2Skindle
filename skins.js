@@ -196,8 +196,6 @@ class Skin {
     }  
 }
  
-//første versjon ca 1224
-//andre versjon ca 1331
 let skinList =[];
 function createSkins(input){
     skinList.push(new Skin("Oxide Blaze","Mid-Tier","XM1014","Mil-Spec","Clutch Case")) 
