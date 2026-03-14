@@ -7,7 +7,7 @@ let activePlayer = 0;
 let guessTime = 30;
 function start(){
     const raw = location.search.slice(1);
-    const mode = raw === "2" ? 2 : 1;
+    const mode = raw === "skinGrid" ? 1 : raw === "skinTacToe" ? 2 : 0;
     
     createSkins();
     loadBoard();

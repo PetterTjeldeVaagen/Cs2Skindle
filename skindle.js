@@ -60,7 +60,7 @@ function start(){
     setColoredText(true);
     createSkins();
     const raw = location.search.slice(1);
-    const mode = raw === "2" ? 2 : 1;
+    const mode = raw === "freeplay" ? 1 : raw === "daily" ? 2 : 0;
     document.getElementById("restartButton").style.display = "inline-block";
     document.getElementById("DifficultyPicker").style.display = "block";
     if(mode == 1){
