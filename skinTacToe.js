@@ -1,15 +1,99 @@
 let guessCounter = 0;
-let gameActive = true;
+let gameActive = false;
 const conditionTiles = ["tileA", "tileB", "tileC","tile1","tile2", "tile3"];
-function loadBoard(){
-    document.getElementById("WinOrLossText").innerHTML = "";
+let gameType = 1;
+let multiplayerBoard = [0,0,0,0,0,0,0,0,0]
+let activePlayer = 0;
+let guessTime = 30;
+function start(){
+    const raw = location.search.slice(1);
+    const mode = raw === "2" ? 2 : 1;
+    
     createSkins();
-    sortList()
+    loadBoard();
+    const title = document.getElementById("title");
+    if(mode == 1){
+        //skin grid
+        title.innerHTML ="Skin grid!";
+        gameType = 1
+        hideElement("scoreboard");
+        hideElement("skinTacToeTimer");
+        hideElement("timeSetterAndStartButton");
+        gameActive = true;
+    } else if(mode == 2){
+        //skin tic tac toe
+        title.innerHTML = "Skin-Tac-Toe!";
+        updateScoreboard()
+        showElement("skinTacToeTimer");
+        gameType = 2;
+        activePlayer = 2;
+    }
+}
+
+function startMultiplayer(){
+    gameActive = true;
+    let timerOptions = document.getElementsByName("timer");
+    for(let i = 0; i < timerOptions.length; i++){
+        if(timerOptions[i].checked){
+            guessTime = timerOptions[i].value;
+        }
+    }
+    startTimer();
+    restart();
+    hideElement("timeSetterAndStartButton");
+    hideElement("startButton");
+}
+
+function loadBoard(){
+    hideElement("celebrationDiv");
+    setColoredText(false);
+    activeSkinList = [];
+    sortList();
     changePage(0);
     setConditions();
     for(let i = 0; i < boardConditions.length; i++){
         document.getElementById(conditionTiles[i]).innerHTML = boardConditions[i].conditionText;
     }
+}
+
+function restart(){
+    multiplayerBoard = [0,0,0,0,0,0,0,0,0];
+    activePlayer = 1;
+    const table = document.querySelector(".skinTacToeBoard table");
+    const letters = ["A","B","C"];
+
+    for (let r = 1; r <= 3; r++) {
+        for (let c = 1; c <= 3; c++) {
+            const td = table.rows[r].cells[c];
+            td.style.backgroundColor = "white";
+
+            const btnId = `tile${r}${letters[c-1]}`; 
+            td.innerHTML = `<button class="skinGridButtons" id="${btnId}" style="display:none" onclick="choose(this)">+</button>`;
+        }
+    }
+
+    hideElement("celebrationDiv");
+
+    loadBoard();
+}
+
+let timerInterval = null;
+function startTimer(){
+    clearInterval(timerInterval);
+    activePlayer = activePlayer === 1 ? 2 : 1;
+    let timeRemaining = guessTime;
+    const timerText = document.getElementById("timerText");
+    timerText.innerHTML = "Time remaining: " + timeRemaining;
+    document.getElementById("playersTurnText").innerHTML = "Player " + activePlayer + "'s turn";
+
+    timerInterval = setInterval(() => {
+        timeRemaining--;
+        timerText.innerHTML = "Time remaining: " + timeRemaining;
+        if (timeRemaining <= 0) {
+            clearInterval(timerInterval);
+            startTimer();
+        }
+    }, 1000);
 }
 
 class Condition {
@@ -47,7 +131,6 @@ class Condition {
                 return skinToCheck.collection.toLowerCase().includes(this.skinAttribute.toLowerCase());
             case "gun":
                 return skinToCheck.gun == this.skinAttribute;
-
             default:
                 return false;
         }
@@ -55,9 +138,10 @@ class Condition {
 }
 
 function pickCondition(array){
-    const index = randomNumBetween(array.length);
+    const index = randomNumBetween(0, array.length-1);
     return array.splice(index, 1)[0];
 }
+
 let fails = 0;
 let boardConditions = [];
 function setConditions(){
@@ -68,7 +152,8 @@ function setConditions(){
         boardConditions.push(getRandomCondition(pickCondition(numbers)));
     }
 
-    if(!checkPossibilities()){
+    if(!checkPossibilities() && fails < 1000){
+        fails++;
         setConditions();
     }
 }
@@ -78,7 +163,7 @@ function getRandomCondition(conditionSeed){
     let skinAttributeName = "";
     let skinAttribute = "";
     if(conditionSeed === 0){
-        let number = randomNumBetween(3);
+        let number = randomNumBetween(0, 3);
         skinAttributeName = "year";
         if(number == 0){
             skinAttribute = 2017;
@@ -91,7 +176,7 @@ function getRandomCondition(conditionSeed){
             conditionText = "Skin was released between 2018 and 2021"
         }
     } else if(conditionSeed === 1) {
-        let number = randomNumBetween(2);
+        let number = randomNumBetween(0, 2);
         skinAttributeName = "collectionOrCase";
         if(number == 0){
             skinAttribute = "case";
@@ -103,31 +188,22 @@ function getRandomCondition(conditionSeed){
     } else if(conditionSeed === 2) {
         let classes = ["Sniper Rifle", "Pistol", "Assault Rifle", "Shotgun", "SMG"];
         skinAttributeName = "class";
-        skinAttribute = classes[randomNumBetween(classes.length)]
+        skinAttribute = classes[randomNumBetween(0, classes.length)]
         conditionText = "Needs to be a " + skinAttribute;
     } else if(conditionSeed === 3){
         let rarities = ["Covert", "Classified", "Restricted", "Mil-Spec"];
         skinAttributeName = "rarity";
-        skinAttribute = rarities[randomNumBetween(rarities.length)];
+        skinAttribute = rarities[randomNumBetween(0, rarities.length)];
         conditionText = "Skin with " + skinAttribute + " rarity";
     } else if(conditionSeed === 4){
         let weapons = ["AWP", "Desert Eagle", "AK-47", "M4A1-S", "M4A4"]
         skinAttributeName = "gun";
-        skinAttribute = weapons[randomNumBetween(weapons.length)]
+        skinAttribute = weapons[randomNumBetween(0, weapons.length)]
         conditionText = "Skin for " + skinAttribute;
     } else if(conditionSeed === 5){
-        let collections = ["Train", "Mirage", "Dust", "Inferno", "Nuke", "Vertigo"];
         skinAttributeName = "collection";
-        let num = randomNumBetween(3);
-        if(num < 2){
-            skinAttribute = collections[randomNumBetween(collections.length)]
-            conditionText = "Skin from any " + skinAttribute + " collection";
-        } else {
-            skinAttribute = "Operation";
-            conditionText = "Skin from any " + skinAttribute + " case";
-        }
-        
-        
+        skinAttribute = "Operation";
+        conditionText = "Skin from any " + skinAttribute + " case";
     }
     return new Condition(conditionText, skinAttribute, skinAttributeName);
 }
@@ -148,7 +224,6 @@ function checkPossibilities(){
                     }
                 }
             }
-
         }
     }
 
@@ -156,48 +231,75 @@ function checkPossibilities(){
         return true;
     } else {
         return false;
-    }  
+    } 
 }
 
 let skinGuess;
 function guess(input){
-    skinGuess = searchList[input];
-    let validGuess = false;
-    for(let top = 0; top<3; top++){
-        for(let side = 3; side<6; side++){
-            let conditionTop = boardConditions[top];
-            let letter="";
-            let number=side-2;
-            if(top==0){
-                letter="A";
-            }else if(top == 1){
-                letter = "B";
-            } else {
-                letter = "C"
-            }
-            let conditionSide = boardConditions[side];
-            let squareID="tile"+number+letter;
-            if(conditionTop.checkSkin(skinGuess) && conditionSide.checkSkin(skinGuess) && document.getElementById(squareID)){
-                document.getElementById(squareID).style.display = "block";
-                validGuess = true;
+    if(gameActive == true){
+        skinGuess = searchList[input];
+        let validGuess = false;
+        for(let top = 0; top<3; top++){
+            for(let side = 3; side<6; side++){
+                let conditionTop = boardConditions[top];
+                let letter="";
+                let number=side-2;
+                if(top==0){
+                    letter="A";
+                }else if(top == 1){
+                    letter = "B";
+                } else {
+                    letter = "C"
+                }
+                let conditionSide = boardConditions[side];
+                let squareID="tile"+number+letter;
+                if(conditionTop.checkSkin(skinGuess) && conditionSide.checkSkin(skinGuess) && document.getElementById(squareID)){
+                    document.getElementById(squareID).style.display = "block";
+                    validGuess = true;
+                }
             }
         }
-    }
 
-    if(validGuess == false){
-        clearBoard();
+        if(validGuess == false){
+            let elements = document.querySelectorAll(".searchListElement");
+            let element = elements[input];
+            element.style.backgroundColor = "red";
+            for(let i = 0; i < elements.length; i++){
+                elements[i].disabled = true;
+            }
+            setTimeout(() => {
+                element.style.backgroundColor = "white";
+                for(let i = 0; i < elements.length; i++){
+                    elements[i].disabled = false;
+                }
+                removeFromActiveList(skinGuess);
+                clearBoard();
+                startTimer();
+            }, 1000);
+            
+    }
     }
 }
 
+const player1color = " rgba(18, 125, 161, 1)";
+const player2color = "rgba(6, 214, 160, 1)";
 function choose(input){
+    const td = input.closest("td")
     input.style.display = "none";
     input.parentElement.innerHTML = skinGuess.gun + " " + skinGuess.name;
-
-    for(let i = 0; i < activeSkinList.length; i++){
-        if(activeSkinList[i].gun == skinGuess.gun && activeSkinList[i].name == skinGuess.name){
-            activeSkinList.splice(i, 1);
+    if(gameType == 2){ 
+        if(activePlayer == 1){
+            td.style.backgroundColor = player1color;
+            multiplayerBoard[tileIdToIndex(input.id)] = 1;
+            activePlayer = 2;
+        } else if(activePlayer == 2){
+            td.style.backgroundColor = player2color;
+            multiplayerBoard[tileIdToIndex(input.id)] = 2;
+            activePlayer = 1;
         }
     }
+    
+    removeFromActiveList(skinGuess);
 
     document.getElementById("searchBar").value = "";
     search()
@@ -205,6 +307,30 @@ function choose(input){
     
     clearBoard();
     checkBoard();
+    activePlayer = activePlayer === 1 ? 2 : 1;
+    startTimer();
+}
+
+function removeFromActiveList(skin){
+    for(let i = 0; i < activeSkinList.length; i++){
+        if(activeSkinList[i].gun == skin.gun && activeSkinList[i].name == skin.name){
+            activeSkinList.splice(i, 1);
+        }
+    }
+    search();
+}
+
+function tileIdToIndex(input){
+    let index = 0;
+    let letter = input[input.length - 1];
+    let number = input[input.length - 2]-1;
+    index+=number;
+    if(letter === 'B'){
+        index+=3
+    }else if(letter === 'C'){
+        index+=6
+    }
+    return index;
 }
 
 function clearBoard(){
@@ -227,10 +353,9 @@ function clearBoard(){
     }
 }
 
-let gameType = 0;
 function checkBoard(){
     let filledTiles = 0;
-    if(gameType === 0){
+    if(gameType === 1){
         for(let top = 0; top<3; top++){
             for(let side = 3; side<6; side++){
                 let letter="";
@@ -252,49 +377,44 @@ function checkBoard(){
         if(filledTiles === 9){
             document.getElementById("WinOrLossText").innerHTML = "Congratulations you managed to fill the grid🎉"
         }
-    }
+    } else {
+        const waysToWin = [
+            [0,1,2], [3,4,5], [6,7,8],
+            [0,3,6], [1,4,7], [2,5,8],
+            [0,4,8], [2,4,6]       
+        ];
 
+        for (const [a, b, c] of waysToWin) {
+            const player = multiplayerBoard[a];
+            if (player !== 0 && player === multiplayerBoard[b] && player === multiplayerBoard[c]) {
+                showElement("celebrationDiv");
+                hideElement("restartButton");
+                if(player == 1){
+                    document.getElementById("WinOrLossText").innerHTML = "Player 1 won!";
+                    player1score++;
+                } else if(player == 2) {
+                    document.getElementById("WinOrLossText").innerHTML = "Player 2 won!";
+                    player2score++;
+                }
+                showElement("timeSetterAndStartButton");
+                showElement("startButton")
+                updateScoreboard();
+            }
+        }
+    }
 }
 
-    
+let player1score = 0;
+let player2score = 0;
+function updateScoreboard(){
+    document.getElementById("player1score").parentElement.style.backgroundColor = player1color;
+    document.getElementById("player1score").innerHTML = player1score
+    document.getElementById("player2score").parentElement.style.backgroundColor = player2color;
+    document.getElementById("player2score").innerHTML = player2score
+}
 
-let input = document.getElementById("searchBar");
-input.addEventListener('input', search);
 let searchList=[];
 let page = 0;
-function search() {
-    searchList = [];
-    let searchWords = input.value.toLowerCase().split(/-|\s/g);
-    let results = 0;
-    if (gameActive == true) {
-        for (let i = 0; i < activeSkinList.length; i++) {
-            let skinName = activeSkinList[i].name.toLowerCase().replace(/-|\s/g, "");
-            let gunName = activeSkinList[i].gun.toLowerCase().replace(/-|\s/g, "");
-            let combinedName = skinName + gunName;
-            let combinedNameReversed = gunName + skinName;
-
-            let match = searchWords.every(word => combinedName.includes(word) || combinedNameReversed.includes(word));
-
-            if (match) {
-                searchList.push(activeSkinList[i]);
-                results++;
-            }
-        }
-        for (let b = 15; b < 25; b++) {
-            document.getElementById(b).innerHTML = " ";
-        }
-        for (let k = 15; k < 25; k++) {
-            let element = document.getElementById(k);
-            element.innerHTML = " ";
-            let index = (k+10*page) - 15;
-            if (searchList[index]) {
-                element.innerHTML = searchList[index].gun + " " + searchList[index].name;
-            }
-        }
-        changePage(-2);
-    }
-}
-
 let activeSkinList=[];
 function sortList(){
     activeSkinList=[];
@@ -302,24 +422,4 @@ function sortList(){
         activeSkinList.push(skinList[i]);
     }
     changePage(0);
-}
-
-function changePage(input){
-    let maxPage = 0;
-    if(searchList.length > 1){
-        maxPage = Math.ceil(searchList.length/10);
-    } else {
-        maxPage = Math.ceil(activeSkinList.length/10);
-    }
-    
-    if(page+input > -1 && page+input <= maxPage && input>-2) {
-        page += input;
-        search();
-    }
-
-    document.getElementById("pageNumber").innerHTML = page+1 + "/" + maxPage;
-}
-
-function randomNumBetween(input){
-    return Math.floor(Math.random() * input);
 }
